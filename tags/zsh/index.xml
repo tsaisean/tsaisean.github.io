@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zsh on Sean&#39;s Blog</title>
+    <link>https://tsaisean.github.io/tags/zsh/</link>
+    <description>Recent content in Zsh on Sean&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Nov 2021 12:00:00 +0000</lastBuildDate><atom:link href="https://tsaisean.github.io/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Useful commands for zsh</title>
+      <link>https://tsaisean.github.io/tech/2021-11-20-useful-commands-for-zsh/</link>
+      <pubDate>Tue, 30 Nov 2021 12:00:00 +0000</pubDate>
+      
+      <guid>https://tsaisean.github.io/tech/2021-11-20-useful-commands-for-zsh/</guid>
+      <description>Moving the cursor Ctrl+A: To move to the beginning of the current line. Ctrl+E: To move to the end of the current line. Manipulating your typing Ctrl+W: To delete the word in front of the cursor. Ctrl+U: To clear the entire line. Ctrl+K: To clear the characters on the line after the current cursor position. </description>
+    </item>
+    
+  </channel>
+</rss>

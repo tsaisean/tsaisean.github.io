@@ -2,16 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tsaisean.github.io/post/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max/</loc>
+    <loc>https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max-copy/</loc>
     <lastmod>2022-05-27T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tsaisean.github.io/categories/</loc>
     <lastmod>2022-05-27T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tsaisean.github.io/tags/elasticsearch/</loc>
-    <lastmod>2022-05-27T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://tsaisean.github.io/post/</loc>
     <lastmod>2022-05-27T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tsaisean.github.io/</loc>
@@ -23,8 +20,41 @@
     <loc>https://tsaisean.github.io/categories/tech/</loc>
     <lastmod>2022-05-27T12:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://tsaisean.github.io/post/2022-05-26-elasticsearch-how-to-use-minimum_should_match-and-operator-with-match-query/</loc>
+    <loc>https://tsaisean.github.io/tech/</loc>
+    <lastmod>2022-05-27T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tech/2022-05-26-elasticsearch-how-to-use-minimum_should_match-and-operator-with-match-query/</loc>
     <lastmod>2022-05-26T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tags/app-script/</loc>
+    <lastmod>2022-01-28T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tags/google-sheets/</loc>
+    <lastmod>2022-01-28T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tech/2022-01-28-how-to-get-a-list-of-sheet-names-in-google-sheets-with-script/</loc>
+    <lastmod>2022-01-28T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tech/2022-01-07-elasticsearch-function-score-query/</loc>
+    <lastmod>2022-01-07T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tech/2021-12-21-prometheus-what-is-the-difference-between-rate-and-irate/</loc>
+    <lastmod>2021-12-21T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tags/prometheus/</loc>
+    <lastmod>2021-12-21T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tech/2021-11-20-useful-commands-for-zsh/</loc>
+    <lastmod>2021-11-30T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tags/zsh/</loc>
+    <lastmod>2021-11-30T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tags/git/</loc>
+    <lastmod>2021-09-02T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tech/2021-09-02-how-to-cherry-pick-a-commit-from-another-git-repository/</loc>
+    <lastmod>2021-09-02T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tsaisean.github.io/about/</loc>
   </url><url>

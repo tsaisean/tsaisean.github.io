@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Sean&#39;s Blog</title>
-    <link>https://tsaisean.github.io/</link>
-    <description>Recent content on Sean&#39;s Blog</description>
+    <title>Teches on Sean&#39;s Blog</title>
+    <link>https://tsaisean.github.io/tech/</link>
+    <description>Recent content in Teches on Sean&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 May 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://tsaisean.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 27 May 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://tsaisean.github.io/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Elasticsearch] Working with disjunction max query - dis_max</title>
       <link>https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max-copy/</link>
@@ -103,33 +103,6 @@ prometheus_http_requests_total{handler=”/metrics”}[1m] Output from the Prome
       
       <guid>https://tsaisean.github.io/tech/2021-09-02-how-to-cherry-pick-a-commit-from-another-git-repository/</guid>
       <description># Adding (as &amp;#34;other&amp;#34;) the repo from we want to cherry-pick $ git remote add other git://github.com/username/repo.git # Fetch the &amp;#34;other&amp;#34; branch $ git fetch other # Cherry-pick the commit we need $ git cherry-pick 0549522 </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://tsaisean.github.io/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tsaisean.github.io/about/</guid>
-      <description>About Me </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://tsaisean.github.io/search/placeholder/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tsaisean.github.io/search/placeholder/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Posts Archive</title>
-      <link>https://tsaisean.github.io/archive/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://tsaisean.github.io/archive/</guid>
-      <description></description>
     </item>
     
   </channel>

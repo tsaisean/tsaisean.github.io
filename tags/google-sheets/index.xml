@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Google Sheets on Sean&#39;s Blog</title>
+    <link>https://tsaisean.github.io/tags/google-sheets/</link>
+    <description>Recent content in Google Sheets on Sean&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 28 Jan 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://tsaisean.github.io/tags/google-sheets/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How To Get A List Of Sheet Names In Google Sheets With Script?</title>
+      <link>https://tsaisean.github.io/tech/2022-01-28-how-to-get-a-list-of-sheet-names-in-google-sheets-with-script/</link>
+      <pubDate>Fri, 28 Jan 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://tsaisean.github.io/tech/2022-01-28-how-to-get-a-list-of-sheet-names-in-google-sheets-with-script/</guid>
+      <description>There&amp;rsquo;s no built-in formula to do this, and we have to write our own script with Google&amp;rsquo;s Apps Script to achieve the function.
+First, go to the Extensions → Apps Script. Second, write our own method getSheetsName in the Apps Script console, and save.
+Code snippets:
+function getSheetsName() { var sheetNames = new Array() var sheets = SpreadsheetApp.getActiveSpreadsheet().getSheets(); for (var i=0 ; i&amp;lt;sheets.length ; i++) { sheetNames.push( [ sheets[i].getName() ] ) } return sheetNames } Then go back to your sheet, and type the formula with the function name we just created in the Apps Script.</description>
+    </item>
+    
+  </channel>
+</rss>

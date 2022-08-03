@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="How to cherry-pick a commit from another git repository?" />
+    <meta property="og:title" content="How to cherry-pick a commit from another git repository?" />
+    <meta property="twitter:title" content="How to cherry-pick a commit from another git repository?" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>404 Page not found |  | Sean&#39;s Blog</title>
+    <title>How to cherry-pick a commit from another git repository? |  | Sean&#39;s Blog</title>
 
-    <link rel="canonical" href="/404.html">
+    <link rel="canonical" href="/tech/2021-09-02-how-to-cherry-pick-a-commit-from-another-git-repository/">
 
     
     
@@ -147,14 +147,41 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/Landscape-backgrounds-Free.jpeg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Sean&#39;s Blog </h1>
-                    
-		    <span class="subheading">心之所向，身之所往。</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/git" title="Git">
+                            Git 
+                        </a>
+                        
+                    </div>
+                    <h1>How to cherry-pick a commit from another git repository?</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Sean&#39;s Blog
+                             
+                            on 
+                            Thursday, September 2, 2021
+                            
+                            
+                            
+                            
+                    </span>
                 </div>
             </div>
         </div>
@@ -164,22 +191,151 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/404-bg.jpg')">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-				<div class="site-heading" id="tag-heading">
-					<h1>404</h1>
-					<span class="subheading">我是誰？我在哪裡？</span>
-				</div>
-			</div>
-		</div>
-	</div>
-</header>
+<article>
+    <div class="container">
+        <div class="row">
 
-<script>
-	document.body.classList.add('page-fullscreen');
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+
+                
+                
+                
+                <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6272a4"># Adding (as &#34;other&#34;) the repo from we want to cherry-pick</span>
+</span></span><span style="display:flex;"><span>$ git remote add other git://github.com/username/repo.git
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Fetch the &#34;other&#34; branch</span>
+</span></span><span style="display:flex;"><span>$ git fetch other
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Cherry-pick the commit we need</span>
+</span></span><span style="display:flex;"><span>$ git cherry-pick <span style="color:#bd93f9">0549522</span>
+</span></span></code></pre></div>
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/tech/2021-11-20-useful-commands-for-zsh/" data-toggle="tooltip" data-placement="top" title="Useful commands for zsh">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+<div id="disqus-comment"></div>
+<div id="disqus_thread"></div>
+<script type="application/javascript">
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "Sean" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
 </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/app-script" title="app-script">
+                            App Script 
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/elasticsearch" title="elasticsearch">
+                            Elasticsearch 
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/git" title="git">
+                            Git 
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/google-sheets" title="google-sheets">
+                            Google Sheets 
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/prometheus" title="prometheus">
+                            Prometheus 
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/zsh" title="zsh">
+                            Zsh 
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
 
 
 

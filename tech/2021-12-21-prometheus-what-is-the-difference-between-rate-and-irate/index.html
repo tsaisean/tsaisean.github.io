@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="[Prometheus] What is the difference between rate and irate" />
+    <meta property="og:title" content="[Prometheus] What is the difference between rate and irate" />
+    <meta property="twitter:title" content="[Prometheus] What is the difference between rate and irate" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Categories |  | Sean&#39;s Blog</title>
+    <title>[Prometheus] What is the difference between rate and irate |  | Sean&#39;s Blog</title>
 
-    <link rel="canonical" href="/categories/">
+    <link rel="canonical" href="/tech/2021-12-21-prometheus-what-is-the-difference-between-rate-and-irate/">
 
     
     
@@ -147,14 +147,41 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/Landscape-backgrounds-Free.jpeg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Sean&#39;s Blog </h1>
-                    
-		    <span class="subheading">心之所向，身之所往。</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/prometheus" title="Prometheus">
+                            Prometheus 
+                        </a>
+                        
+                    </div>
+                    <h1>[Prometheus] What is the difference between rate and irate</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Sean&#39;s Blog
+                             
+                            on 
+                            Tuesday, December 21, 2021
+                            
+                            
+                            
+                            
+                    </span>
                 </div>
             </div>
         </div>
@@ -167,13 +194,85 @@
 <article>
     <div class="container">
         <div class="row">
+
             
             <div class="
                 col-lg-8 col-lg-offset-2
                 col-md-10 col-md-offset-1
                 post-container">
 
-         	
+                
+
+                
+                
+                
+                <p>Here are the definitions from the official document for <a href="https://prometheus.io/docs/prometheus/latest/querying/functions/#rate">rate()</a> and <a href="https://prometheus.io/docs/prometheus/latest/querying/functions/#irate" target="_blank">irate()</a>. But if you still don’t quite understand, check the examples below.</p>
+<p>In this example, I select all the values I have recorded within the last 1 minute for all time series that have the metric name prometheus_http_requests_total and a handler label set to /metrics:</p>
+<pre tabindex="0"><code>prometheus_http_requests_total{handler=”/metrics”}[1m]
+</code></pre><p>Output from the Prometheus UI:</p>
+<pre tabindex="0"><code># Element
+prometheus_http_requests_total{code=&#34;200&#34;,handler=&#34;/metrics&#34;,instance=&#34;localhost:9090&#34;,job=&#34;prometheus&#34;}
+# ValueHere are the definitions from the official document for rate() and irate(). But if you still don’t quite understand, check the examples below.
+</code></pre><p>In this example, I select all the values I have recorded within the last 1 minute for all time series that have the metric name prometheus_http_requests_total and a handler label set to /metrics:</p>
+<pre tabindex="0"><code>prometheus_http_requests_total{handler=”/metrics”}[1m]
+</code></pre><p>Output from the Prometheus UI:</p>
+<pre tabindex="0"><code># Element
+prometheus_http_requests_total{code=&#34;200&#34;,handler=&#34;/metrics&#34;,instance=&#34;localhost:9090&#34;,job=&#34;prometheus&#34;}
+# Value
+878 @1640020217.631
+879 @1640020232.605
+880 @1640020247.606
+881 @1640020262.605
+</code></pre><h2 id="rate">rate()</h2>
+<p>Now let’s check what will we get when we apply the rate function.</p>
+<p>rate(prometheus_http_requests_total{handler=”/metrics”}[1m])
+Output from the Prometheus UI:</p>
+<pre tabindex="0"><code># Element
+{code=”200&#34;,handler=”/metrics”,instance=”localhost:9090&#34;,job=”prometheus”}
+# Value
+0.06670520745319518
+and here’s the equation taking the first and the last metric point:
+</code></pre><p>
+  <img src="/img/tech/2021-12-21/1.png" alt="">
+
+</p>
+<h2 id="irate">irate()</h2>
+<p>irate(prometheus_http_requests_total{handler=&quot;/metrics&quot;}[1m])
+Output from the Prometheus UI:</p>
+<pre tabindex="0"><code># Element
+{code=”200&#34;,handler=”/metrics”,instance=”localhost:9090&#34;,job=”prometheus”}
+# Value
+0.06667111140742715
+and here’s the equation and here’s the equation taking the last two metric points:
+</code></pre><p>
+  <img src="/img/tech/2021-12-21/2.png" alt="">
+
+</p>
+<h1 id="summary">Summary</h1>
+<p>That why the document points out:</p>
+<blockquote>
+<p><code>irate</code> should only be used when graphing volatile, fast-moving counters. Use <code>rate</code> for alerts and slow-moving counters, as brief changes in the rate can reset the <code>FOR</code> clause and graphs consisting entirely of rare spikes are hard to read.</p>
+</blockquote>
+
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/tech/2021-11-20-useful-commands-for-zsh/" data-toggle="tooltip" data-placement="top" title="Useful commands for zsh">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/tech/2022-01-07-elasticsearch-function-score-query/" data-toggle="tooltip" data-placement="top" title="[Elasticsearch] Function score query">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
                 
 
 
@@ -201,8 +300,25 @@
 
 
 
-
             </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
             
             <div class="
                 col-lg-8 col-lg-offset-2
@@ -219,37 +335,37 @@
                         
                         
                         <a href="/tags/app-script" title="app-script">
-                        App Script
+                            App Script 
                         </a>
                         
                         
                         
                         <a href="/tags/elasticsearch" title="elasticsearch">
-                        Elasticsearch
+                            Elasticsearch 
                         </a>
                         
                         
                         
                         <a href="/tags/git" title="git">
-                        Git
+                            Git 
                         </a>
                         
                         
                         
                         <a href="/tags/google-sheets" title="google-sheets">
-                        Google Sheets
+                            Google Sheets 
                         </a>
                         
                         
                         
                         <a href="/tags/prometheus" title="prometheus">
-                        Prometheus
+                            Prometheus 
                         </a>
                         
                         
                         
                         <a href="/tags/zsh" title="zsh">
-                        Zsh
+                            Zsh 
                         </a>
                         
                         
@@ -258,14 +374,6 @@
                 
 
                 
-                
-                <section>
-                    <hr>
-                    <h5>FRIENDS</h5>
-                    <ul class="list-inline">
-                        
-                    </ul>
-                </section>
                 
             </div>
         </div>
@@ -321,7 +429,7 @@
             
            
                    <li>
-                       <a href='/categories/index.xml' rel="alternate" type="application/rss+xml" title="Sean&#39;s Blog" >
+                       <a href='' rel="alternate" type="application/rss+xml" title="Sean&#39;s Blog" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

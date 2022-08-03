@@ -9,10 +9,10 @@
     <lastBuildDate>Fri, 27 May 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://tsaisean.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Elasticsearch] Working with disjunction max query - dis_max</title>
-      <link>https://tsaisean.github.io/post/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max/</link>
+      <link>https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max-copy/</link>
       <pubDate>Fri, 27 May 2022 12:00:00 +0000</pubDate>
       
-      <guid>https://tsaisean.github.io/post/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max/</guid>
+      <guid>https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max-copy/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;GET /_search
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;query&amp;#34;&lt;/span&gt;: {
@@ -34,10 +34,10 @@
     
     <item>
       <title>[Elasticsearch] How to use minimum_should_match and operator with match query?</title>
-      <link>https://tsaisean.github.io/post/2022-05-26-elasticsearch-how-to-use-minimum_should_match-and-operator-with-match-query/</link>
+      <link>https://tsaisean.github.io/tech/2022-05-26-elasticsearch-how-to-use-minimum_should_match-and-operator-with-match-query/</link>
       <pubDate>Thu, 26 May 2022 12:00:00 +0000</pubDate>
       
-      <guid>https://tsaisean.github.io/post/2022-05-26-elasticsearch-how-to-use-minimum_should_match-and-operator-with-match-query/</guid>
+      <guid>https://tsaisean.github.io/tech/2022-05-26-elasticsearch-how-to-use-minimum_should_match-and-operator-with-match-query/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;GET /_search
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;query&amp;#34;&lt;/span&gt;: {
@@ -50,6 +50,59 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is the Match query we see quite often when using ES. However, if you did specify an analyzer during mapping, the query “this is a test yo&amp;quot; will likely be tokenized into five terms ”&lt;strong&gt;this&lt;/strong&gt;”, “&lt;strong&gt;is&lt;/strong&gt;”, “&lt;strong&gt;a&lt;/strong&gt;”, “&lt;strong&gt;test&lt;/strong&gt;”, and “&lt;strong&gt;yo&lt;/strong&gt;” in the search phases. And there is an implicit parameter &lt;strong&gt;operator&lt;/strong&gt;, and its default value is “&lt;strong&gt;or&lt;/strong&gt;”. This means, this query will look up the documents in the index, and whenever there is any term match in the message of a doc, then that it’s a match!&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>How To Get A List Of Sheet Names In Google Sheets With Script?</title>
+      <link>https://tsaisean.github.io/tech/2022-01-28-how-to-get-a-list-of-sheet-names-in-google-sheets-with-script/</link>
+      <pubDate>Fri, 28 Jan 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://tsaisean.github.io/tech/2022-01-28-how-to-get-a-list-of-sheet-names-in-google-sheets-with-script/</guid>
+      <description>There&amp;rsquo;s no built-in formula to do this, and we have to write our own script with Google&amp;rsquo;s Apps Script to achieve the function.
+First, go to the Extensions → Apps Script. Second, write our own method getSheetsName in the Apps Script console, and save.
+Code snippets:
+function getSheetsName() { var sheetNames = new Array() var sheets = SpreadsheetApp.getActiveSpreadsheet().getSheets(); for (var i=0 ; i&amp;lt;sheets.length ; i++) { sheetNames.push( [ sheets[i].getName() ] ) } return sheetNames } Then go back to your sheet, and type the formula with the function name we just created in the Apps Script.</description>
+    </item>
+    
+    <item>
+      <title>[Elasticsearch] Function score query</title>
+      <link>https://tsaisean.github.io/tech/2022-01-07-elasticsearch-function-score-query/</link>
+      <pubDate>Fri, 07 Jan 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://tsaisean.github.io/tech/2022-01-07-elasticsearch-function-score-query/</guid>
+      <description>By reading the official document of the Function score query, I still couldn&amp;rsquo;t get a sense of how to use it correctly. After reading through more articles written by others, here&amp;rsquo;s how I interpret it with the formula of the newly computed score:
+function_score = min(score_mode(f1_score, f2_score, ...), max_boost) _score = boost_mode(boost*query_score, function_score) Example 1:
+{ &amp;#34;query&amp;#34;: { &amp;#34;function_score&amp;#34;: { &amp;#34;query&amp;#34;: { &amp;#34;match_all&amp;#34;: {} }, &amp;#34;boost&amp;#34;: &amp;#34;5&amp;#34;, &amp;#34;random_score&amp;#34;: {}, &amp;#34;boost_mode&amp;#34;: &amp;#34;multiply&amp;#34; } } } Score:</description>
+    </item>
+    
+    <item>
+      <title>[Prometheus] What is the difference between rate and irate</title>
+      <link>https://tsaisean.github.io/tech/2021-12-21-prometheus-what-is-the-difference-between-rate-and-irate/</link>
+      <pubDate>Tue, 21 Dec 2021 12:00:00 +0000</pubDate>
+      
+      <guid>https://tsaisean.github.io/tech/2021-12-21-prometheus-what-is-the-difference-between-rate-and-irate/</guid>
+      <description>Here are the definitions from the official document for rate() and irate(). But if you still don’t quite understand, check the examples below.
+In this example, I select all the values I have recorded within the last 1 minute for all time series that have the metric name prometheus_http_requests_total and a handler label set to /metrics:
+prometheus_http_requests_total{handler=”/metrics”}[1m] Output from the Prometheus UI:
+# Element prometheus_http_requests_total{code=&amp;#34;200&amp;#34;,handler=&amp;#34;/metrics&amp;#34;,instance=&amp;#34;localhost:9090&amp;#34;,job=&amp;#34;prometheus&amp;#34;} # ValueHere are the definitions from the official document for rate() and irate().</description>
+    </item>
+    
+    <item>
+      <title>Useful commands for zsh</title>
+      <link>https://tsaisean.github.io/tech/2021-11-20-useful-commands-for-zsh/</link>
+      <pubDate>Tue, 30 Nov 2021 12:00:00 +0000</pubDate>
+      
+      <guid>https://tsaisean.github.io/tech/2021-11-20-useful-commands-for-zsh/</guid>
+      <description>Moving the cursor Ctrl+A: To move to the beginning of the current line. Ctrl+E: To move to the end of the current line. Manipulating your typing Ctrl+W: To delete the word in front of the cursor. Ctrl+U: To clear the entire line. Ctrl+K: To clear the characters on the line after the current cursor position. </description>
+    </item>
+    
+    <item>
+      <title>How to cherry-pick a commit from another git repository?</title>
+      <link>https://tsaisean.github.io/tech/2021-09-02-how-to-cherry-pick-a-commit-from-another-git-repository/</link>
+      <pubDate>Thu, 02 Sep 2021 12:00:00 +0000</pubDate>
+      
+      <guid>https://tsaisean.github.io/tech/2021-09-02-how-to-cherry-pick-a-commit-from-another-git-repository/</guid>
+      <description># Adding (as &amp;#34;other&amp;#34;) the repo from we want to cherry-pick $ git remote add other git://github.com/username/repo.git # Fetch the &amp;#34;other&amp;#34; branch $ git fetch other # Cherry-pick the commit we need $ git cherry-pick 0549522 </description>
     </item>
     
   </channel>

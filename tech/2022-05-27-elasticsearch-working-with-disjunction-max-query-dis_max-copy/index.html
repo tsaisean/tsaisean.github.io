@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="[Elasticsearch] Working with disjunction max query - dis_max" />
+    <meta property="og:title" content="[Elasticsearch] Working with disjunction max query - dis_max" />
+    <meta property="twitter:title" content="[Elasticsearch] Working with disjunction max query - dis_max" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title> | Sean&#39;s Blog</title>
+    <title>[Elasticsearch] Working with disjunction max query - dis_max |  | Sean&#39;s Blog</title>
 
-    <link rel="canonical" href="/search/placeholder/">
+    <link rel="canonical" href="/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max-copy/">
 
     
     
@@ -150,7 +150,7 @@
 
 <style type="text/css">
     header.intro-header {
-        background-image: url('/img/Landscape-backgrounds-Free.jpeg')
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
     }
 </style>
 
@@ -162,8 +162,12 @@
                 <div class="post-heading">
                     <div class="tags">
                         
+                        <a class="tag" href="/tags/elasticsearch" title="Elasticsearch">
+                            Elasticsearch 
+                        </a>
+                        
                     </div>
-                    <h1></h1>
+                    <h1>[Elasticsearch] Working with disjunction max query - dis_max</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
@@ -172,7 +176,7 @@
                                     Sean&#39;s Blog
                              
                             on 
-                            Monday, January 1, 0001
+                            Friday, May 27, 2022
                             
                             
                             
@@ -202,8 +206,85 @@
                 
                 
                 
-                
+                <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>GET /_search
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;query&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dis_max&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;queries&#34;</span>: [
+</span></span><span style="display:flex;"><span>        { <span style="color:#ff79c6">&#34;term&#34;</span>: { <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;iphone&#34;</span> } },
+</span></span><span style="display:flex;"><span>        { <span style="color:#ff79c6">&#34;term&#34;</span>: { <span style="color:#ff79c6">&#34;body&#34;</span>: <span style="color:#f1fa8c">&#34;iphone&#34;</span> } }
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#6272a4">// &#34;tie_breaker&#34;: 0.7
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This is the official document written about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-dis-max-query.html#query-dsl-dis-max-query" target="_blank">dis_max</a>:</p>
+<blockquote>
+<p>Returns documents matching one or more wrapped queries, called query clauses or clauses.</p>
+<p>If a returned document matches multiple query clauses, the dis_max query assigns the document the highest relevance score from any matching clause, plus a tie breaking increment for any additional matching subqueries.</p>
+</blockquote>
+<p>The first part is pretty clear that the highest score of the matching clause will be used instead of the sum when the tie_breaker is not defined. The last part about “plus a tie breaking increment” is more unclear to me.</p>
+<p>hmm… Let’s just try playing around with the queries on our machine and see what happens then.</p>
+<p>Said we have docs:</p>
+<pre tabindex="0"><code>&#34;Doc 1&#34;: {
+  &#34;title&#34;: &#34;iphone&#34;
+}
+&#34;Doc 2&#34;: {
+  &#34;body&#34;: &#34;iphone&#34;
+}
+&#34;Doc 3&#34;: {
+  &#34;title&#34;: &#34;iphone&#34;
+  &#34;body&#34;: &#34;iphone 13&#34;
+}
+</code></pre><p>You might get the scores:</p>
+<p>Doc 1: 0.54265 (Match “title”)</p>
+<p>Doc 2: 0.54265 (Match “body”)</p>
+<p>Doc 3: 0.54265 (Match both “title” and “body”, but only the max score will be taken.)</p>
+<p>Since Doc 3 is more relevant than the other two, we might want Doc 3 to rank higher with a higher score. That’s why we need to also introduce <strong>tie_breaker</strong> here. If you add <strong>tie_breaker=0.7</strong> in the above query. The scores will become:</p>
+<p>Doc 1: 0.54265 + 0*0.7 = 0.54265</p>
+<p>Doc 2: 0.54265 + 0*0.7 = 0.54265</p>
+<p>Doc 3: 0.54265 + 0.43211*0.7 = 0.84513</p>
+<p>Now Doc 3 has a higher score than the other two when it also adds up the other clause(“body”: “iphone 13”) matching score.</p>
+<p>We can see where the formula from by peaking at the <a href="https://github.com/apache/lucene/blob/3a80968ddf30293ddf55c62f8f2f8a6915028408/lucene/core/src/java/org/apache/lucene/search/DisjunctionMaxQuery.java#L182-L192" target="_blank">Lucene’s source code</a>(Line 2):</p>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="background-color:#3d3f4a"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span></span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;display:grid;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#ff79c6">if</span> <span style="color:#ff79c6">(</span>match<span style="color:#ff79c6">)</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex; background-color:#3d3f4a"><span>  <span style="color:#8be9fd;font-style:italic">final</span> <span style="color:#8be9fd">float</span> score <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">(</span><span style="color:#8be9fd">float</span><span style="color:#ff79c6">)</span> <span style="color:#ff79c6">(</span>max <span style="color:#ff79c6">+</span> otherSum <span style="color:#ff79c6">*</span> tieBreakerMultiplier<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#8be9fd;font-style:italic">final</span> String desc <span style="color:#ff79c6">=</span>
+</span></span><span style="display:flex;"><span>      tieBreakerMultiplier <span style="color:#ff79c6">==</span> 0<span style="color:#ff79c6">.</span><span style="color:#50fa7b">0f</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">?</span> <span style="color:#f1fa8c">&#34;max of:&#34;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#ff79c6">:</span> <span style="color:#f1fa8c">&#34;max plus &#34;</span> <span style="color:#ff79c6">+</span> tieBreakerMultiplier <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34; times others of:&#34;</span><span style="color:#ff79c6">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> Explanation<span style="color:#ff79c6">.</span><span style="color:#50fa7b">match</span><span style="color:#ff79c6">(</span>score<span style="color:#ff79c6">,</span> desc<span style="color:#ff79c6">,</span> subs<span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span> <span style="color:#ff79c6">else</span> <span style="color:#ff79c6">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">return</span> Explanation<span style="color:#ff79c6">.</span><span style="color:#50fa7b">noMatch</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;No matching clause&#34;</span><span style="color:#ff79c6">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
 
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/tech/2022-05-26-elasticsearch-how-to-use-minimum_should_match-and-operator-with-match-query/" data-toggle="tooltip" data-placement="top" title="[Elasticsearch] How to use minimum_should_match and operator with match query?">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                </ul>
                 
 
                 

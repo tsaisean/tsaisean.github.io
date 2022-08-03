@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="App Script" />
+    <meta property="og:title" content="App Script" />
+    <meta property="twitter:title" content="App Script" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>404 Page not found |  | Sean&#39;s Blog</title>
+    <title>App Script |  | Sean&#39;s Blog</title>
 
-    <link rel="canonical" href="/404.html">
+    <link rel="canonical" href="/tags/app-script/">
 
     
     
@@ -163,23 +163,174 @@
 
 
 
+  <div class="container">
+    <div class="row">
+        
+        
+   	    <div class="
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container
+        ">
+            
 
-<header class="intro-header" style="background-image: url('/img/404-bg.jpg')">
-	<div class="container">
-		<div class="row">
-			<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-				<div class="site-heading" id="tag-heading">
-					<h1>404</h1>
-					<span class="subheading">我是誰？我在哪裡？</span>
-				</div>
-			</div>
-		</div>
+<div class="post-preview">
+    <a href="https://tsaisean.github.io/tech/2022-01-28-how-to-get-a-list-of-sheet-names-in-google-sheets-with-script/">
+        <h2 class="post-title">
+            How To Get A List Of Sheet Names In Google Sheets With Script?
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            There&rsquo;s no built-in formula to do this, and we have to write our own script with Google&rsquo;s Apps Script to achieve the function.
+First, go to the Extensions → Apps Script. Second, write our own method getSheetsName in the Apps Script console, and save.
+Code snippets:
+function getSheetsName() { var sheetNames = new Array() var sheets = SpreadsheetApp.getActiveSpreadsheet().getSheets(); for (var i=0 ; i&lt;sheets.length ; i++) { sheetNames.push( [ sheets[i].getName() ] ) } return sheetNames } Then go back to your sheet, and type the formula with the function name we just created in the Apps Script.
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by Sean&#39;s Blog on Friday, January 28, 2022
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+
+            
+
+
+
+       	</div>
+        
+
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+	
+    <section class="visible-md visible-lg">
+	
+        <div class="short-about">
+            
+            <a href="/top/about">
+               <img src="/img/sean.jpg" alt="avatar" style="cursor: pointer" />
+            </a>
+            
+            
+                <p>Engineering Manager, Software Developer and Life Adventurer</p>
+            
+           
+           <ul class="list-inline">
+               
+               
+               
+               
+               
+               
+               
+               <li>
+                   <a target="_blank" href="https://github.com/tsaisean">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+               
+               <li>
+                   <a target="_blank" href="https://www.linkedin.com/in/sung-yang-tsai-65406a7b/">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+            
+            
+               
+               
+               
+               
+                </ul>
+            </div>
+    </section>
+	
+    
+    
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FEATURED TAGS</h5>
+        <div class="tags">
+            
+            
+               
+                    <a href="/tags/app-script" title="app-script...">
+                        App Script (1)
+                    </a>
+               
+            
+               
+                    <a href="/tags/elasticsearch" title="elasticsearch...">
+                        Elasticsearch (3)
+                    </a>
+               
+            
+               
+                    <a href="/tags/git" title="git...">
+                        Git (1)
+                    </a>
+               
+            
+               
+                    <a href="/tags/google-sheets" title="google-sheets...">
+                        Google Sheets (1)
+                    </a>
+               
+            
+               
+                    <a href="/tags/prometheus" title="prometheus...">
+                        Prometheus (1)
+                    </a>
+               
+            
+               
+                    <a href="/tags/zsh" title="zsh...">
+                        Zsh (1)
+                    </a>
+               
+            
+        </div>
+    </section>
+    
+
+    
+    
+    
+</div>
+
 	</div>
-</header>
+</div>
 
-<script>
-	document.body.classList.add('page-fullscreen');
-</script>
+
 
 
 
@@ -229,7 +380,7 @@
             
            
                    <li>
-                       <a href='' rel="alternate" type="application/rss+xml" title="Sean&#39;s Blog" >
+                       <a href='/tags/app-script/index.xml' rel="alternate" type="application/rss+xml" title="Sean&#39;s Blog" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>

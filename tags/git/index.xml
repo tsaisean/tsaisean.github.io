@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Sean&#39;s Blog</title>
+    <link>https://tsaisean.github.io/tags/git/</link>
+    <description>Recent content in Git on Sean&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Sep 2021 12:00:00 +0000</lastBuildDate><atom:link href="https://tsaisean.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to cherry-pick a commit from another git repository?</title>
+      <link>https://tsaisean.github.io/tech/2021-09-02-how-to-cherry-pick-a-commit-from-another-git-repository/</link>
+      <pubDate>Thu, 02 Sep 2021 12:00:00 +0000</pubDate>
+      
+      <guid>https://tsaisean.github.io/tech/2021-09-02-how-to-cherry-pick-a-commit-from-another-git-repository/</guid>
+      <description># Adding (as &amp;#34;other&amp;#34;) the repo from we want to cherry-pick $ git remote add other git://github.com/username/repo.git # Fetch the &amp;#34;other&amp;#34; branch $ git fetch other # Cherry-pick the commit we need $ git cherry-pick 0549522 </description>
+    </item>
+    
+  </channel>
+</rss>
