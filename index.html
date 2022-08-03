@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     
-    <meta property="og:site_name" content="Huabing Blog">
+    <meta property="og:site_name" content="Sean&#39;s Blog">
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="https://zhaohuabing.com/img/home-bg-jeep.jpg">
-    <meta property="twitter:image" content="https://zhaohuabing.com/img/home-bg-jeep.jpg" />
+    <meta property="og:image" content="https://tsaisean.github.io//img/home-bg-jeep.jpg">
+    <meta property="twitter:image" content="https://tsaisean.github.io//img/home-bg-jeep.jpg" />
     
 
     
@@ -22,9 +22,9 @@
     
 
     
-    <meta name="description" content="赵化冰，程序员, 开源爱好者，生活探险家 | 这里是 赵化冰 的博客，与你一起发现更大的世界。">
-    <meta property="og:description" content="赵化冰，程序员, 开源爱好者，生活探险家 | 这里是 赵化冰 的博客，与你一起发现更大的世界。" />
-    <meta property="twitter:description" content="赵化冰，程序员, 开源爱好者，生活探险家 | 这里是 赵化冰 的博客，与你一起发现更大的世界。" />
+    <meta name="description" content="This is description">
+    <meta property="og:description" content="This is description" />
+    <meta property="twitter:description" content="This is description" />
     
 
     
@@ -32,10 +32,10 @@
     
     
 
-    <meta name="keyword"  content="赵化冰, zhaohuabing, Zhaohuabing, , 赵化冰的网络日志, 赵化冰的博客, Zhaohuabing Blog, 博客, 个人网站, 互联网, Web, 云原生, PaaS, Istio, Kubernetes, 微服务, Microservice">
+    <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Huabing Blog | 赵化冰的博客 | Zhaohuabing Blog</title>
+    <title>Sean&#39;s Blog |  | Sean&#39;s Blog</title>
 
     <link rel="canonical" href="/">
 
@@ -45,7 +45,7 @@
     <link rel="stylesheet" href="/css/bootstrap.min.css">
 
     
-    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.min.css">
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.css">
 
     
     <link rel="stylesheet" href="/css/zanshang.css">
@@ -84,7 +84,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">Huabing Blog</a>
+            <a class="navbar-brand" href="/">Sean&#39;s Blog</a>
         </div>
 
         
@@ -98,26 +98,12 @@
                     
                         
                         <li>
-                            <a href="/categories/life">life</a>
-                        </li>
-                        
-                        <li>
                             <a href="/categories/tech">tech</a>
-                        </li>
-                        
-                        <li>
-                            <a href="/categories/tips">tips</a>
                         </li>
                         
                     
                     
 		    
-                        <li><a href="/archive/">ARCHIVE</a></li>
-                    
-                        <li><a href="/notes/">NOTES</a></li>
-                    
-                        <li><a href="/about/">ABOUT</a></li>
-                    
 
                     
 		    <li>
@@ -167,9 +153,9 @@
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
                 <div class="site-heading">
-                    <h1>Huabing Blog </h1>
+                    <h1>Sean&#39;s Blog </h1>
                     
-		    <span class="subheading">路在脚下，心向远方</span>
+		    <span class="subheading">心之所向，身之所往。</span>
                 </div>
             </div>
         </div>
@@ -193,24 +179,36 @@
             
 
 <div class="post-preview">
-    <a href="https://zhaohuabing.com/post/readme/">
+    <a href="https://tsaisean.github.io/post/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max/">
         <h2 class="post-title">
-            Clean White Theme for Hugo
+            [Elasticsearch] Working with disjunction max query - dis_max
         </h2>
-	
-        <h3 class="post-subtitle">
-            How to set up this theme
-        </h3>
 	
         <div class="post-content-preview">
 	
-            Clean White Theme for Hugo CleanWhite is a clean, elegant, but fully functional blog theme for Hugo. Here is a live demo site using this theme. It is based on huxblog Jekyll Theme and Clean Blog Jekyll Theme. These two upstream projects have done awesome jobs to create a blog theme, what I&rsquo;m doing here is porting it to Hugo, of which I like the simplicity and the much faster
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>GET /_search
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;query&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dis_max&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;queries&#34;</span>: [
+</span></span><span style="display:flex;"><span>        { <span style="color:#ff79c6">&#34;term&#34;</span>: { <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;iphone&#34;</span> } },
+</span></span><span style="display:flex;"><span>        { <span style="color:#ff79c6">&#34;term&#34;</span>: { <span style="color:#ff79c6">&#34;body&#34;</span>: <span style="color:#f1fa8c">&#34;iphone&#34;</span> } }
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#6272a4">// &#34;tie_breaker&#34;: 0.7
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This is the official document written about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-dis-max-query.html#query-dsl-dis-max-query">dis_max</a>:</p>
+<blockquote>
+<p>Returns documents matching one or more wrapped queries, called query clauses or clauses.</p>
+<p>If a returned document matches multiple query clauses, the dis_max query assigns the document the highest relevance score from any matching clause, plus a tie breaking increment for any additional matching subqueries.</p>
+</blockquote>
        
         </div>
     </a>
     <p class="post-meta">
     
-        Posted by 赵化冰 on Wednesday, January 9, 2019
+        Posted by Sean&#39;s Blog on Friday, May 27, 2022
         
         
     
@@ -220,97 +218,31 @@
 <hr>
 
 <div class="post-preview">
-    <a href="https://zhaohuabing.com/2018/06/04/introducing-the-istio-v1alpha3-routing-api/">
+    <a href="https://tsaisean.github.io/post/2022-05-26-elasticsearch-how-to-use-minimum_should_match-and-operator-with-match-query/">
         <h2 class="post-title">
-            Istio v1aplha3 routing API介绍(译文）
+            [Elasticsearch] How to use minimum_should_match and operator with match query?
         </h2>
 	
         <div class="post-content-preview">
 	
-            介绍Istio v1alpha3 routing API及其设计原则
-        
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>GET /_search
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;query&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;match&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;message&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;query&#34;</span>: <span style="color:#f1fa8c">&#34;this is a test yo&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// &#34;operator&#34;: &#34;or&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This is the Match query we see quite often when using ES. However, if you did specify an analyzer during mapping, the query “this is a test yo&quot; will likely be tokenized into five terms ”<strong>this</strong>”, “<strong>is</strong>”, “<strong>a</strong>”, “<strong>test</strong>”, and “<strong>yo</strong>” in the search phases. And there is an implicit parameter <strong>operator</strong>, and its default value is “<strong>or</strong>”. This means, this query will look up the documents in the index, and whenever there is any term match in the message of a doc, then that it’s a match!</p>
+       
         </div>
     </a>
     <p class="post-meta">
     
-        Posted by     &#34;赵化冰&#34; on Monday, June 4, 2018
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://zhaohuabing.com/2018/06/02/istio08/">
-        <h2 class="post-title">
-            Istio 0.8 Release发布
-        </h2>
-	
-        <h3 class="post-subtitle">
-            来自Istio的儿童节礼物
-        </h3>
-	
-        <div class="post-content-preview">
-	
-            在6月1日这一天的早上，Istio社区宣布发布0.8 Release，除了常规的故障修复和性能改进外，这个儿童节礼物里面还有什么值得期待内容呢？让我们来看一看：
-        
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by     &#34;赵化冰&#34; on Saturday, June 2, 2018
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://zhaohuabing.com/2018/05/24/set_up_my_ubuntu_desktop/">
-        <h2 class="post-title">
-            Everything about Setting Up My Ubuntu Desktop
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            Everything about setting up my own ubuntu desktop, it&#39;s just a Note in case I need it later
-        
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by     &#34;赵化冰&#34; on Thursday, May 24, 2018
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://zhaohuabing.com/2018/05/23/external_system_auth/">
-        <h2 class="post-title">
-            微服务安全沉思录之三
-        </h2>
-	
-        <h3 class="post-subtitle">
-            外部系统访问控制
-        </h3>
-	
-        <div class="post-content-preview">
-	
-            一些外部的第三方系统可能需要访问系统内部的微服务。例如在网上商店的例子中，外部的推荐服务可能需要接入系统，以获取商店的商品目录信息。相对于内部服务之间的访问而言，外部系统的访问需要进行严格的安全控制。
-        
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by     &#34;赵化冰&#34; on Wednesday, May 23, 2018
+        Posted by Sean&#39;s Blog on Thursday, May 26, 2022
         
         
     
@@ -322,15 +254,6 @@
 
             
 
-
-<ul class="pager">
-    
-    
-    <li class="next">
-        <a href="/page/2/">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
 
 
        	</div>
@@ -350,23 +273,15 @@
         <div class="short-about">
             
             <a href="/top/about">
-               <img src="/img/zhaohuabing.png" alt="avatar" style="cursor: pointer" />
+               <img src="/img/sean.jpg" alt="avatar" style="cursor: pointer" />
             </a>
             
             
-                <p>Software Developer, Open Source Enthusiast and Life Adventurer</p>
+                <p>Engineering Manager, Software Developer and Life Adventurer</p>
             
            
            <ul class="list-inline">
                
-               <li>
-                   <a href="mailto:youremail@gmail.com">
-                      <span class="fa-stack fa-lg">
-                          <i class="fa fa-circle fa-stack-2x"></i>
-                          <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
-                      </span>
-                   </a>
-               </li>
                
                
                
@@ -374,17 +289,7 @@
                
                
                <li>
-                   <a target="_blank" href="/your%20wechat%20qr%20code%20image">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               <li>
-                   <a target="_blank" href="https://github.com/yourgithub">
+                   <a target="_blank" href="https://github.com/tsaisean">
                        <span class="fa-stack fa-lg">
                            <i class="fas fa-circle fa-stack-2x"></i>
                            <i class="fab fa-github fa-stack-1x fa-inverse"></i>
@@ -396,7 +301,7 @@
                
                
                <li>
-                   <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                   <a target="_blank" href="https://www.linkedin.com/in/sung-yang-tsai-65406a7b/">
                        <span class="fa-stack fa-lg">
                            <i class="fas fa-circle fa-stack-2x"></i>
                            <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
@@ -406,15 +311,6 @@
                
                
                
-                    <li>
-                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-            
             
             
                
@@ -436,57 +332,9 @@
             
             
                
-            
-               
-                    <a href="/tags/docker" title="docker">
-                        docker
+                    <a href="/tags/elasticsearch" title="elasticsearch...">
+                        elasticsearch (2)
                     </a>
-               
-            
-               
-            
-               
-                    <a href="/tags/istio" title="istio">
-                        istio
-                    </a>
-               
-            
-               
-                    <a href="/tags/kubernetes" title="kubernetes">
-                        kubernetes
-                    </a>
-               
-            
-               
-                    <a href="/tags/microservice" title="microservice">
-                        microservice
-                    </a>
-               
-            
-               
-            
-               
-                    <a href="/tags/security" title="security">
-                        security
-                    </a>
-               
-            
-               
-                    <a href="/tags/service-mesh" title="service-mesh">
-                        service-mesh
-                    </a>
-               
-            
-               
-                    <a href="/tags/tips" title="tips">
-                        tips
-                    </a>
-               
-            
-               
-            
-               
-            
                
             
         </div>
@@ -494,16 +342,6 @@
     
 
     
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FRIENDS</h5>
-        <ul class="list-inline">
-            
-            <li><a target="_blank" href="https://zhaozhihan.com">Linda的博客</a></li>
-            
-        </ul>
-    </section>
     
     
 </div>
@@ -521,15 +359,6 @@
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                 <ul class="list-inline text-center">                  
                     
-                    <li>
-                        <a href="mailto:youremail@gmail.com">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		           
                     
                     
                     
@@ -537,18 +366,9 @@
 
 		            
                     
-                    <li>
-                        <a target="_blank" href="/your%20wechat%20qr%20code%20image">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-weixin fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
-		            
                     
                     <li>
-                        <a target="_blank" href="https://github.com/yourgithub">
+                        <a target="_blank" href="https://github.com/tsaisean">
                             <span class="fa-stack fa-lg">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-github fa-stack-1x fa-inverse"></i>
@@ -560,7 +380,7 @@
                     
                     
                     <li>
-                        <a target="_blank" href="https://www.linkedin.com/in/yourlinkedinid">
+                        <a target="_blank" href="https://www.linkedin.com/in/sung-yang-tsai-65406a7b/">
                             <span class="fa-stack fa-lg">
                                 <i class="fas fa-circle fa-stack-2x"></i>
                                 <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
@@ -569,15 +389,6 @@
                     </li>
 		           
                     
-                    
-                    <li>
-                        <a target="_blank" href="https://stackoverflow.com/users/yourstackoverflowid">
-                            <span class="fa-stack fa-lg">
-                                <i class="fas fa-circle fa-stack-2x"></i>
-                                <i class="fab fa-stack-overflow fa-stack-1x fa-inverse"></i>
-                            </span>
-                        </a>
-                    </li>
                     
                     
                     
@@ -588,7 +399,7 @@
             
            
                    <li>
-                       <a href='/index.xml' rel="alternate" type="application/rss+xml" title="Huabing Blog" >
+                       <a href='/index.xml' rel="alternate" type="application/rss+xml" title="Sean&#39;s Blog" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
@@ -598,14 +409,7 @@
             
              </ul>
 		<p class="copyright text-muted">
-                    Copyright &copy; Huabing Blog 2022
-                    <br>
-                    <a href="https://themes.gohugo.io/hugo-theme-cleanwhite">CleanWhite Hugo Theme</a> by <a href="https://zhaohuabing.com">Huabing</a> |
-                    <iframe
-                        style="margin-left: 2px; margin-bottom:-5px;"
-                        frameborder="0" scrolling="0" width="100px" height="20px"
-                        src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true" >
-                    </iframe>
+                    Copyright &copy; Sean&#39;s Blog 2022
                 </p>
             </div>
         </div>

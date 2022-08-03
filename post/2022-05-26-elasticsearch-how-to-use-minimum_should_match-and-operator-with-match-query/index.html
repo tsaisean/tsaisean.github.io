@@ -15,9 +15,9 @@
     
 
     
-    <meta name="title" content="Tech" />
-    <meta property="og:title" content="Tech" />
-    <meta property="twitter:title" content="Tech" />
+    <meta name="title" content="[Elasticsearch] How to use minimum_should_match and operator with match query?" />
+    <meta property="og:title" content="[Elasticsearch] How to use minimum_should_match and operator with match query?" />
+    <meta property="twitter:title" content="[Elasticsearch] How to use minimum_should_match and operator with match query?" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Tech |  | Sean&#39;s Blog</title>
+    <title>[Elasticsearch] How to use minimum_should_match and operator with match query? |  | Sean&#39;s Blog</title>
 
-    <link rel="canonical" href="/categories/tech/">
+    <link rel="canonical" href="/post/2022-05-26-elasticsearch-how-to-use-minimum_should_match-and-operator-with-match-query/">
 
     
     
@@ -147,14 +147,41 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/home-bg-jeep.jpg')">
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
     <div class="container">
         <div class="row">
-            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
-                <div class="site-heading">
-                    <h1>Sean&#39;s Blog </h1>
-                    
-		    <span class="subheading">心之所向，身之所往。</span>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/elasticsearch" title="Elasticsearch">
+                            Elasticsearch
+                        </a>
+                        
+                    </div>
+                    <h1>[Elasticsearch] How to use minimum_should_match and operator with match query?</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Sean&#39;s Blog
+                             
+                            on 
+                            Thursday, May 26, 2022
+                            
+                            
+                            
+                            
+                    </span>
                 </div>
             </div>
         </div>
@@ -163,68 +190,19 @@
 
 
 
-  
-<div class="container">
-    <div class="row">
-        
-        
-   	    <div class="
-            col-lg-8 col-lg-offset-1
-            col-md-8 col-md-offset-1
-            col-sm-12
-            col-xs-12
-            post-container
-        ">
+
+<article>
+    <div class="container">
+        <div class="row">
+
             
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
 
-<div class="post-preview">
-    <a href="https://tsaisean.github.io/post/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max/">
-        <h2 class="post-title">
-            [Elasticsearch] Working with disjunction max query - dis_max
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>GET /_search
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;query&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dis_max&#34;</span>: {
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;queries&#34;</span>: [
-</span></span><span style="display:flex;"><span>        { <span style="color:#ff79c6">&#34;term&#34;</span>: { <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;iphone&#34;</span> } },
-</span></span><span style="display:flex;"><span>        { <span style="color:#ff79c6">&#34;term&#34;</span>: { <span style="color:#ff79c6">&#34;body&#34;</span>: <span style="color:#f1fa8c">&#34;iphone&#34;</span> } }
-</span></span><span style="display:flex;"><span>      ],
-</span></span><span style="display:flex;"><span>      <span style="color:#6272a4">// &#34;tie_breaker&#34;: 0.7
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>This is the official document written about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-dis-max-query.html#query-dsl-dis-max-query">dis_max</a>:</p>
-<blockquote>
-<p>Returns documents matching one or more wrapped queries, called query clauses or clauses.</p>
-<p>If a returned document matches multiple query clauses, the dis_max query assigns the document the highest relevance score from any matching clause, plus a tie breaking increment for any additional matching subqueries.</p>
-</blockquote>
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by Sean&#39;s Blog on Friday, May 27, 2022
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://tsaisean.github.io/post/2022-05-26-elasticsearch-how-to-use-minimum_should_match-and-operator-with-match-query/">
-        <h2 class="post-title">
-            [Elasticsearch] How to use minimum_should_match and operator with match query?
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>GET /_search
+                
+                <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>GET /_search
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;query&#34;</span>: {
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;match&#34;</span>: {
@@ -236,118 +214,103 @@
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><p>This is the Match query we see quite often when using ES. However, if you did specify an analyzer during mapping, the query “this is a test yo&quot; will likely be tokenized into five terms ”<strong>this</strong>”, “<strong>is</strong>”, “<strong>a</strong>”, “<strong>test</strong>”, and “<strong>yo</strong>” in the search phases. And there is an implicit parameter <strong>operator</strong>, and its default value is “<strong>or</strong>”. This means, this query will look up the documents in the index, and whenever there is any term match in the message of a doc, then that it’s a match!</p>
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by Sean&#39;s Blog on Thursday, May 26, 2022
-        
-        
-    
-    </p>
+<p>Here comes the problems. What if I want a match when all the terms can be found in the message? or if I want a match when there are at least 75% of terms can be found in the message?</p>
+<p>The first problem can be easily resolved by setting the operator value to “and”. As for the second problem, here comes another parameter minimum_should_match that we can use to solve it.</p>
+<p>minimum_should_match supports a few types:</p>
+<ol>
+<li>Integer: 3</li>
+<li>Negative Integer: -2</li>
+<li>Percentage: 75%</li>
+<li>Negative Percentage: -25%</li>
+</ol>
+<p>You can read the official document for the detailed description. Here I’m going to share the examples with you directly. I believe you can already guess what Integer is so I’ll just talk about the Percentage.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>GET /_search
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;query&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;match&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;message&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;query&#34;</span>: <span style="color:#f1fa8c">&#34;this is a test yo&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;minimum_should_match&#34;</span>: <span style="color:#f1fa8c">&#34;75%&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>Percentage: 75%</li>
+</ul>
+<p>floor(5 terms x 0.75) = 3 terms ← At least three terms should match!</p>
+<ul>
+<li>Negative Percentage: -25%</li>
+</ul>
+<p>5 - floor(5 terms x 0.25) = 4 terms ← At least four terms should match!</p>
+<p>This is it. Hope you got it. 👋</p>
 
-</div>
-<hr>
-
-
-            
-
-
-
-       	</div>
-        
-
-<div class="
-    col-lg-3 col-lg-offset-0
-    col-md-3 col-md-offset-0
-    col-sm-12
-    col-xs-12
-    sidebar-container
-">
-    
-	
-    <section class="visible-md visible-lg">
-	
-        <div class="short-about">
-            
-            <a href="/top/about">
-               <img src="/img/sean.jpg" alt="avatar" style="cursor: pointer" />
-            </a>
-            
-            
-                <p>Engineering Manager, Software Developer and Life Adventurer</p>
-            
-           
-           <ul class="list-inline">
-               
-               
-               
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="https://github.com/tsaisean">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-               
-               <li>
-                   <a target="_blank" href="https://www.linkedin.com/in/sung-yang-tsai-65406a7b/">
-                       <span class="fa-stack fa-lg">
-                           <i class="fas fa-circle fa-stack-2x"></i>
-                           <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
-                       </span>
-                   </a>
-               </li>
-               
-               
-               
-            
-            
-               
-               
-               
-               
+                
+                <hr>
+                <ul class="pager">
+                    
+                    
+                    <li class="next">
+                        <a href="/post/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max/" data-toggle="tooltip" data-placement="top" title="[Elasticsearch] Working with disjunction max query - dis_max">Next
+                            Post &rarr;</a>
+                    </li>
+                    
                 </ul>
+                
+
+                
+
+
+
             </div>
-    </section>
-	
-    
-    
-    
-    
-    <section>
-        <hr class="hidden-sm hidden-xs">
-        <h5>FEATURED TAGS</h5>
-        <div class="tags">
+
             
             
-               
-                    <a href="/tags/elasticsearch" title="elasticsearch...">
-                        elasticsearch (2)
-                    </a>
-               
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
             
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/elasticsearch" title="elasticsearch">
+                            elasticsearch 
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
         </div>
-    </section>
-    
-
-    
-    
-    
-</div>
-
-	</div>
-</div>
-
+    </div>
+</article>
 
 
 
@@ -398,7 +361,7 @@
             
            
                    <li>
-                       <a href='/categories/tech/index.xml' rel="alternate" type="application/rss+xml" title="Sean&#39;s Blog" >
+                       <a href='' rel="alternate" type="application/rss+xml" title="Sean&#39;s Blog" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
