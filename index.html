@@ -200,7 +200,8 @@ if (!doNotTrack) {
         <div class="post-content-preview">
 	
             We can use URLClassLoader to load classes from a given path.
-URL myJar = new File(&#34;jar/LibraryA-1.0-SNAPSHOT.jar&#34;).toURI().toURL(); URLClassLoader clsLoader = new URLClassLoader( new URL[] {myJar}, this.getClass().getClassLoader() ); Class&lt;?&gt; loadedClass = clsLoader.loadClass(&#34;com.sean.liba.Main&#34;); Method method = loadedClass.getDeclaredMethod(&#34;print&#34;); Object instance = loadedClass.newInstance(); method.invoke(instance); // Output: Hello World! 
+URL myJar = new File(&#34;jar/LibraryA-1.0-SNAPSHOT.jar&#34;).toURI().toURL(); URLClassLoader clsLoader = new URLClassLoader( new URL[] {myJar}, this.getClass().getClassLoader() ); Class&lt;?&gt; loadedClass = clsLoader.loadClass(&#34;com.sean.liba.Main&#34;); Method method = loadedClass.getDeclaredMethod(&#34;print&#34;); Object instance = loadedClass.newInstance(); method.invoke(instance); // Output: Hello World! Let&rsquo;s look at other use cases. What if you have two jars, and liba.jar deppends on another class in the libb.jar?
+Take the above example, the print method has a dependency on the com.
        
         </div>
     </a>

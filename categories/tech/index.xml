@@ -14,7 +14,8 @@
       
       <guid>https://tsaisean.github.io/tech/2022-08-12-how-to-invoke-a-method-in-the-jar/</guid>
       <description>We can use URLClassLoader to load classes from a given path.
-URL myJar = new File(&amp;#34;jar/LibraryA-1.0-SNAPSHOT.jar&amp;#34;).toURI().toURL(); URLClassLoader clsLoader = new URLClassLoader( new URL[] {myJar}, this.getClass().getClassLoader() ); Class&amp;lt;?&amp;gt; loadedClass = clsLoader.loadClass(&amp;#34;com.sean.liba.Main&amp;#34;); Method method = loadedClass.getDeclaredMethod(&amp;#34;print&amp;#34;); Object instance = loadedClass.newInstance(); method.invoke(instance); // Output: Hello World! </description>
+URL myJar = new File(&amp;#34;jar/LibraryA-1.0-SNAPSHOT.jar&amp;#34;).toURI().toURL(); URLClassLoader clsLoader = new URLClassLoader( new URL[] {myJar}, this.getClass().getClassLoader() ); Class&amp;lt;?&amp;gt; loadedClass = clsLoader.loadClass(&amp;#34;com.sean.liba.Main&amp;#34;); Method method = loadedClass.getDeclaredMethod(&amp;#34;print&amp;#34;); Object instance = loadedClass.newInstance(); method.invoke(instance); // Output: Hello World! Let&amp;rsquo;s look at other use cases. What if you have two jars, and liba.jar deppends on another class in the libb.jar?
+Take the above example, the print method has a dependency on the com.</description>
     </item>
     
     <item>
