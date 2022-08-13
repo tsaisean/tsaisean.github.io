@@ -6,7 +6,16 @@
     <description>Recent content in Tags on Sean&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 27 May 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://tsaisean.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 Aug 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://tsaisean.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Java</title>
+      <link>https://tsaisean.github.io/tags/java/</link>
+      <pubDate>Fri, 12 Aug 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://tsaisean.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Elasticsearch</title>
       <link>https://tsaisean.github.io/tags/elasticsearch/</link>

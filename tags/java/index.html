@@ -10,14 +10,27 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="https://tsaisean.github.io//img/home-bg-jeep.jpg">
-    <meta property="twitter:image" content="https://tsaisean.github.io//img/home-bg-jeep.jpg" />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QKQH302EGW"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-QKQH302EGW', { 'anonymize_ip': false });
+}
+</script>
+
+    
+    
+    <meta property="og:image" content="https://tsaisean.github.io//img/Landscape-backgrounds-Free.jpeg">
+    <meta property="twitter:image" content="https://tsaisean.github.io//img/Landscape-backgrounds-Free.jpeg" />
     
 
     
-    <meta name="title" content="" />
-    <meta property="og:title" content="" />
-    <meta property="twitter:title" content="" />
+    <meta name="title" content="Java" />
+    <meta property="og:title" content="Java" />
+    <meta property="twitter:title" content="Java" />
     
 
     
@@ -34,9 +47,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Posts |  | Sean&#39;s Blog</title>
+    <title>Java |  | Sean&#39;s Blog</title>
 
-    <link rel="canonical" href="/post/">
+    <link rel="canonical" href="/tags/java/">
 
     
     
@@ -147,7 +160,7 @@
 
 
 
-<header class="intro-header" style="background-image: url('/img/home-bg-jeep.jpg')">
+<header class="intro-header" style="background-image: url('/img/Landscape-backgrounds-Free.jpeg')">
     <div class="container">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1 ">
@@ -163,53 +176,177 @@
 
 
 
-
-<article>
-    <div class="container">
-        <div class="row">
+  <div class="container">
+    <div class="row">
+        
+        
+   	    <div class="
+            col-lg-8 col-lg-offset-1
+            col-md-8 col-md-offset-1
+            col-sm-12
+            col-xs-12
+            post-container
+        ">
             
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                post-container">
 
-         	
-                
-
-
-
-
-            </div>
-            
-            <div class="
-                col-lg-8 col-lg-offset-2
-                col-md-10 col-md-offset-1
-                sidebar-container">
-
-                
-                
-                <section>
-                    <hr class="hidden-sm hidden-xs">
-                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
-                    <div class="tags">
-                        
-                        
-                        
-                        <a href="/tags/elasticsearch" title="elasticsearch">
-                        elasticsearch 
-                        </a>
-                        
-                        
-                    </div>
-                </section>
-                
-
-                
-                
-            </div>
+<div class="post-preview">
+    <a href="https://tsaisean.github.io/tech/2022-08-12-how-to-invoke-a-method-in-the-jar/">
+        <h2 class="post-title">
+            How to invoke a method in the jar?
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            We can use URLClassLoader to load classes from a given path.
+URL myJar = new File(&#34;jar/LibraryA-1.0-SNAPSHOT.jar&#34;).toURI().toURL(); URLClassLoader clsLoader = new URLClassLoader( new URL[] {myJar}, this.getClass().getClassLoader() ); Class&lt;?&gt; loadedClass = clsLoader.loadClass(&#34;com.sean.liba.Main&#34;); Method method = loadedClass.getDeclaredMethod(&#34;print&#34;); Object instance = loadedClass.newInstance(); method.invoke(instance); // Output: Hello World! 
+       
         </div>
-    </div>
-</article>
+    </a>
+    <p class="post-meta">
+    
+        Posted by Sean&#39;s Blog on Friday, August 12, 2022
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+
+            
+
+
+
+       	</div>
+        
+
+<div class="
+    col-lg-3 col-lg-offset-0
+    col-md-3 col-md-offset-0
+    col-sm-12
+    col-xs-12
+    sidebar-container
+">
+    
+	
+    <section class="visible-md visible-lg">
+	
+        <div class="short-about">
+            
+            <a href="/top/about">
+               <img src="/img/sean.jpg" alt="avatar" style="cursor: pointer" />
+            </a>
+            
+            
+                <p>Engineering Manager, Software Developer and Life Adventurer</p>
+            
+           
+           <ul class="list-inline">
+               
+               
+               
+               
+               
+               
+               
+               <li>
+                   <a target="_blank" href="https://github.com/tsaisean">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+               
+               <li>
+                   <a target="_blank" href="https://www.linkedin.com/in/sung-yang-tsai-65406a7b/">
+                       <span class="fa-stack fa-lg">
+                           <i class="fas fa-circle fa-stack-2x"></i>
+                           <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                       </span>
+                   </a>
+               </li>
+               
+               
+               
+            
+            
+               
+               
+               
+               
+                </ul>
+            </div>
+    </section>
+	
+    
+    
+    
+    
+    <section>
+        <hr class="hidden-sm hidden-xs">
+        <h5>FEATURED TAGS</h5>
+        <div class="tags">
+            
+            
+               
+                    <a href="/tags/app-script" title="app-script...">
+                        App Script (1)
+                    </a>
+               
+            
+               
+                    <a href="/tags/elasticsearch" title="elasticsearch...">
+                        Elasticsearch (3)
+                    </a>
+               
+            
+               
+                    <a href="/tags/git" title="git...">
+                        Git (1)
+                    </a>
+               
+            
+               
+                    <a href="/tags/google-sheets" title="google-sheets...">
+                        Google Sheets (1)
+                    </a>
+               
+            
+               
+                    <a href="/tags/java" title="java...">
+                        Java (1)
+                    </a>
+               
+            
+               
+                    <a href="/tags/prometheus" title="prometheus...">
+                        Prometheus (1)
+                    </a>
+               
+            
+               
+                    <a href="/tags/zsh" title="zsh...">
+                        Zsh (1)
+                    </a>
+               
+            
+        </div>
+    </section>
+    
+
+    
+    
+    
+</div>
+
+	</div>
+</div>
+
 
 
 
@@ -260,7 +397,7 @@
             
            
                    <li>
-                       <a href='/post/index.xml' rel="alternate" type="application/rss+xml" title="Sean&#39;s Blog" >
+                       <a href='/tags/java/index.xml' rel="alternate" type="application/rss+xml" title="Sean&#39;s Blog" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
@@ -319,6 +456,19 @@
 
 
 
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-QKQH302EGW', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 

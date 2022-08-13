@@ -190,6 +190,32 @@ if (!doNotTrack) {
             
 
 <div class="post-preview">
+    <a href="https://tsaisean.github.io/tech/2021-12-21-prometheus-what-is-the-difference-between-rate-and-irate/">
+        <h2 class="post-title">
+            [Prometheus] What is the difference between rate and irate
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            Here are the definitions from the official document for rate() and irate(). But if you still don’t quite understand, check the examples below.
+In this example, I select all the values I have recorded within the last 1 minute for all time series that have the metric name prometheus_http_requests_total and a handler label set to /metrics:
+prometheus_http_requests_total{handler=”/metrics”}[1m] Output from the Prometheus UI:
+# Element prometheus_http_requests_total{code=&#34;200&#34;,handler=&#34;/metrics&#34;,instance=&#34;localhost:9090&#34;,job=&#34;prometheus&#34;} # ValueHere are the definitions from the official document for rate() and irate().
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by Sean&#39;s Blog on Tuesday, December 21, 2021
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
     <a href="https://tsaisean.github.io/tech/2021-11-20-useful-commands-for-zsh/">
         <h2 class="post-title">
             Useful commands for zsh
@@ -345,6 +371,12 @@ if (!doNotTrack) {
                
                     <a href="/tags/google-sheets" title="google-sheets...">
                         Google Sheets (1)
+                    </a>
+               
+            
+               
+                    <a href="/tags/java" title="java...">
+                        Java (1)
                     </a>
                
             

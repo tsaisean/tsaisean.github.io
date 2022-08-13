@@ -192,7 +192,31 @@ if (!doNotTrack) {
             
 
 <div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max-copy/">
+    <a href="https://tsaisean.github.io/tech/2022-08-12-how-to-invoke-a-method-in-the-jar/">
+        <h2 class="post-title">
+            How to invoke a method in the jar?
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            We can use URLClassLoader to load classes from a given path.
+URL myJar = new File(&#34;jar/LibraryA-1.0-SNAPSHOT.jar&#34;).toURI().toURL(); URLClassLoader clsLoader = new URLClassLoader( new URL[] {myJar}, this.getClass().getClassLoader() ); Class&lt;?&gt; loadedClass = clsLoader.loadClass(&#34;com.sean.liba.Main&#34;); Method method = loadedClass.getDeclaredMethod(&#34;print&#34;); Object instance = loadedClass.newInstance(); method.invoke(instance); // Output: Hello World! 
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by Sean&#39;s Blog on Friday, August 12, 2022
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max/">
         <h2 class="post-title">
             [Elasticsearch] Working with disjunction max query - dis_max
         </h2>
@@ -211,7 +235,8 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    }
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>This is the official document written about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-dis-max-query.html#query-dsl-dis-max-query">dis_max</a>:</p>
+</span></span></code></pre></div><p>ㄉ12121221
+This is the official document written about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-dis-max-query.html#query-dsl-dis-max-query">dis_max</a>:</p>
 <blockquote>
 <p>Returns documents matching one or more wrapped queries, called query clauses or clauses.</p>
 <p>If a returned document matches multiple query clauses, the dis_max query assigns the document the highest relevance score from any matching clause, plus a tie breaking increment for any additional matching subqueries.</p>
@@ -307,32 +332,6 @@ function_score = min(score_mode(f1_score, f2_score, ...), max_boost) _score = bo
     <p class="post-meta">
     
         Posted by Sean&#39;s Blog on Friday, January 7, 2022
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2021-12-21-prometheus-what-is-the-difference-between-rate-and-irate/">
-        <h2 class="post-title">
-            [Prometheus] What is the difference between rate and irate
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            Here are the definitions from the official document for rate() and irate(). But if you still don’t quite understand, check the examples below.
-In this example, I select all the values I have recorded within the last 1 minute for all time series that have the metric name prometheus_http_requests_total and a handler label set to /metrics:
-prometheus_http_requests_total{handler=”/metrics”}[1m] Output from the Prometheus UI:
-# Element prometheus_http_requests_total{code=&#34;200&#34;,handler=&#34;/metrics&#34;,instance=&#34;localhost:9090&#34;,job=&#34;prometheus&#34;} # ValueHere are the definitions from the official document for rate() and irate().
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by Sean&#39;s Blog on Tuesday, December 21, 2021
         
         
     
@@ -451,6 +450,12 @@ prometheus_http_requests_total{handler=”/metrics”}[1m] Output from the Prome
                
                     <a href="/tags/google-sheets" title="google-sheets...">
                         Google Sheets (1)
+                    </a>
+               
+            
+               
+                    <a href="/tags/java" title="java...">
+                        Java (1)
                     </a>
                
             

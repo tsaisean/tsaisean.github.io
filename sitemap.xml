@@ -2,25 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max-copy/</loc>
-    <lastmod>2022-05-27T12:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://tsaisean.github.io/categories/</loc>
+    <lastmod>2022-08-12T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tech/2022-08-12-how-to-invoke-a-method-in-the-jar/</loc>
+    <lastmod>2022-08-12T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tags/java/</loc>
+    <lastmod>2022-08-12T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/</loc>
+    <lastmod>2022-08-12T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tags/</loc>
+    <lastmod>2022-08-12T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/categories/tech/</loc>
+    <lastmod>2022-08-12T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tech/</loc>
+    <lastmod>2022-08-12T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max/</loc>
     <lastmod>2022-05-27T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tsaisean.github.io/tags/elasticsearch/</loc>
-    <lastmod>2022-05-27T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://tsaisean.github.io/</loc>
-    <lastmod>2022-05-27T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://tsaisean.github.io/tags/</loc>
-    <lastmod>2022-05-27T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://tsaisean.github.io/categories/tech/</loc>
-    <lastmod>2022-05-27T12:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://tsaisean.github.io/tech/</loc>
     <lastmod>2022-05-27T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tsaisean.github.io/tech/2022-05-26-elasticsearch-how-to-use-minimum_should_match-and-operator-with-match-query/</loc>
