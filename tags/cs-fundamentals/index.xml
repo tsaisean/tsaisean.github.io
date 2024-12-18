@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CS Fundamentals on Sean&#39;s Blog</title>
+    <link>https://tsaisean.github.io/tags/cs-fundamentals/</link>
+    <description>Recent content in CS Fundamentals on Sean&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 14 Dec 2024 13:59:24 +0800</lastBuildDate>
+    <atom:link href="https://tsaisean.github.io/tags/cs-fundamentals/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Understanding Idempotence in Computer Science</title>
+      <link>https://tsaisean.github.io/tech/2024-12-14-understanding-idempotence-in-computer-science/</link>
+      <pubDate>Sat, 14 Dec 2024 13:59:24 +0800</pubDate>
+      <guid>https://tsaisean.github.io/tech/2024-12-14-understanding-idempotence-in-computer-science/</guid>
+      <description>&lt;h1 id=&#34;understanding-idempotence-in-computer-science&#34;&gt;Understanding Idempotence in Computer Science&lt;/h1&gt;&#xA;&lt;p&gt;Idempotence is a key concept in computer science, especially in distributed systems, APIs, and web development. It ensures that repeating an operation multiple times results in the same outcome as performing it once. This property helps to maintain consistency, reliability, and fault tolerance in various systems, particularly when dealing with retries due to network failures or server errors.&lt;/p&gt;&#xA;&lt;p&gt;In this blog, we’ll explore &lt;strong&gt;idempotence&lt;/strong&gt; in different contexts and how it is used in practical scenarios.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

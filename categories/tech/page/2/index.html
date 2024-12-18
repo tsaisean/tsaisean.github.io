@@ -193,6 +193,45 @@
             
 
 <div class="post-preview">
+    <a href="https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query---dis_max-copy/">
+        <h2 class="post-title">
+            [Elasticsearch] Working with disjunction max query - dis_max
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>GET /_search
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;query&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dis_max&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;queries&#34;</span>: [
+</span></span><span style="display:flex;"><span>        { <span style="color:#ff79c6">&#34;term&#34;</span>: { <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;iphone&#34;</span> } },
+</span></span><span style="display:flex;"><span>        { <span style="color:#ff79c6">&#34;term&#34;</span>: { <span style="color:#ff79c6">&#34;body&#34;</span>: <span style="color:#f1fa8c">&#34;iphone&#34;</span> } }
+</span></span><span style="display:flex;"><span>      ],
+</span></span><span style="display:flex;"><span>      <span style="color:#6272a4">// &#34;tie_breaker&#34;: 0.7
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    }
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>This is the official document written about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-dis-max-query.html#query-dsl-dis-max-query">dis_max</a>:</p>
+<blockquote>
+<p>Returns documents matching one or more wrapped queries, called query clauses or clauses.</p>
+<p>If a returned document matches multiple query clauses, the dis_max query assigns the document the highest relevance score from any matching clause, plus a tie breaking increment for any additional matching subqueries.</p>
+</blockquote>
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by Sean&#39;s Blog on Friday, May 27, 2022
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
     <a href="https://tsaisean.github.io/tech/2022-05-26-elasticsearch-how-to-use-minimum_should_match-and-operator-with-match-query/">
         <h2 class="post-title">
             [Elasticsearch] How to use minimum_should_match and operator with match query?
@@ -342,39 +381,6 @@ prometheus_http_requests_total{code=&#34;200&#34;,handler=&#34;/metrics&#34;,ins
 </div>
 <hr>
 
-<div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2021-11-20-useful-commands-for-zsh/">
-        <h2 class="post-title">
-            Useful commands for zsh
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            <h1 id="moving-thecursor">Moving the cursor</h1>
-<ul>
-<li>Ctrl+A: To move to the beginning of the current line.</li>
-<li>Ctrl+E: To move to the end of the current line.</li>
-</ul>
-<h1 id="manipulating-yourtyping">Manipulating your typing</h1>
-<ul>
-<li>Ctrl+W: To delete the word in front of the cursor.</li>
-<li>Ctrl+U: To clear the entire line.</li>
-<li>Ctrl+K: To clear the characters on the line after the current cursor position.</li>
-</ul>
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by Sean&#39;s Blog on Tuesday, November 30, 2021
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
 
             
 
@@ -471,6 +477,12 @@ prometheus_http_requests_total{code=&#34;200&#34;,handler=&#34;/metrics&#34;,ins
                
                     <a href="/tags/app-script" title="app script...">
                         App Script (1)
+                    </a>
+               
+            
+               
+                    <a href="/tags/cs-fundamentals" title="cs fundamentals...">
+                        Cs Fundamentals (1)
                     </a>
                
             

@@ -16,6 +16,13 @@
       <description>&lt;h1 id=&#34;introduction-to-database-normalization-1nf-2nf-3nf-and-beyond&#34;&gt;Introduction to Database Normalization: 1NF, 2NF, 3NF, and Beyond&lt;/h1&gt;&#xA;&lt;p&gt;Database normalization is a crucial concept in database design that aims to reduce data redundancy and ensure data integrity. The goal is to structure data in a way that makes it easier to manage and update, while maintaining its consistency. In this post, we&amp;rsquo;ll explore the most commonly used normal forms: &lt;strong&gt;1NF&lt;/strong&gt;, &lt;strong&gt;2NF&lt;/strong&gt;, and &lt;strong&gt;3NF&lt;/strong&gt;, and briefly mention other advanced normal forms (xxNF).&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Understanding Idempotence in Computer Science</title>
+      <link>https://tsaisean.github.io/tech/2024-12-14-understanding-idempotence-in-computer-science/</link>
+      <pubDate>Sat, 14 Dec 2024 13:59:24 +0800</pubDate>
+      <guid>https://tsaisean.github.io/tech/2024-12-14-understanding-idempotence-in-computer-science/</guid>
+      <description>&lt;h1 id=&#34;understanding-idempotence-in-computer-science&#34;&gt;Understanding Idempotence in Computer Science&lt;/h1&gt;&#xA;&lt;p&gt;Idempotence is a key concept in computer science, especially in distributed systems, APIs, and web development. It ensures that repeating an operation multiple times results in the same outcome as performing it once. This property helps to maintain consistency, reliability, and fault tolerance in various systems, particularly when dealing with retries due to network failures or server errors.&lt;/p&gt;&#xA;&lt;p&gt;In this blog, we’ll explore &lt;strong&gt;idempotence&lt;/strong&gt; in different contexts and how it is used in practical scenarios.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Back to Java Fundamentals</title>
       <link>https://tsaisean.github.io/tech/2024-12-15-back-to-java-fundamentals/</link>
       <pubDate>Sun, 01 Dec 2024 12:00:00 +0000</pubDate>

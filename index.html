@@ -219,6 +219,31 @@
 <hr>
 
 <div class="post-preview">
+    <a href="https://tsaisean.github.io/tech/2024-12-14-understanding-idempotence-in-computer-science/">
+        <h2 class="post-title">
+            Understanding Idempotence in Computer Science
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            <h1 id="understanding-idempotence-in-computer-science">Understanding Idempotence in Computer Science</h1>
+<p>Idempotence is a key concept in computer science, especially in distributed systems, APIs, and web development. It ensures that repeating an operation multiple times results in the same outcome as performing it once. This property helps to maintain consistency, reliability, and fault tolerance in various systems, particularly when dealing with retries due to network failures or server errors.</p>
+<p>In this blog, we’ll explore <strong>idempotence</strong> in different contexts and how it is used in practical scenarios.</p>
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by Sean&#39;s Blog on Saturday, December 14, 2024
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
     <a href="https://tsaisean.github.io/tech/2024-12-15-back-to-java-fundamentals/">
         <h2 class="post-title">
             Back to Java Fundamentals
@@ -474,45 +499,6 @@ If we dont&rsquo;t change the code, and run it again, you will get an error imme
 </div>
 <hr>
 
-<div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query---dis_max-copy/">
-        <h2 class="post-title">
-            [Elasticsearch] Working with disjunction max query - dis_max
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>GET /_search
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;query&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dis_max&#34;</span>: {
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;queries&#34;</span>: [
-</span></span><span style="display:flex;"><span>        { <span style="color:#ff79c6">&#34;term&#34;</span>: { <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;iphone&#34;</span> } },
-</span></span><span style="display:flex;"><span>        { <span style="color:#ff79c6">&#34;term&#34;</span>: { <span style="color:#ff79c6">&#34;body&#34;</span>: <span style="color:#f1fa8c">&#34;iphone&#34;</span> } }
-</span></span><span style="display:flex;"><span>      ],
-</span></span><span style="display:flex;"><span>      <span style="color:#6272a4">// &#34;tie_breaker&#34;: 0.7
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>This is the official document written about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-dis-max-query.html#query-dsl-dis-max-query">dis_max</a>:</p>
-<blockquote>
-<p>Returns documents matching one or more wrapped queries, called query clauses or clauses.</p>
-<p>If a returned document matches multiple query clauses, the dis_max query assigns the document the highest relevance score from any matching clause, plus a tie breaking increment for any additional matching subqueries.</p>
-</blockquote>
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by Sean&#39;s Blog on Friday, May 27, 2022
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
 
             
 
@@ -605,6 +591,12 @@ If we dont&rsquo;t change the code, and run it again, you will get an error imme
                
                     <a href="/tags/app-script" title="app script...">
                         App Script (1)
+                    </a>
+               
+            
+               
+                    <a href="/tags/cs-fundamentals" title="cs fundamentals...">
+                        Cs Fundamentals (1)
                     </a>
                
             
