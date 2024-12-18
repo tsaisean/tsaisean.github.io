@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,27 +10,30 @@
     <meta property="og:type" content="article">
 
     
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QKQH302EGW"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-QKQH302EGW', { 'anonymize_ip': false });
-}
-</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKQH302EGW"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-QKQH302EGW');
+        }
+      </script>
+    
+    
+    <meta property="og:image" content="http://localhost:1313//img/Landscape-backgrounds-Free.jpeg">
+    <meta property="twitter:image" content="http://localhost:1313//img/Landscape-backgrounds-Free.jpeg" />
+    
 
     
-    
-    <meta property="og:image" content="https://tsaisean.github.io//img/Landscape-backgrounds-Free.jpeg">
-    <meta property="twitter:image" content="https://tsaisean.github.io//img/Landscape-backgrounds-Free.jpeg" />
-    
-
-    
-    <meta name="title" content="Prometheus" />
-    <meta property="og:title" content="Prometheus" />
-    <meta property="twitter:title" content="Prometheus" />
+    <meta name="title" content="" />
+    <meta property="og:title" content="" />
+    <meta property="twitter:title" content="" />
     
 
     
@@ -190,17 +193,21 @@ if (!doNotTrack) {
             
 
 <div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2021-12-21-prometheus-what-is-the-difference-between-rate-and-irate/">
+    <a href="http://localhost:1313/tech/2021-12-21-prometheus-what-is-the-difference-between-rate-and-irate/">
         <h2 class="post-title">
             [Prometheus] What is the difference between rate and irate
         </h2>
 	
         <div class="post-content-preview">
 	
-            Here are the definitions from the official document for rate() and irate(). But if you still don’t quite understand, check the examples below.
-In this example, I select all the values I have recorded within the last 1 minute for all time series that have the metric name prometheus_http_requests_total and a handler label set to /metrics:
-prometheus_http_requests_total{handler=”/metrics”}[1m] Output from the Prometheus UI:
-# Element prometheus_http_requests_total{code=&#34;200&#34;,handler=&#34;/metrics&#34;,instance=&#34;localhost:9090&#34;,job=&#34;prometheus&#34;} # ValueHere are the definitions from the official document for rate() and irate().
+            <p>Here are the definitions from the official document for <a href="https://prometheus.io/docs/prometheus/latest/querying/functions/#rate">rate()</a> and <a href="https://prometheus.io/docs/prometheus/latest/querying/functions/#irate">irate()</a>. But if you still don’t quite understand, check the examples below.</p>
+<p>In this example, I select all the values I have recorded within the last 1 minute for all time series that have the metric name prometheus_http_requests_total and a handler label set to /metrics:</p>
+<pre tabindex="0"><code>prometheus_http_requests_total{handler=”/metrics”}[1m]
+</code></pre><p>Output from the Prometheus UI:</p>
+<pre tabindex="0"><code># Element
+prometheus_http_requests_total{code=&#34;200&#34;,handler=&#34;/metrics&#34;,instance=&#34;localhost:9090&#34;,job=&#34;prometheus&#34;}
+# ValueHere are the definitions from the official document for rate() and irate(). But if you still don’t quite understand, check the examples below.
+</code></pre><p>In this example, I select all the values I have recorded within the last 1 minute for all time series that have the metric name prometheus_http_requests_total and a handler label set to /metrics:</p>
        
         </div>
     </a>
@@ -296,7 +303,7 @@ prometheus_http_requests_total{handler=”/metrics”}[1m] Output from the Prome
             
             
                
-                    <a href="/tags/app-script" title="app-script...">
+                    <a href="/tags/app-script" title="app script...">
                         App Script (1)
                     </a>
                
@@ -314,7 +321,7 @@ prometheus_http_requests_total{handler=”/metrics”}[1m] Output from the Prome
                
             
                
-                    <a href="/tags/google-sheets" title="google-sheets...">
+                    <a href="/tags/google-sheets" title="google sheets...">
                         Google Sheets (1)
                     </a>
                
@@ -458,19 +465,6 @@ prometheus_http_requests_total{handler=”/metrics”}[1m] Output from the Prome
 
 
 
-
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'G-QKQH302EGW', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 

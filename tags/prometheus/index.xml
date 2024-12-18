@@ -2,22 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Prometheus on Sean&#39;s Blog</title>
-    <link>https://tsaisean.github.io/tags/prometheus/</link>
+    <link>http://localhost:1313/tags/prometheus/</link>
     <description>Recent content in Prometheus on Sean&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Dec 2021 12:00:00 +0000</lastBuildDate><atom:link href="https://tsaisean.github.io/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Dec 2021 12:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/prometheus/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[Prometheus] What is the difference between rate and irate</title>
-      <link>https://tsaisean.github.io/tech/2021-12-21-prometheus-what-is-the-difference-between-rate-and-irate/</link>
+      <link>http://localhost:1313/tech/2021-12-21-prometheus-what-is-the-difference-between-rate-and-irate/</link>
       <pubDate>Tue, 21 Dec 2021 12:00:00 +0000</pubDate>
-      
-      <guid>https://tsaisean.github.io/tech/2021-12-21-prometheus-what-is-the-difference-between-rate-and-irate/</guid>
-      <description>Here are the definitions from the official document for rate() and irate(). But if you still don’t quite understand, check the examples below.
-In this example, I select all the values I have recorded within the last 1 minute for all time series that have the metric name prometheus_http_requests_total and a handler label set to /metrics:
-prometheus_http_requests_total{handler=”/metrics”}[1m] Output from the Prometheus UI:
-# Element prometheus_http_requests_total{code=&amp;#34;200&amp;#34;,handler=&amp;#34;/metrics&amp;#34;,instance=&amp;#34;localhost:9090&amp;#34;,job=&amp;#34;prometheus&amp;#34;} # ValueHere are the definitions from the official document for rate() and irate().</description>
+      <guid>http://localhost:1313/tech/2021-12-21-prometheus-what-is-the-difference-between-rate-and-irate/</guid>
+      <description>&lt;p&gt;Here are the definitions from the official document for &lt;a href=&#34;https://prometheus.io/docs/prometheus/latest/querying/functions/#rate&#34;&gt;rate()&lt;/a&gt; and &lt;a href=&#34;https://prometheus.io/docs/prometheus/latest/querying/functions/#irate&#34;&gt;irate()&lt;/a&gt;. But if you still don’t quite understand, check the examples below.&lt;/p&gt;&#xA;&lt;p&gt;In this example, I select all the values I have recorded within the last 1 minute for all time series that have the metric name prometheus_http_requests_total and a handler label set to /metrics:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;prometheus_http_requests_total{handler=”/metrics”}[1m]&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Output from the Prometheus UI:&lt;/p&gt;&#xA;&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;# Element&#xA;prometheus_http_requests_total{code=&amp;#34;200&amp;#34;,handler=&amp;#34;/metrics&amp;#34;,instance=&amp;#34;localhost:9090&amp;#34;,job=&amp;#34;prometheus&amp;#34;}&#xA;# ValueHere are the definitions from the official document for rate() and irate(). But if you still don’t quite understand, check the examples below.&#xA;&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In this example, I select all the values I have recorded within the last 1 minute for all time series that have the metric name prometheus_http_requests_total and a handler label set to /metrics:&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

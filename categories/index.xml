@@ -2,19 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Sean&#39;s Blog</title>
-    <link>https://tsaisean.github.io/categories/</link>
+    <link>http://localhost:1313/categories/</link>
     <description>Recent content in Categories on Sean&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Dec 2024 12:00:00 +0000</lastBuildDate><atom:link href="https://tsaisean.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Dec 2024 12:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Tech</title>
-      <link>https://tsaisean.github.io/categories/tech/</link>
+      <link>http://localhost:1313/categories/tech/</link>
       <pubDate>Sun, 01 Dec 2024 12:00:00 +0000</pubDate>
-      
-      <guid>https://tsaisean.github.io/categories/tech/</guid>
+      <guid>http://localhost:1313/categories/tech/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

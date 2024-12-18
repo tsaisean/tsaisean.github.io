@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,27 +10,30 @@
     <meta property="og:type" content="article">
 
     
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QKQH302EGW"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-QKQH302EGW', { 'anonymize_ip': false });
-}
-</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKQH302EGW"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-QKQH302EGW');
+        }
+      </script>
+    
+    
+    <meta property="og:image" content="http://localhost:1313//img/Landscape-backgrounds-Free.jpeg">
+    <meta property="twitter:image" content="http://localhost:1313//img/Landscape-backgrounds-Free.jpeg" />
+    
 
     
-    
-    <meta property="og:image" content="https://tsaisean.github.io//img/Landscape-backgrounds-Free.jpeg">
-    <meta property="twitter:image" content="https://tsaisean.github.io//img/Landscape-backgrounds-Free.jpeg" />
-    
-
-    
-    <meta name="title" content="Java" />
-    <meta property="og:title" content="Java" />
-    <meta property="twitter:title" content="Java" />
+    <meta name="title" content="" />
+    <meta property="og:title" content="" />
+    <meta property="twitter:title" content="" />
     
 
     
@@ -190,14 +193,145 @@ if (!doNotTrack) {
             
 
 <div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2024-12-15-back-to-java-fundamentals/">
+    <a href="http://localhost:1313/tech/2024-12-15-back-to-java-fundamentals/">
         <h2 class="post-title">
             Back to Java Fundamentals
         </h2>
 	
         <div class="post-content-preview">
 	
-            1. Types Type Size (Bits) Default Value Range Example byte 8 0 -128 to 127 byte b = 10; short 16 0 -32,768 to 32,767 short s = 100; int 32 0 -2,147,483,648 to 2,147,483,647 int i = 12345; long 64 0L -2^63 to (2^63)-1 long l = 123456L; float 32 0.0f ~7 decimal digits float f = 3.14f; double 64 0.0d ~16 decimal digits double d = 3.14; char 16 &lsquo;\u0000&rsquo; 0 to 65,535 (Unicode) char c = 'A'; boolean 1 bit (logical) false true or false boolean b = true; 1.
+            <h1 id="1-types">1. Types</h1>
+<table>
+  <thead>
+      <tr>
+          <th><strong>Type</strong></th>
+          <th><strong>Size (Bits)</strong></th>
+          <th><strong>Default Value</strong></th>
+          <th><strong>Range</strong></th>
+          <th><strong>Example</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>byte</code></td>
+          <td>8</td>
+          <td>0</td>
+          <td>-128 to 127</td>
+          <td><code>byte b = 10;</code></td>
+      </tr>
+      <tr>
+          <td><code>short</code></td>
+          <td>16</td>
+          <td>0</td>
+          <td>-32,768 to 32,767</td>
+          <td><code>short s = 100;</code></td>
+      </tr>
+      <tr>
+          <td><code>int</code></td>
+          <td>32</td>
+          <td>0</td>
+          <td>-2,147,483,648 to 2,147,483,647</td>
+          <td><code>int i = 12345;</code></td>
+      </tr>
+      <tr>
+          <td><code>long</code></td>
+          <td>64</td>
+          <td>0L</td>
+          <td>-2^63 to (2^63)-1</td>
+          <td><code>long l = 123456L;</code></td>
+      </tr>
+      <tr>
+          <td><code>float</code></td>
+          <td>32</td>
+          <td>0.0f</td>
+          <td>~7 decimal digits</td>
+          <td><code>float f = 3.14f;</code></td>
+      </tr>
+      <tr>
+          <td><code>double</code></td>
+          <td>64</td>
+          <td>0.0d</td>
+          <td>~16 decimal digits</td>
+          <td><code>double d = 3.14;</code></td>
+      </tr>
+      <tr>
+          <td><code>char</code></td>
+          <td>16</td>
+          <td>&lsquo;\u0000&rsquo;</td>
+          <td>0 to 65,535 (Unicode)</td>
+          <td><code>char c = 'A';</code></td>
+      </tr>
+      <tr>
+          <td><code>boolean</code></td>
+          <td>1 bit (logical)</td>
+          <td><code>false</code></td>
+          <td><code>true</code> or <code>false</code></td>
+          <td><code>boolean b = true;</code></td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="11-common-errors-and-pitfalls">1.1 Common Errors and Pitfalls</h2>
+<h3 id="numeric-overflow">Numeric Overflow</h3>
+<ul>
+<li>Cause: Exceeding the range of a numeric type.</li>
+<li>Example:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#8be9fd">byte</span> b <span style="color:#ff79c6">=</span> 127;
+</span></span><span style="display:flex;"><span>b<span style="color:#ff79c6">++</span>; <span style="color:#6272a4">// Wraps to -128</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="uninitialized-variables">Uninitialized Variables</h3>
+<ul>
+<li>Cause: Using a local variable without initializing it.</li>
+<li>Example:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#8be9fd">int</span> x;
+</span></span><span style="display:flex;"><span>System.<span style="color:#50fa7b">out</span>.<span style="color:#50fa7b">println</span>(x); <span style="color:#6272a4">// Compilation Error</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="missing-type-parameters">Missing Type Parameters</h3>
+<ul>
+<li>Cause: Not specifying type parameters in generics, leading to runtime issues.</li>
+<li>Example:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>List list <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> ArrayList(); <span style="color:#6272a4">// Raw type, can cause ClassCastException</span>
+</span></span><span style="display:flex;"><span>list.<span style="color:#50fa7b">add</span>(123);
+</span></span><span style="display:flex;"><span>String str <span style="color:#ff79c6">=</span> (String) list.<span style="color:#50fa7b">get</span>(0); <span style="color:#6272a4">// Fails at runtime</span>
+</span></span></code></pre></div></li>
+</ul>
+<h3 id="12-string">1.2 String</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">class</span> <span style="color:#50fa7b">Test</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">public</span> <span style="color:#8be9fd;font-style:italic">static</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">main</span>(String<span style="color:#ff79c6">[]</span> args) {
+</span></span><span style="display:flex;"><span>        String s1 <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Hello&#34;</span>;
+</span></span><span style="display:flex;"><span>        String s2 <span style="color:#ff79c6">=</span> <span style="color:#f1fa8c">&#34;Hello&#34;</span>;
+</span></span><span style="display:flex;"><span>        String s3 <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> String(<span style="color:#f1fa8c">&#34;Hello&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#50fa7b">out</span>.<span style="color:#50fa7b">println</span>(s1 <span style="color:#ff79c6">==</span> s2); <span style="color:#6272a4">// true</span>
+</span></span><span style="display:flex;"><span>        System.<span style="color:#50fa7b">out</span>.<span style="color:#50fa7b">println</span>(s1 <span style="color:#ff79c6">==</span> s3); <span style="color:#6272a4">// false</span>
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol>
+<li>s1 == s2:
+<ul>
+<li>Both s1 and s2 reference the same string literal &ldquo;Hello&rdquo;, which is stored in the string pool.</li>
+<li>Since both variables point to the same object in memory, s1 == s2 evaluates to true.</li>
+</ul>
+</li>
+<li>s1 == s3:
+<ul>
+<li>s3 is created with the new keyword, which creates a new object in memory, even though it has the same content as s1.</li>
+<li>Since s1 and s3 refer to different objects, s1 == s3 evaluates to false.</li>
+</ul>
+</li>
+</ol>
+<h3 id="13-order-of-operations">1.3 Order of Operations</h3>
+<ul>
+<li>Java follows operator precedence:
+<ul>
+<li>Pre/Post-Increment and Decrement (x++, &ndash;y) are evaluated first.</li>
+<li>Multiplication Divide (* /) is evaluated next.</li>
+<li>Addition Deduction (+ -) is evaluated last.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Example:</strong></p>
        
         </div>
     </a>
@@ -213,16 +347,32 @@ if (!doNotTrack) {
 <hr>
 
 <div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2022-08-12-how-to-invoke-a-method-in-the-jar/">
+    <a href="http://localhost:1313/tech/2022-08-12-how-to-invoke-a-method-in-the-jar/">
         <h2 class="post-title">
             How to invoke a method in the jar?
         </h2>
 	
         <div class="post-content-preview">
 	
-            We can use URLClassLoader to load classes from a given path.
-URL myJar = new File(&#34;jar/LibraryA-1.0-SNAPSHOT.jar&#34;).toURI().toURL(); URLClassLoader clsLoader = new URLClassLoader( new URL[] {myJar}, this.getClass().getClassLoader() ); Class&lt;?&gt; loadedClass = clsLoader.loadClass(&#34;com.sean.liba.Main&#34;); Method method = loadedClass.getDeclaredMethod(&#34;print&#34;); Object instance = loadedClass.newInstance(); method.invoke(instance); // Output: Hello World! Let&rsquo;s look at other use cases. What if you have two jars, and liba.jar deppends on another class in the libb.jar?
-Take the above example, the print method has a dependency on the com.
+            <p>We can use <a href="https://docs.oracle.com/javase/8/docs/api/java/net/URLClassLoader.html">URLClassLoader</a> to load classes from a given path.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>      URL myJar <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> File(<span style="color:#f1fa8c">&#34;jar/LibraryA-1.0-SNAPSHOT.jar&#34;</span>).<span style="color:#50fa7b">toURI</span>().<span style="color:#50fa7b">toURL</span>();
+</span></span><span style="display:flex;"><span>      URLClassLoader clsLoader <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> URLClassLoader(
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">new</span> URL<span style="color:#ff79c6">[]</span> {myJar},
+</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">this</span>.<span style="color:#50fa7b">getClass</span>().<span style="color:#50fa7b">getClassLoader</span>()
+</span></span><span style="display:flex;"><span>      );
+</span></span><span style="display:flex;"><span>      Class<span style="color:#ff79c6">&lt;?&gt;</span> loadedClass <span style="color:#ff79c6">=</span> clsLoader.<span style="color:#50fa7b">loadClass</span>(<span style="color:#f1fa8c">&#34;com.sean.liba.Main&#34;</span>);
+</span></span><span style="display:flex;"><span>      Method method <span style="color:#ff79c6">=</span> loadedClass.<span style="color:#50fa7b">getDeclaredMethod</span>(<span style="color:#f1fa8c">&#34;print&#34;</span>);
+</span></span><span style="display:flex;"><span>      Object instance <span style="color:#ff79c6">=</span> loadedClass.<span style="color:#50fa7b">newInstance</span>();
+</span></span><span style="display:flex;"><span>      method.<span style="color:#50fa7b">invoke</span>(instance);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#6272a4">// Output: Hello World!</span>
+</span></span></code></pre></div><p>Let&rsquo;s look at other use cases. What if you have two jars, and <strong>liba.jar</strong> deppends on another class in the <strong>libb.jar</strong>?</p>
+<p>
+  <img src="/img/tech/2022-08-12/1.png" alt="">
+
+</p>
+<p>Take the above example, the <code>print</code> method has a dependency on the <code>com.sean.libb.Caculator</code> class.
+If we dont&rsquo;t change the code, and run it again, you will get an error immediately.</p>
        
         </div>
     </a>
@@ -318,7 +468,7 @@ Take the above example, the print method has a dependency on the com.
             
             
                
-                    <a href="/tags/app-script" title="app-script...">
+                    <a href="/tags/app-script" title="app script...">
                         App Script (1)
                     </a>
                
@@ -336,7 +486,7 @@ Take the above example, the print method has a dependency on the com.
                
             
                
-                    <a href="/tags/google-sheets" title="google-sheets...">
+                    <a href="/tags/google-sheets" title="google sheets...">
                         Google Sheets (1)
                     </a>
                
@@ -480,19 +630,6 @@ Take the above example, the print method has a dependency on the com.
 
 
 
-
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'G-QKQH302EGW', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 

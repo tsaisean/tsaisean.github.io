@@ -2,19 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Git on Sean&#39;s Blog</title>
-    <link>https://tsaisean.github.io/tags/git/</link>
+    <link>http://localhost:1313/tags/git/</link>
     <description>Recent content in Git on Sean&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Sep 2021 12:00:00 +0000</lastBuildDate><atom:link href="https://tsaisean.github.io/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 02 Sep 2021 12:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/git/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to cherry-pick a commit from another git repository?</title>
-      <link>https://tsaisean.github.io/tech/2021-09-02-how-to-cherry-pick-a-commit-from-another-git-repository/</link>
+      <link>http://localhost:1313/tech/2021-09-02-how-to-cherry-pick-a-commit-from-another-git-repository/</link>
       <pubDate>Thu, 02 Sep 2021 12:00:00 +0000</pubDate>
-      
-      <guid>https://tsaisean.github.io/tech/2021-09-02-how-to-cherry-pick-a-commit-from-another-git-repository/</guid>
-      <description># Adding (as &amp;#34;other&amp;#34;) the repo from we want to cherry-pick $ git remote add other git://github.com/username/repo.git # Fetch the &amp;#34;other&amp;#34; branch $ git fetch other # Cherry-pick the commit we need $ git cherry-pick 0549522 </description>
+      <guid>http://localhost:1313/tech/2021-09-02-how-to-cherry-pick-a-commit-from-another-git-repository/</guid>
+      <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Adding (as &amp;#34;other&amp;#34;) the repo from we want to cherry-pick&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git remote add other git://github.com/username/repo.git&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Fetch the &amp;#34;other&amp;#34; branch&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git fetch other&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;# Cherry-pick the commit we need&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;$ git cherry-pick &lt;span style=&#34;color:#bd93f9&#34;&gt;0549522&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
-    
   </channel>
 </rss>

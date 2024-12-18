@@ -2,73 +2,60 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Sean&#39;s Blog</title>
-    <link>https://tsaisean.github.io/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Sean&#39;s Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Dec 2024 12:00:00 +0000</lastBuildDate><atom:link href="https://tsaisean.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Dec 2024 12:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Java</title>
-      <link>https://tsaisean.github.io/tags/java/</link>
+      <link>http://localhost:1313/tags/java/</link>
       <pubDate>Sun, 01 Dec 2024 12:00:00 +0000</pubDate>
-      
-      <guid>https://tsaisean.github.io/tags/java/</guid>
+      <guid>http://localhost:1313/tags/java/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Elasticsearch</title>
-      <link>https://tsaisean.github.io/tags/elasticsearch/</link>
+      <link>http://localhost:1313/tags/elasticsearch/</link>
       <pubDate>Fri, 27 May 2022 12:00:00 +0000</pubDate>
-      
-      <guid>https://tsaisean.github.io/tags/elasticsearch/</guid>
+      <guid>http://localhost:1313/tags/elasticsearch/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>App Script</title>
-      <link>https://tsaisean.github.io/tags/app-script/</link>
+      <link>http://localhost:1313/tags/app-script/</link>
       <pubDate>Fri, 28 Jan 2022 12:00:00 +0000</pubDate>
-      
-      <guid>https://tsaisean.github.io/tags/app-script/</guid>
+      <guid>http://localhost:1313/tags/app-script/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Google Sheets</title>
-      <link>https://tsaisean.github.io/tags/google-sheets/</link>
+      <link>http://localhost:1313/tags/google-sheets/</link>
       <pubDate>Fri, 28 Jan 2022 12:00:00 +0000</pubDate>
-      
-      <guid>https://tsaisean.github.io/tags/google-sheets/</guid>
+      <guid>http://localhost:1313/tags/google-sheets/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Prometheus</title>
-      <link>https://tsaisean.github.io/tags/prometheus/</link>
+      <link>http://localhost:1313/tags/prometheus/</link>
       <pubDate>Tue, 21 Dec 2021 12:00:00 +0000</pubDate>
-      
-      <guid>https://tsaisean.github.io/tags/prometheus/</guid>
+      <guid>http://localhost:1313/tags/prometheus/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Zsh</title>
-      <link>https://tsaisean.github.io/tags/zsh/</link>
+      <link>http://localhost:1313/tags/zsh/</link>
       <pubDate>Tue, 30 Nov 2021 12:00:00 +0000</pubDate>
-      
-      <guid>https://tsaisean.github.io/tags/zsh/</guid>
+      <guid>http://localhost:1313/tags/zsh/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Git</title>
-      <link>https://tsaisean.github.io/tags/git/</link>
+      <link>http://localhost:1313/tags/git/</link>
       <pubDate>Thu, 02 Sep 2021 12:00:00 +0000</pubDate>
-      
-      <guid>https://tsaisean.github.io/tags/git/</guid>
+      <guid>http://localhost:1313/tags/git/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

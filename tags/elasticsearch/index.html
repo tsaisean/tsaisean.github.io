@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,27 +10,30 @@
     <meta property="og:type" content="article">
 
     
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QKQH302EGW"></script>
-<script>
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.dataLayer = window.dataLayer || [];
-	function gtag(){dataLayer.push(arguments);}
-	gtag('js', new Date());
-	gtag('config', 'G-QKQH302EGW', { 'anonymize_ip': false });
-}
-</script>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKQH302EGW"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-QKQH302EGW');
+        }
+      </script>
+    
+    
+    <meta property="og:image" content="http://localhost:1313//img/Landscape-backgrounds-Free.jpeg">
+    <meta property="twitter:image" content="http://localhost:1313//img/Landscape-backgrounds-Free.jpeg" />
+    
 
     
-    
-    <meta property="og:image" content="https://tsaisean.github.io//img/Landscape-backgrounds-Free.jpeg">
-    <meta property="twitter:image" content="https://tsaisean.github.io//img/Landscape-backgrounds-Free.jpeg" />
-    
-
-    
-    <meta name="title" content="Elasticsearch" />
-    <meta property="og:title" content="Elasticsearch" />
-    <meta property="twitter:title" content="Elasticsearch" />
+    <meta name="title" content="" />
+    <meta property="og:title" content="" />
+    <meta property="twitter:title" content="" />
     
 
     
@@ -190,7 +193,7 @@ if (!doNotTrack) {
             
 
 <div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max-copy/">
+    <a href="http://localhost:1313/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query---dis_max-copy/">
         <h2 class="post-title">
             [Elasticsearch] Working with disjunction max query - dis_max
         </h2>
@@ -229,7 +232,7 @@ if (!doNotTrack) {
 <hr>
 
 <div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2022-05-26-elasticsearch-how-to-use-minimum_should_match-and-operator-with-match-query/">
+    <a href="http://localhost:1313/tech/2022-05-26-elasticsearch-how-to-use-minimum_should_match-and-operator-with-match-query/">
         <h2 class="post-title">
             [Elasticsearch] How to use minimum_should_match and operator with match query?
         </h2>
@@ -263,16 +266,28 @@ if (!doNotTrack) {
 <hr>
 
 <div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2022-01-07-elasticsearch-function-score-query/">
+    <a href="http://localhost:1313/tech/2022-01-07-elasticsearch-function-score-query/">
         <h2 class="post-title">
             [Elasticsearch] Function score query
         </h2>
 	
         <div class="post-content-preview">
 	
-            By reading the official document of the Function score query, I still couldn&rsquo;t get a sense of how to use it correctly. After reading through more articles written by others, here&rsquo;s how I interpret it with the formula of the newly computed score:
-function_score = min(score_mode(f1_score, f2_score, ...), max_boost) _score = boost_mode(boost*query_score, function_score) Example 1:
-{ &#34;query&#34;: { &#34;function_score&#34;: { &#34;query&#34;: { &#34;match_all&#34;: {} }, &#34;boost&#34;: &#34;5&#34;, &#34;random_score&#34;: {}, &#34;boost_mode&#34;: &#34;multiply&#34; } } } Score:
+            <p>By reading the official document of the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-function-score-query.html#function-weight">Function score query</a>, I still couldn&rsquo;t get a sense of how to use it correctly. After reading through more articles written by others, here&rsquo;s how I interpret it with the formula of the newly computed score:</p>
+<pre tabindex="0"><code>function_score = min(score_mode(f1_score, f2_score, ...), max_boost)
+_score = boost_mode(boost*query_score, function_score)
+</code></pre><p>Example 1:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;query&#34;</span>: {
+</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;function_score&#34;</span>: {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;query&#34;</span>: { <span style="color:#ff79c6">&#34;match_all&#34;</span>: {} },
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;boost&#34;</span>: <span style="color:#f1fa8c">&#34;5&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;random_score&#34;</span>: {}, 
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;boost_mode&#34;</span>: <span style="color:#f1fa8c">&#34;multiply&#34;</span>
+</span></span><span style="display:flex;"><span>      }
+</span></span><span style="display:flex;"><span>   }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Score:</p>
        
         </div>
     </a>
@@ -368,7 +383,7 @@ function_score = min(score_mode(f1_score, f2_score, ...), max_boost) _score = bo
             
             
                
-                    <a href="/tags/app-script" title="app-script...">
+                    <a href="/tags/app-script" title="app script...">
                         App Script (1)
                     </a>
                
@@ -386,7 +401,7 @@ function_score = min(score_mode(f1_score, f2_score, ...), max_boost) _score = bo
                
             
                
-                    <a href="/tags/google-sheets" title="google-sheets...">
+                    <a href="/tags/google-sheets" title="google sheets...">
                         Google Sheets (1)
                     </a>
                
@@ -530,19 +545,6 @@ function_score = min(score_mode(f1_score, f2_score, ...), max_boost) _score = bo
 
 
 
-
-
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'G-QKQH302EGW', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
 
 
 
