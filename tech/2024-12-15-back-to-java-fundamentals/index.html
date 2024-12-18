@@ -215,11 +215,50 @@ if (!doNotTrack) {
                 post-container">
 
                 
+                <header>
+                    <h2>Table Of Contents</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-types">1. Types</a>
+      <ul>
+        <li><a href="#11-common-errors-and-pitfalls">1.1 Common Errors and Pitfalls</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-class">2. Class</a>
+      <ul>
+        <li><a href="#21-inheritance">2.1 Inheritance</a></li>
+        <li><a href="#22-access-modifiers-publicprotectedprivate">2.2 Access Modifiers (public/protected/private)</a></li>
+        <li><a href="#23-abstract-class">2.3 Abstract Class</a></li>
+        <li><a href="#24-inner-class">2.4 Inner Class</a></li>
+        <li><a href="#25-static-methods">2.5 Static Methods</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-interface--method-references">3. Interface &amp; Method References</a>
+      <ul>
+        <li><a href="#31-default-methods">3.1 Default Methods</a></li>
+        <li><a href="#32-functionalinterface-annotation">3.2 <code>@FunctionalInterface</code> Annotation</a></li>
+        <li><a href="#33-method-references">3.3 Method References</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-lambdas">4. Lambdas</a></li>
+    <li><a href="#5-streams">5. Streams</a></li>
+    <li><a href="#6-transient-keyword">6. <code>transient</code> Keyword</a></li>
+    <li><a href="#7-volatile-keyword">7. <code>volatile</code> Keyword</a></li>
+    <li><a href="#8-other-noteworthy-java-features">8. Other Noteworthy Java Features</a>
+      <ul>
+        <li><a href="#81-var-keywords">8.1 var Keywords</a></li>
+        <li><a href="#82-records">8.2 Records</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
 
                 
                 
                 
-                <h2 id="1-types">1. Types</h2>
+                <h1 id="1-types">1. Types</h1>
 <table>
 <thead>
 <tr>
@@ -289,8 +328,8 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-<h3 id="11-common-errors-and-pitfalls">1.1 Common Errors and Pitfalls</h3>
-<h4 id="numeric-overflow">Numeric Overflow</h4>
+<h2 id="11-common-errors-and-pitfalls">1.1 Common Errors and Pitfalls</h2>
+<h3 id="numeric-overflow">Numeric Overflow</h3>
 <ul>
 <li>Cause: Exceeding the range of a numeric type.</li>
 <li>Example:
@@ -298,7 +337,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>b<span style="color:#ff79c6">++;</span> <span style="color:#6272a4">// Wraps to -128
 </span></span></span></code></pre></div></li>
 </ul>
-<h4 id="uninitialized-variables">Uninitialized Variables</h4>
+<h3 id="uninitialized-variables">Uninitialized Variables</h3>
 <ul>
 <li>Cause: Using a local variable without initializing it.</li>
 <li>Example:
@@ -306,7 +345,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>x<span style="color:#ff79c6">);</span> <span style="color:#6272a4">// Compilation Error
 </span></span></span></code></pre></div></li>
 </ul>
-<h4 id="missing-type-parameters">Missing Type Parameters</h4>
+<h3 id="missing-type-parameters">Missing Type Parameters</h3>
 <ul>
 <li>Cause: Not specifying type parameters in generics, leading to runtime issues.</li>
 <li>Example:
@@ -359,14 +398,14 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>z<span style="color:#ff79c6">);</span> <span style="color:#6272a4">// Output: 46
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
-</span></span></code></pre></div><h2 id="2-class">2. Class</h2>
-<h3 id="21-inheritance">2.1 Inheritance</h3>
+</span></span></code></pre></div><h1 id="2-class">2. Class</h1>
+<h2 id="21-inheritance">2.1 Inheritance</h2>
 <ul>
 <li>Java does <strong>not</strong> support multiple inheritance with classes. A class can only extend <strong>one superclass</strong> at a time.</li>
 <li>This restriction avoids ambiguity problems caused by multiple inheritance, such as the <strong>Diamond Problem</strong>.</li>
 <li>In Java, when a class constructor is invoked, the constructor of its superclass is automatically called <strong>before</strong> the subclass constructor.</li>
 </ul>
-<h3 id="22-access-modifiers-publicprotectedprivate">2.2 Access Modifiers (public/protected/private)</h3>
+<h2 id="22-access-modifiers-publicprotectedprivate">2.2 Access Modifiers (public/protected/private)</h2>
 <table>
 <thead>
 <tr>
@@ -411,9 +450,9 @@ if (!doNotTrack) {
 <ul>
 <li>In Java, <strong>default</strong> visibility also called package-private.</li>
 </ul>
-<h3 id="23-abstract-class">2.3 Abstract Class</h3>
+<h2 id="23-abstract-class">2.3 Abstract Class</h2>
 <p>Abstract classes in Java <strong>can have constructors</strong>. However, you cannot directly instantiate an abstract class using the <code>new</code> keyword.</p>
-<h3 id="24-inner-class">2.4 Inner Class</h3>
+<h2 id="24-inner-class">2.4 Inner Class</h2>
 <p>There are four main types of inner classes:</p>
 <ol>
 <li>
@@ -465,7 +504,7 @@ if (!doNotTrack) {
 </ul>
 </li>
 </ol>
-<h3 id="25-static-methods">2.5 Static Methods</h3>
+<h2 id="25-static-methods">2.5 Static Methods</h2>
 <ul>
 <li>Static methods are <strong>not overridden</strong>; they are instead <strong>hidden</strong> when redefined in a subclass.</li>
 <li>The method called is determined by the <strong>type of the reference variable</strong>, not the actual object type.</li>
@@ -489,11 +528,11 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>        obj<span style="color:#ff79c6">.</span><span style="color:#50fa7b">display</span><span style="color:#ff79c6">();</span> <span style="color:#6272a4">// Output: Parent static method
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
-</span></span></code></pre></div><h2 id="3-interface--method-references">3. Interface &amp; Method References</h2>
+</span></span></code></pre></div><h1 id="3-interface--method-references">3. Interface &amp; Method References</h1>
 <ul>
 <li>Since <strong>Java 8</strong>, interfaces can define <strong>static methods</strong>.</li>
 </ul>
-<h3 id="31-default-methods">3.1 Default Methods</h3>
+<h2 id="31-default-methods">3.1 Default Methods</h2>
 <p>Introduced in Java 8, default methods allow interfaces to have method implementations without breaking existing implementations of those interfaces.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">interface</span> <span style="color:#50fa7b">MyInterface</span> <span style="color:#ff79c6">{</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">default</span> <span style="color:#8be9fd">void</span> <span style="color:#50fa7b">printMessage</span><span style="color:#ff79c6">()</span> <span style="color:#ff79c6">{</span>
@@ -509,7 +548,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>        obj<span style="color:#ff79c6">.</span><span style="color:#50fa7b">printMessage</span><span style="color:#ff79c6">();</span> <span style="color:#6272a4">// Output: This is a default method.
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
-</span></span></code></pre></div><h3 id="32-functionalinterface-annotation">3.2 <code>@FunctionalInterface</code> Annotation</h3>
+</span></span></code></pre></div><h2 id="32-functionalinterface-annotation">3.2 <code>@FunctionalInterface</code> Annotation</h2>
 <p>The <code>@FunctionalInterface</code> annotation is used in Java to mark an interface as a <code>functional interface</code>. A functional interface is an interface with exactly <code>one abstract method</code>, making it suitable for use with <code>lambda expressions</code>.</p>
 <ul>
 <li>The interface must have exactly one abstract method.</li>
@@ -533,7 +572,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>        greeting<span style="color:#ff79c6">.</span><span style="color:#50fa7b">sayHello</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Alice&#34;</span><span style="color:#ff79c6">);</span> <span style="color:#6272a4">// Output: Hello, Alice
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
-</span></span></code></pre></div><h3 id="33-method-references">3.3 Method References</h3>
+</span></span></code></pre></div><h2 id="33-method-references">3.3 Method References</h2>
 <p>Method references were introduced in Java 8 as a shorthand for writing lambda expressions.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> java.util.Arrays<span style="color:#ff79c6">;</span>
 </span></span><span style="display:flex;"><span>
@@ -550,12 +589,12 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>Arrays<span style="color:#ff79c6">.</span><span style="color:#50fa7b">toString</span><span style="color:#ff79c6">(</span>names<span style="color:#ff79c6">));</span> <span style="color:#6272a4">// Output: [Alice, Bob, John]
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
-</span></span></code></pre></div><h2 id="4-lambdas">4. Lambdas</h2>
+</span></span></code></pre></div><h1 id="4-lambdas">4. Lambdas</h1>
 <p>Lambdas were also introduced in Java 8, enabling functional programming. A lambda expression is a concise way to represent a method in code.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>List<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">&gt;</span> names <span style="color:#ff79c6">=</span> Arrays<span style="color:#ff79c6">.</span><span style="color:#50fa7b">asList</span><span style="color:#ff79c6">(</span><span style="color:#f1fa8c">&#34;Java&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;Python&#34;</span><span style="color:#ff79c6">,</span> <span style="color:#f1fa8c">&#34;C++&#34;</span><span style="color:#ff79c6">);</span>
 </span></span><span style="display:flex;"><span>names<span style="color:#ff79c6">.</span><span style="color:#50fa7b">forEach</span><span style="color:#ff79c6">(</span>name <span style="color:#ff79c6">-&gt;</span> System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>name<span style="color:#ff79c6">));</span>
 </span></span></code></pre></div><p>Lambdas are commonly used in streams and functional interfaces.</p>
-<h2 id="5-streams">5. Streams</h2>
+<h1 id="5-streams">5. Streams</h1>
 <p>Streams provide a functional approach to processing collections of data in Java 8 and later.</p>
 <p>Features:</p>
 <ul>
@@ -568,7 +607,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>                               <span style="color:#ff79c6">.</span><span style="color:#50fa7b">collect</span><span style="color:#ff79c6">(</span>Collectors<span style="color:#ff79c6">.</span><span style="color:#50fa7b">toList</span><span style="color:#ff79c6">());</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>squared<span style="color:#ff79c6">);</span> <span style="color:#6272a4">// Output: [1, 4, 9, 16, 25]
-</span></span></span></code></pre></div><h2 id="6-transient-keyword">6. <code>transient</code> Keyword</h2>
+</span></span></span></code></pre></div><h1 id="6-transient-keyword">6. <code>transient</code> Keyword</h1>
 <p>The transient keyword is used in the context of serialization. When an object is serialized (converted to a byte stream), the transient keyword prevents certain fields from being included in the serialized data.</p>
 <p><strong>Example:</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span><span style="color:#ff79c6">import</span> java.io.*<span style="color:#ff79c6">;</span>
@@ -606,7 +645,7 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        System<span style="color:#ff79c6">.</span><span style="color:#50fa7b">out</span><span style="color:#ff79c6">.</span><span style="color:#50fa7b">println</span><span style="color:#ff79c6">(</span>deserializedUser<span style="color:#ff79c6">);</span> <span style="color:#6272a4">// Output: User{username=&#39;Alice&#39;, password=&#39;null&#39;}
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    <span style="color:#ff79c6">}</span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">}</span>
-</span></span></code></pre></div><h2 id="7-volatile-keyword">7. <code>volatile</code> Keyword</h2>
+</span></span></code></pre></div><h1 id="7-volatile-keyword">7. <code>volatile</code> Keyword</h1>
 <p>The volatile keyword is used in the context of multithreading. It ensures that a variable’s value is always read directly from main memory, making it visible to all threads.</p>
 <ul>
 <li>Volatile Does Not Ensure Atomicity:
@@ -615,8 +654,8 @@ if (!doNotTrack) {
 </ul>
 </li>
 </ul>
-<h2 id="8-other-noteworthy-java-features">8. Other Noteworthy Java Features</h2>
-<h3 id="81-var-keywords">8.1 var Keywords</h3>
+<h1 id="8-other-noteworthy-java-features">8. Other Noteworthy Java Features</h1>
+<h2 id="81-var-keywords">8.1 var Keywords</h2>
 <p>Introduced in Java 10, var allows the compiler to infer the type of variables. For long or nested types, var reduces verbosity.</p>
 <h4 id="rules-and-characteristics-of-var">Rules and Characteristics of <code>var</code></h4>
 <ol>
@@ -628,7 +667,7 @@ if (!doNotTrack) {
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Java" data-lang="Java"><span style="display:flex;"><span>Map<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> List<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;&gt;</span> map <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> HashMap<span style="color:#ff79c6">&lt;&gt;();</span>
 </span></span><span style="display:flex;"><span><span style="color:#6272a4">// With var
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>var map <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> HashMap<span style="color:#ff79c6">&lt;</span>String<span style="color:#ff79c6">,</span> List<span style="color:#ff79c6">&lt;</span>Integer<span style="color:#ff79c6">&gt;&gt;();</span>
-</span></span></code></pre></div><h3 id="82-records">8.2 Records</h3>
+</span></span></code></pre></div><h2 id="82-records">8.2 Records</h2>
 <p>A Record is a special kind of class in Java used to store immutable data.
 It automatically generates:</p>
 <ul>
@@ -660,7 +699,7 @@ It automatically generates:</p>
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max-copy/" data-toggle="tooltip" data-placement="top" title="[Elasticsearch] Working with disjunction max query - dis_max">&larr;
+                        <a href="/tech/2022-08-19-the-difference-between-data-enegineer-and-data-scientist/" data-toggle="tooltip" data-placement="top" title="The difference between data engineer and data scientist">&larr;
                             Previous Post</a>
                     </li>
                     

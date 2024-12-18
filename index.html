@@ -215,6 +215,54 @@ if (!doNotTrack) {
 <hr>
 
 <div class="post-preview">
+    <a href="https://tsaisean.github.io/tech/2022-08-19-the-difference-between-data-enegineer-and-data-scientist/">
+        <h2 class="post-title">
+            The difference between data engineer and data scientist
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            Data Engineer vs Data Scientist: A Comparative Overview Role Aspect Data Engineer Data Scientist Primary Focus Building scalable data architectures and maintaining data pipelines. Extracting insights, identifying patterns, and building predictive models. Responsibilities Designing systems for large-scale data handling.Streamlining data acquisition.Ensuring data quality and integrity. Mining data for patterns and trends. Applying statistical models. Building machine learning-based predictive models. Tools and Technologies Databases: SQL, NoSQL Processing Frameworks: Apache Spark, Hive, Flink, Kafka Scheduling: Apache Airflow, Oozie, Luigi Cloud Platforms: AWS, Azure, GCP Programming: Python, Java, Scala Programming: Python, R Visualization: Tableau, Power BI, Matplotlib, Seaborn ML Frameworks: TensorFlow, PyTorch Big Data: Hadoop, Spark Statistical Software: SAS, MATLAB Skill Focus System design, data pipeline creation, and optimization.
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by Sean&#39;s Blog on Friday, August 19, 2022
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
+    <a href="https://tsaisean.github.io/tech/2022-08-12-how-to-invoke-a-method-in-the-jar/">
+        <h2 class="post-title">
+            How to invoke a method in the jar?
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            We can use URLClassLoader to load classes from a given path.
+URL myJar = new File(&#34;jar/LibraryA-1.0-SNAPSHOT.jar&#34;).toURI().toURL(); URLClassLoader clsLoader = new URLClassLoader( new URL[] {myJar}, this.getClass().getClassLoader() ); Class&lt;?&gt; loadedClass = clsLoader.loadClass(&#34;com.sean.liba.Main&#34;); Method method = loadedClass.getDeclaredMethod(&#34;print&#34;); Object instance = loadedClass.newInstance(); method.invoke(instance); // Output: Hello World! Let&rsquo;s look at other use cases. What if you have two jars, and liba.jar deppends on another class in the libb.jar?
+Take the above example, the print method has a dependency on the com.
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by Sean&#39;s Blog on Friday, August 12, 2022
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
     <a href="https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max-copy/">
         <h2 class="post-title">
             [Elasticsearch] Working with disjunction max query - dis_max
@@ -279,57 +327,6 @@ if (!doNotTrack) {
     <p class="post-meta">
     
         Posted by Sean&#39;s Blog on Thursday, May 26, 2022
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2022-01-28-how-to-get-a-list-of-sheet-names-in-google-sheets-with-script/">
-        <h2 class="post-title">
-            How To Get A List Of Sheet Names In Google Sheets With Script?
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            There&rsquo;s no built-in formula to do this, and we have to write our own script with Google&rsquo;s Apps Script to achieve the function.
-First, go to the Extensions → Apps Script. Second, write our own method getSheetsName in the Apps Script console, and save.
-Code snippets:
-function getSheetsName() { var sheetNames = new Array() var sheets = SpreadsheetApp.getActiveSpreadsheet().getSheets(); for (var i=0 ; i&lt;sheets.length ; i++) { sheetNames.push( [ sheets[i].getName() ] ) } return sheetNames } Then go back to your sheet, and type the formula with the function name we just created in the Apps Script.
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by Sean&#39;s Blog on Friday, January 28, 2022
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2022-01-07-elasticsearch-function-score-query/">
-        <h2 class="post-title">
-            [Elasticsearch] Function score query
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            By reading the official document of the Function score query, I still couldn&rsquo;t get a sense of how to use it correctly. After reading through more articles written by others, here&rsquo;s how I interpret it with the formula of the newly computed score:
-function_score = min(score_mode(f1_score, f2_score, ...), max_boost) _score = boost_mode(boost*query_score, function_score) Example 1:
-{ &#34;query&#34;: { &#34;function_score&#34;: { &#34;query&#34;: { &#34;match_all&#34;: {} }, &#34;boost&#34;: &#34;5&#34;, &#34;random_score&#34;: {}, &#34;boost_mode&#34;: &#34;multiply&#34; } } } Score:
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by Sean&#39;s Blog on Friday, January 7, 2022
         
         
     
@@ -453,7 +450,7 @@ function_score = min(score_mode(f1_score, f2_score, ...), max_boost) _score = bo
             
                
                     <a href="/tags/java" title="java...">
-                        Java (1)
+                        Java (2)
                     </a>
                
             

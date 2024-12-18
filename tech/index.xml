@@ -17,6 +17,26 @@
     </item>
     
     <item>
+      <title>The difference between data engineer and data scientist</title>
+      <link>https://tsaisean.github.io/tech/2022-08-19-the-difference-between-data-enegineer-and-data-scientist/</link>
+      <pubDate>Fri, 19 Aug 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://tsaisean.github.io/tech/2022-08-19-the-difference-between-data-enegineer-and-data-scientist/</guid>
+      <description>Data Engineer vs Data Scientist: A Comparative Overview Role Aspect Data Engineer Data Scientist Primary Focus Building scalable data architectures and maintaining data pipelines. Extracting insights, identifying patterns, and building predictive models. Responsibilities Designing systems for large-scale data handling.Streamlining data acquisition.Ensuring data quality and integrity. Mining data for patterns and trends. Applying statistical models. Building machine learning-based predictive models. Tools and Technologies Databases: SQL, NoSQL Processing Frameworks: Apache Spark, Hive, Flink, Kafka Scheduling: Apache Airflow, Oozie, Luigi Cloud Platforms: AWS, Azure, GCP Programming: Python, Java, Scala Programming: Python, R Visualization: Tableau, Power BI, Matplotlib, Seaborn ML Frameworks: TensorFlow, PyTorch Big Data: Hadoop, Spark Statistical Software: SAS, MATLAB Skill Focus System design, data pipeline creation, and optimization.</description>
+    </item>
+    
+    <item>
+      <title>How to invoke a method in the jar?</title>
+      <link>https://tsaisean.github.io/tech/2022-08-12-how-to-invoke-a-method-in-the-jar/</link>
+      <pubDate>Fri, 12 Aug 2022 12:00:00 +0000</pubDate>
+      
+      <guid>https://tsaisean.github.io/tech/2022-08-12-how-to-invoke-a-method-in-the-jar/</guid>
+      <description>We can use URLClassLoader to load classes from a given path.
+URL myJar = new File(&amp;#34;jar/LibraryA-1.0-SNAPSHOT.jar&amp;#34;).toURI().toURL(); URLClassLoader clsLoader = new URLClassLoader( new URL[] {myJar}, this.getClass().getClassLoader() ); Class&amp;lt;?&amp;gt; loadedClass = clsLoader.loadClass(&amp;#34;com.sean.liba.Main&amp;#34;); Method method = loadedClass.getDeclaredMethod(&amp;#34;print&amp;#34;); Object instance = loadedClass.newInstance(); method.invoke(instance); // Output: Hello World! Let&amp;rsquo;s look at other use cases. What if you have two jars, and liba.jar deppends on another class in the libb.jar?
+Take the above example, the print method has a dependency on the com.</description>
+    </item>
+    
+    <item>
       <title>[Elasticsearch] Working with disjunction max query - dis_max</title>
       <link>https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max-copy/</link>
       <pubDate>Fri, 27 May 2022 12:00:00 +0000</pubDate>
