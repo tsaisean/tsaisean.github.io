@@ -6,24 +6,22 @@
     <description>Recent content in Teches on Sean&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 12 Aug 2022 12:00:00 +0000</lastBuildDate><atom:link href="https://tsaisean.github.io/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Dec 2024 12:00:00 +0000</lastBuildDate><atom:link href="https://tsaisean.github.io/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>How to invoke a method in the jar?</title>
-      <link>https://tsaisean.github.io/tech/2022-08-12-how-to-invoke-a-method-in-the-jar/</link>
-      <pubDate>Fri, 12 Aug 2022 12:00:00 +0000</pubDate>
+      <title>Back to Java Fundamentals</title>
+      <link>https://tsaisean.github.io/tech/2024-12-15-back-to-java-fundamentals/</link>
+      <pubDate>Sun, 01 Dec 2024 12:00:00 +0000</pubDate>
       
-      <guid>https://tsaisean.github.io/tech/2022-08-12-how-to-invoke-a-method-in-the-jar/</guid>
-      <description>We can use URLClassLoader to load classes from a given path.
-URL myJar = new File(&amp;#34;jar/LibraryA-1.0-SNAPSHOT.jar&amp;#34;).toURI().toURL(); URLClassLoader clsLoader = new URLClassLoader( new URL[] {myJar}, this.getClass().getClassLoader() ); Class&amp;lt;?&amp;gt; loadedClass = clsLoader.loadClass(&amp;#34;com.sean.liba.Main&amp;#34;); Method method = loadedClass.getDeclaredMethod(&amp;#34;print&amp;#34;); Object instance = loadedClass.newInstance(); method.invoke(instance); // Output: Hello World! Let&amp;rsquo;s look at other use cases. What if you have two jars, and liba.jar deppends on another class in the libb.jar?
-Take the above example, the print method has a dependency on the com.</description>
+      <guid>https://tsaisean.github.io/tech/2024-12-15-back-to-java-fundamentals/</guid>
+      <description>1. Types Type Size (Bits) Default Value Range Example byte 8 0 -128 to 127 byte b = 10; short 16 0 -32,768 to 32,767 short s = 100; int 32 0 -2,147,483,648 to 2,147,483,647 int i = 12345; long 64 0L -2^63 to (2^63)-1 long l = 123456L; float 32 0.0f ~7 decimal digits float f = 3.14f; double 64 0.0d ~16 decimal digits double d = 3.14; char 16 &amp;lsquo;\u0000&amp;rsquo; 0 to 65,535 (Unicode) char c = &#39;A&#39;; boolean 1 bit (logical) false true or false boolean b = true; 1.</description>
     </item>
     
     <item>
       <title>[Elasticsearch] Working with disjunction max query - dis_max</title>
-      <link>https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max/</link>
+      <link>https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max-copy/</link>
       <pubDate>Fri, 27 May 2022 12:00:00 +0000</pubDate>
       
-      <guid>https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max/</guid>
+      <guid>https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max-copy/</guid>
       <description>&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-json&#34; data-lang=&#34;json&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;GET /_search
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;{
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#ff79c6&#34;&gt;&amp;#34;query&amp;#34;&lt;/span&gt;: {
@@ -36,8 +34,7 @@ Take the above example, the print method has a dependency on the com.</descripti
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#6272a4&#34;&gt;&lt;/span&gt;    }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  }
 &lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;ㄉ12121221
-This is the official document written about &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-dis-max-query.html#query-dsl-dis-max-query&#34;&gt;dis_max&lt;/a&gt;:&lt;/p&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is the official document written about &lt;a href=&#34;https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-dis-max-query.html#query-dsl-dis-max-query&#34;&gt;dis_max&lt;/a&gt;:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Returns documents matching one or more wrapped queries, called query clauses or clauses.&lt;/p&gt;
 &lt;p&gt;If a returned document matches multiple query clauses, the dis_max query assigns the document the highest relevance score from any matching clause, plus a tie breaking increment for any additional matching subqueries.&lt;/p&gt;
