@@ -6,8 +6,15 @@
     <description>Recent content in Tags on Sean&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Dec 2024 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Dec 2024 13:59:24 +0800</lastBuildDate>
     <atom:link href="https://tsaisean.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Database</title>
+      <link>https://tsaisean.github.io/tags/database/</link>
+      <pubDate>Wed, 18 Dec 2024 13:59:24 +0800</pubDate>
+      <guid>https://tsaisean.github.io/tags/database/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Java</title>
       <link>https://tsaisean.github.io/tags/java/</link>

@@ -6,8 +6,15 @@
     <description>Recent content in Tech on Sean&#39;s Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Dec 2024 12:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 18 Dec 2024 13:59:24 +0800</lastBuildDate>
     <atom:link href="https://tsaisean.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Introduction to Database Normalization</title>
+      <link>https://tsaisean.github.io/tech/2024-12-17-introduction-to-database-normalization/</link>
+      <pubDate>Wed, 18 Dec 2024 13:59:24 +0800</pubDate>
+      <guid>https://tsaisean.github.io/tech/2024-12-17-introduction-to-database-normalization/</guid>
+      <description>&lt;h1 id=&#34;introduction-to-database-normalization-1nf-2nf-3nf-and-beyond&#34;&gt;Introduction to Database Normalization: 1NF, 2NF, 3NF, and Beyond&lt;/h1&gt;&#xA;&lt;p&gt;Database normalization is a crucial concept in database design that aims to reduce data redundancy and ensure data integrity. The goal is to structure data in a way that makes it easier to manage and update, while maintaining its consistency. In this post, we&amp;rsquo;ll explore the most commonly used normal forms: &lt;strong&gt;1NF&lt;/strong&gt;, &lt;strong&gt;2NF&lt;/strong&gt;, and &lt;strong&gt;3NF&lt;/strong&gt;, and briefly mention other advanced normal forms (xxNF).&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Back to Java Fundamentals</title>
       <link>https://tsaisean.github.io/tech/2024-12-15-back-to-java-fundamentals/</link>
