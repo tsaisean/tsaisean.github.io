@@ -192,22 +192,20 @@ if (!doNotTrack) {
             
 
 <div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2022-08-12-how-to-invoke-a-method-in-the-jar/">
+    <a href="https://tsaisean.github.io/tech/2024-12-15-back-to-java-fundamentals/">
         <h2 class="post-title">
-            How to invoke a method in the jar?
+            Back to Java Fundamentals
         </h2>
 	
         <div class="post-content-preview">
 	
-            We can use URLClassLoader to load classes from a given path.
-URL myJar = new File(&#34;jar/LibraryA-1.0-SNAPSHOT.jar&#34;).toURI().toURL(); URLClassLoader clsLoader = new URLClassLoader( new URL[] {myJar}, this.getClass().getClassLoader() ); Class&lt;?&gt; loadedClass = clsLoader.loadClass(&#34;com.sean.liba.Main&#34;); Method method = loadedClass.getDeclaredMethod(&#34;print&#34;); Object instance = loadedClass.newInstance(); method.invoke(instance); // Output: Hello World! Let&rsquo;s look at other use cases. What if you have two jars, and liba.jar deppends on another class in the libb.jar?
-Take the above example, the print method has a dependency on the com.
+            1. Types Type Size (Bits) Default Value Range Example byte 8 0 -128 to 127 byte b = 10; short 16 0 -32,768 to 32,767 short s = 100; int 32 0 -2,147,483,648 to 2,147,483,647 int i = 12345; long 64 0L -2^63 to (2^63)-1 long l = 123456L; float 32 0.0f ~7 decimal digits float f = 3.14f; double 64 0.0d ~16 decimal digits double d = 3.14; char 16 &lsquo;\u0000&rsquo; 0 to 65,535 (Unicode) char c = 'A'; boolean 1 bit (logical) false true or false boolean b = true; 1.
        
         </div>
     </a>
     <p class="post-meta">
     
-        Posted by Sean&#39;s Blog on Friday, August 12, 2022
+        Posted by Sean&#39;s Blog on Sunday, December 1, 2024
         
         
     
@@ -217,7 +215,7 @@ Take the above example, the print method has a dependency on the com.
 <hr>
 
 <div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max/">
+    <a href="https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query-dis_max-copy/">
         <h2 class="post-title">
             [Elasticsearch] Working with disjunction max query - dis_max
         </h2>
@@ -236,8 +234,7 @@ Take the above example, the print method has a dependency on the com.
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    }
 </span></span><span style="display:flex;"><span>  }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>ㄉ12121221
-This is the official document written about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-dis-max-query.html#query-dsl-dis-max-query">dis_max</a>:</p>
+</span></span></code></pre></div><p>This is the official document written about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-dis-max-query.html#query-dsl-dis-max-query">dis_max</a>:</p>
 <blockquote>
 <p>Returns documents matching one or more wrapped queries, called query clauses or clauses.</p>
 <p>If a returned document matches multiple query clauses, the dis_max query assigns the document the highest relevance score from any matching clause, plus a tie breaking increment for any additional matching subqueries.</p>
@@ -544,7 +541,7 @@ function_score = min(score_mode(f1_score, f2_score, ...), max_boost) _score = bo
             
              </ul>
 		<p class="copyright text-muted">
-                    Copyright &copy; Sean&#39;s Blog 2022
+                    Copyright &copy; Sean&#39;s Blog 2024
                 </p>
             </div>
         </div>
