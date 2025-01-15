@@ -2,25 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://tsaisean.github.io/tech/2024-12-19-back-to-go-fundamentals/</loc>
+    <lastmod>2024-12-19T12:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://tsaisean.github.io/categories/</loc>
-    <lastmod>2024-12-18T13:59:24+08:00</lastmod>
+    <lastmod>2024-12-19T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tags/go/</loc>
+    <lastmod>2024-12-19T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/</loc>
+    <lastmod>2024-12-19T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tags/</loc>
+    <lastmod>2024-12-19T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/categories/tech/</loc>
+    <lastmod>2024-12-19T12:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://tsaisean.github.io/tech/</loc>
+    <lastmod>2024-12-19T12:00:00+00:00</lastmod>
   </url><url>
     <loc>https://tsaisean.github.io/tags/database/</loc>
     <lastmod>2024-12-18T13:59:24+08:00</lastmod>
   </url><url>
     <loc>https://tsaisean.github.io/tech/2024-12-17-introduction-to-database-normalization/</loc>
-    <lastmod>2024-12-18T13:59:24+08:00</lastmod>
-  </url><url>
-    <loc>https://tsaisean.github.io/</loc>
-    <lastmod>2024-12-18T13:59:24+08:00</lastmod>
-  </url><url>
-    <loc>https://tsaisean.github.io/tags/</loc>
-    <lastmod>2024-12-18T13:59:24+08:00</lastmod>
-  </url><url>
-    <loc>https://tsaisean.github.io/categories/tech/</loc>
-    <lastmod>2024-12-18T13:59:24+08:00</lastmod>
-  </url><url>
-    <loc>https://tsaisean.github.io/tech/</loc>
     <lastmod>2024-12-18T13:59:24+08:00</lastmod>
   </url><url>
     <loc>https://tsaisean.github.io/tags/cs-fundamentals/</loc>

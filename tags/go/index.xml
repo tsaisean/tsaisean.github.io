@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Go on Sean&#39;s Blog</title>
+    <link>https://tsaisean.github.io/tags/go/</link>
+    <description>Recent content in Go on Sean&#39;s Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 Dec 2024 12:00:00 +0000</lastBuildDate>
+    <atom:link href="https://tsaisean.github.io/tags/go/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Back to Go Fundamentals</title>
+      <link>https://tsaisean.github.io/tech/2024-12-19-back-to-go-fundamentals/</link>
+      <pubDate>Thu, 19 Dec 2024 12:00:00 +0000</pubDate>
+      <guid>https://tsaisean.github.io/tech/2024-12-19-back-to-go-fundamentals/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.140.2">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -51,9 +50,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Sean&#39;s Blog |  | Sean&#39;s Blog</title>
+    <title>Go |  | Sean&#39;s Blog</title>
 
-    <link rel="canonical" href="/">
+    <link rel="canonical" href="/tags/go/">
 
     
     
@@ -180,8 +179,7 @@
 
 
 
-  
-<div class="container">
+  <div class="container">
     <div class="row">
         
         
@@ -195,197 +193,20 @@
             
 
 <div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2022-08-12-how-to-invoke-a-method-in-the-jar/">
+    <a href="https://tsaisean.github.io/tech/2024-12-19-back-to-go-fundamentals/">
         <h2 class="post-title">
-            How to invoke a method in the jar?
+            Back to Go Fundamentals
         </h2>
 	
         <div class="post-content-preview">
 	
-            <p>We can use <a href="https://docs.oracle.com/javase/8/docs/api/java/net/URLClassLoader.html">URLClassLoader</a> to load classes from a given path.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>      URL myJar <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> File(<span style="color:#f1fa8c">&#34;jar/LibraryA-1.0-SNAPSHOT.jar&#34;</span>).<span style="color:#50fa7b">toURI</span>().<span style="color:#50fa7b">toURL</span>();
-</span></span><span style="display:flex;"><span>      URLClassLoader clsLoader <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> URLClassLoader(
-</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">new</span> URL<span style="color:#ff79c6">[]</span> {myJar},
-</span></span><span style="display:flex;"><span>              <span style="color:#ff79c6">this</span>.<span style="color:#50fa7b">getClass</span>().<span style="color:#50fa7b">getClassLoader</span>()
-</span></span><span style="display:flex;"><span>      );
-</span></span><span style="display:flex;"><span>      Class<span style="color:#ff79c6">&lt;?&gt;</span> loadedClass <span style="color:#ff79c6">=</span> clsLoader.<span style="color:#50fa7b">loadClass</span>(<span style="color:#f1fa8c">&#34;com.sean.liba.Main&#34;</span>);
-</span></span><span style="display:flex;"><span>      Method method <span style="color:#ff79c6">=</span> loadedClass.<span style="color:#50fa7b">getDeclaredMethod</span>(<span style="color:#f1fa8c">&#34;print&#34;</span>);
-</span></span><span style="display:flex;"><span>      Object instance <span style="color:#ff79c6">=</span> loadedClass.<span style="color:#50fa7b">newInstance</span>();
-</span></span><span style="display:flex;"><span>      method.<span style="color:#50fa7b">invoke</span>(instance);
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>      <span style="color:#6272a4">// Output: Hello World!</span>
-</span></span></code></pre></div><p>Let&rsquo;s look at other use cases. What if you have two jars, and <strong>liba.jar</strong> deppends on another class in the <strong>libb.jar</strong>?</p>
-<p>
-  <img src="/img/tech/2022-08-12/1.png" alt="">
-
-</p>
-<p>Take the above example, the <code>print</code> method has a dependency on the <code>com.sean.libb.Caculator</code> class.
-If we dont&rsquo;t change the code, and run it again, you will get an error immediately.</p>
+            
        
         </div>
     </a>
     <p class="post-meta">
     
-        Posted by Sean&#39;s Blog on Friday, August 12, 2022
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2022-05-27-elasticsearch-working-with-disjunction-max-query---dis_max-copy/">
-        <h2 class="post-title">
-            [Elasticsearch] Working with disjunction max query - dis_max
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>GET /_search
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;query&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;dis_max&#34;</span>: {
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;queries&#34;</span>: [
-</span></span><span style="display:flex;"><span>        { <span style="color:#ff79c6">&#34;term&#34;</span>: { <span style="color:#ff79c6">&#34;title&#34;</span>: <span style="color:#f1fa8c">&#34;iphone&#34;</span> } },
-</span></span><span style="display:flex;"><span>        { <span style="color:#ff79c6">&#34;term&#34;</span>: { <span style="color:#ff79c6">&#34;body&#34;</span>: <span style="color:#f1fa8c">&#34;iphone&#34;</span> } }
-</span></span><span style="display:flex;"><span>      ],
-</span></span><span style="display:flex;"><span>      <span style="color:#6272a4">// &#34;tie_breaker&#34;: 0.7
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>This is the official document written about <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-dis-max-query.html#query-dsl-dis-max-query">dis_max</a>:</p>
-<blockquote>
-<p>Returns documents matching one or more wrapped queries, called query clauses or clauses.</p>
-<p>If a returned document matches multiple query clauses, the dis_max query assigns the document the highest relevance score from any matching clause, plus a tie breaking increment for any additional matching subqueries.</p>
-</blockquote>
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by Sean&#39;s Blog on Friday, May 27, 2022
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2022-05-26-elasticsearch-how-to-use-minimum_should_match-and-operator-with-match-query/">
-        <h2 class="post-title">
-            [Elasticsearch] How to use minimum_should_match and operator with match query?
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>GET /_search
-</span></span><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;query&#34;</span>: {
-</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">&#34;match&#34;</span>: {
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;message&#34;</span>: {
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;query&#34;</span>: <span style="color:#f1fa8c">&#34;this is a test yo&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#6272a4">// &#34;operator&#34;: &#34;or&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>      }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>This is the Match query we see quite often when using ES. However, if you did specify an analyzer during mapping, the query “this is a test yo&quot; will likely be tokenized into five terms ”<strong>this</strong>”, “<strong>is</strong>”, “<strong>a</strong>”, “<strong>test</strong>”, and “<strong>yo</strong>” in the search phases. And there is an implicit parameter <strong>operator</strong>, and its default value is “<strong>or</strong>”. This means, this query will look up the documents in the index, and whenever there is any term match in the message of a doc, then that it’s a match!</p>
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by Sean&#39;s Blog on Thursday, May 26, 2022
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2022-01-28-how-to-get-a-list-of-sheet-names-in-google-sheets-with-script/">
-        <h2 class="post-title">
-            How To Get A List Of Sheet Names In Google Sheets With Script?
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            <p>There&rsquo;s no built-in formula to do this, and we have to write our own script with Google&rsquo;s Apps Script to achieve the function.</p>
-<ol>
-<li>
-<p>First, go to the Extensions → Apps Script.
-
-  <img src="/img/tech/2022-05-26/1.png" alt="">
-
-</p>
-</li>
-<li>
-<p>Second, write our own method getSheetsName in the Apps Script console, and save.</p>
-</li>
-</ol>
-<p>
-  <img src="/img/tech/2022-05-26/2.png" alt="">
-
-</p>
-<p>Code snippets:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> getSheetsName() {
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> sheetNames <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd;font-style:italic">Array</span>()
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> sheets <span style="color:#ff79c6">=</span> SpreadsheetApp.getActiveSpreadsheet().getSheets();
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">var</span> i<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span> ; i<span style="color:#ff79c6">&lt;</span>sheets.length ; i<span style="color:#ff79c6">++</span>) {
-</span></span><span style="display:flex;"><span>sheetNames.push( [ sheets[i].getName() ] )
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">return</span> sheetNames
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Then go back to your sheet, and type the formula with the function name we just created in the Apps Script.</p>
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by Sean&#39;s Blog on Friday, January 28, 2022
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
-<div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2022-01-07-elasticsearch-function-score-query/">
-        <h2 class="post-title">
-            [Elasticsearch] Function score query
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            <p>By reading the official document of the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-function-score-query.html#function-weight">Function score query</a>, I still couldn&rsquo;t get a sense of how to use it correctly. After reading through more articles written by others, here&rsquo;s how I interpret it with the formula of the newly computed score:</p>
-<pre tabindex="0"><code>function_score = min(score_mode(f1_score, f2_score, ...), max_boost)
-_score = boost_mode(boost*query_score, function_score)
-</code></pre><p>Example 1:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;query&#34;</span>: {
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;function_score&#34;</span>: {
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;query&#34;</span>: { <span style="color:#ff79c6">&#34;match_all&#34;</span>: {} },
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;boost&#34;</span>: <span style="color:#f1fa8c">&#34;5&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;random_score&#34;</span>: {}, 
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;boost_mode&#34;</span>: <span style="color:#f1fa8c">&#34;multiply&#34;</span>
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>   }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Score:</p>
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by Sean&#39;s Blog on Friday, January 7, 2022
+        Posted by Sean&#39;s Blog on Thursday, December 19, 2024
         
         
     
@@ -397,19 +218,6 @@ _score = boost_mode(boost*query_score, function_score)
 
             
 
-
-<ul class="pager">
-    
-    <li class="previous">
-        <a href="/">&larr; Newer Posts</a>
-    </li>
-    
-    
-    <li class="next">
-        <a href="/page/3/">Older Posts &rarr;</a>
-    </li>
-    
-</ul>
 
 
        	</div>
@@ -609,7 +417,7 @@ _score = boost_mode(boost*query_score, function_score)
             
            
                    <li>
-                       <a href='/index.xml' rel="alternate" type="application/rss+xml" title="Sean&#39;s Blog" >
+                       <a href='/tags/go/index.xml' rel="alternate" type="application/rss+xml" title="Sean&#39;s Blog" >
                            <span class="fa-stack fa-lg">
                                <i class="fas fa-circle fa-stack-2x"></i>
                                <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
