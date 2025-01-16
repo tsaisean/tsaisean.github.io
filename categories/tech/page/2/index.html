@@ -193,6 +193,67 @@
             
 
 <div class="post-preview">
+    <a href="https://tsaisean.github.io/tech/2022-08-19-the-difference-between-data-enegineer-and-data-scientist/">
+        <h2 class="post-title">
+            The difference between data engineer and data scientist
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            <h3 id="data-engineer-vs-data-scientist-a-comparative-overview">Data Engineer vs Data Scientist: A Comparative Overview</h3>
+<table>
+  <thead>
+      <tr>
+          <th>Role Aspect</th>
+          <th>Data Engineer</th>
+          <th>Data Scientist</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Primary Focus</strong></td>
+          <td>Building scalable data architectures and maintaining data pipelines.</td>
+          <td>Extracting insights, identifying patterns, and building predictive models.</td>
+      </tr>
+      <tr>
+          <td><strong>Responsibilities</strong></td>
+          <td><ul><li>Designing systems for large-scale data handling.</li><li>Streamlining data acquisition.</li><li>Ensuring data quality and integrity.</li></ul></td>
+          <td><ul><li>Mining data for patterns and trends.  </li></ul><ul><li>Applying statistical models.  </li></ul><ul><li>Building machine learning-based predictive models.</li></ul></td>
+      </tr>
+      <tr>
+          <td><strong>Tools and Technologies</strong></td>
+          <td><ul><li><strong>Databases</strong>: SQL, NoSQL  </li><li><strong>Processing Frameworks</strong>: Apache Spark, Hive, Flink, Kafka  </li><li><strong>Scheduling</strong>: Apache Airflow, Oozie, Luigi  </li><li><strong>Cloud Platforms</strong>: AWS, Azure, GCP </li><li> <strong>Programming</strong>: Python, Java, Scala</li></ul></td>
+          <td><ul><li><strong>Programming</strong>: Python, R  </li><li><strong>Visualization</strong>: Tableau, Power BI, Matplotlib, Seaborn  </li><li><strong>ML Frameworks</strong>: TensorFlow, PyTorch  </li><li><strong>Big Data</strong>: Hadoop, Spark  </li><li><strong>Statistical Software</strong>: SAS, MATLAB </li></ul></td>
+      </tr>
+      <tr>
+          <td><strong>Skill Focus</strong></td>
+          <td>System design, data pipeline creation, and optimization.</td>
+          <td>Data analysis, statistical modeling, and advanced machine learning.</td>
+      </tr>
+      <tr>
+          <td><strong>Collaboration Role</strong></td>
+          <td>Provides the infrastructure and tools necessary for data scientists to perform their analyses effectively.</td>
+          <td>Leverages the infrastructure to derive actionable insights and guide business decisions.</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="conclusion">Conclusion</h3>
+<p>Data engineers and data scientists serve distinct but complementary roles in any data-driven organization. Engineers handle the foundational infrastructure, enabling scientists to focus on deriving valuable insights. Together, they drive the success of data initiatives.</p>
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by Sean&#39;s Blog on Friday, August 19, 2022
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
     <a href="https://tsaisean.github.io/tech/2022-08-12-how-to-invoke-a-method-in-the-jar/">
         <h2 class="post-title">
             How to invoke a method in the jar?
@@ -355,43 +416,6 @@ If we dont&rsquo;t change the code, and run it again, you will get an error imme
 </div>
 <hr>
 
-<div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2022-01-07-elasticsearch-function-score-query/">
-        <h2 class="post-title">
-            [Elasticsearch] Function score query
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            <p>By reading the official document of the <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-function-score-query.html#function-weight">Function score query</a>, I still couldn&rsquo;t get a sense of how to use it correctly. After reading through more articles written by others, here&rsquo;s how I interpret it with the formula of the newly computed score:</p>
-<pre tabindex="0"><code>function_score = min(score_mode(f1_score, f2_score, ...), max_boost)
-_score = boost_mode(boost*query_score, function_score)
-</code></pre><p>Example 1:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>  <span style="color:#ff79c6">&#34;query&#34;</span>: {
-</span></span><span style="display:flex;"><span>      <span style="color:#ff79c6">&#34;function_score&#34;</span>: {
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;query&#34;</span>: { <span style="color:#ff79c6">&#34;match_all&#34;</span>: {} },
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;boost&#34;</span>: <span style="color:#f1fa8c">&#34;5&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;random_score&#34;</span>: {}, 
-</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">&#34;boost_mode&#34;</span>: <span style="color:#f1fa8c">&#34;multiply&#34;</span>
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>   }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Score:</p>
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by Sean&#39;s Blog on Friday, January 7, 2022
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
 
             
 
@@ -517,7 +541,7 @@ _score = boost_mode(boost*query_score, function_score)
             
                
                     <a href="/tags/go" title="go...">
-                        Go (1)
+                        Go (2)
                     </a>
                
             

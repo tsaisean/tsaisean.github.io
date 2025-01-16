@@ -31,9 +31,9 @@
     
 
     
-    <meta name="title" content="Introduction to Database Normalization" />
-    <meta property="og:title" content="Introduction to Database Normalization" />
-    <meta property="twitter:title" content="Introduction to Database Normalization" />
+    <meta name="title" content="Understanding Isolation Levels in PostgreSQL" />
+    <meta property="og:title" content="Understanding Isolation Levels in PostgreSQL" />
+    <meta property="twitter:title" content="Understanding Isolation Levels in PostgreSQL" />
     
 
     
@@ -50,9 +50,9 @@
     <meta name="keyword"  content="">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>Introduction to Database Normalization |  | Sean&#39;s Blog</title>
+    <title>Understanding Isolation Levels in PostgreSQL |  | Sean&#39;s Blog</title>
 
-    <link rel="canonical" href="/tech/2024-12-17-introduction-to-database-normalization/">
+    <link rel="canonical" href="/tech/2025-01-16-understanding-isolation-levels-in-postgresql/">
 
     
     
@@ -166,7 +166,7 @@
 
 <style type="text/css">
     header.intro-header {
-        background-image: url('/img/Landscape-backgrounds-Free.jpeg')
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
     }
 </style>
 
@@ -178,12 +178,12 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/database" title="database">
-                            database 
+                        <a class="tag" href="/tags/go" title="Go">
+                            Go 
                         </a>
                         
                     </div>
-                    <h1>Introduction to Database Normalization</h1>
+                    <h1>Understanding Isolation Levels in PostgreSQL</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
@@ -192,7 +192,7 @@
                                     Sean&#39;s Blog
                              
                             on 
-                            Wednesday, December 18, 2024
+                            Wednesday, January 15, 2025
                             
                             
                             
@@ -218,299 +218,94 @@
                 post-container">
 
                 
+                <header>
+                    <h2>Table Of Contents</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-are-isolation-levels">What Are Isolation Levels?</a></li>
+        <li><a href="#the-four-isolation-levels">The Four Isolation Levels</a></li>
+        <li><a href="#choosing-the-right-isolation-level">Choosing the Right Isolation Level</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
 
                 
                 
                 
-                <h1 id="introduction-to-database-normalization-1nf-2nf-3nf-and-beyond">Introduction to Database Normalization: 1NF, 2NF, 3NF, and Beyond</h1>
-<p>Database normalization is a crucial concept in database design that aims to reduce data redundancy and ensure data integrity. The goal is to structure data in a way that makes it easier to manage and update, while maintaining its consistency. In this post, we&rsquo;ll explore the most commonly used normal forms: <strong>1NF</strong>, <strong>2NF</strong>, and <strong>3NF</strong>, and briefly mention other advanced normal forms (xxNF).</p>
-<h2 id="what-is-normalization">What is Normalization?</h2>
-<p>Normalization refers to the process of organizing data in a relational database into tables so that the relationships between the data are logical and efficient. This involves splitting large tables into smaller, related tables and defining relationships between them.</p>
-<p>The benefits of normalization include:</p>
+                <p>Isolation levels are an essential concept in database management systems, ensuring data consistency and integrity during concurrent transactions. PostgreSQL, known for its robustness and compliance with the SQL standard, implements isolation levels using Multiversion Concurrency Control (MVCC). In this blog, we will explore the four standard isolation levels, their characteristics, and practical examples in PostgreSQL.</p>
+<h2 id="what-are-isolation-levels">What Are Isolation Levels?</h2>
+<p>Isolation levels define the degree to which the operations in one transaction are isolated from those in other concurrent transactions. They help manage phenomena such as:</p>
 <ul>
-<li>Eliminating data redundancy</li>
-<li>Improving data integrity</li>
-<li>Ensuring consistent and efficient database updates</li>
+<li><strong>Dirty Reads:</strong> Reading uncommitted changes from another transaction.</li>
+<li><strong>Non-Repeatable Reads:</strong> Data retrieved in a transaction changes due to another transaction&rsquo;s updates.</li>
+<li><strong>Phantom Reads:</strong> New rows matching a query condition appear due to another transaction&rsquo;s insertions.</li>
 </ul>
-<h2 id="1st-normal-form-1nf">1st Normal Form (1NF)</h2>
-<p>A table is in <strong>1st Normal Form (1NF)</strong> if it meets the following criteria:</p>
+<h2 id="the-four-isolation-levels">The Four Isolation Levels</h2>
+<p>PostgreSQL supports the following isolation levels:</p>
+<ol>
+<li>
+<p><strong>Read Uncommitted:</strong></p>
 <ul>
-<li>It has only atomic (indivisible) values in each column.</li>
-<li>Each record (row) in the table is unique.</li>
-<li>Each column contains only one value (no repeating groups or arrays).</li>
+<li>Allows transactions to read uncommitted changes from others.</li>
+<li>Not implemented in PostgreSQL; it behaves like &ldquo;Read Committed.&rdquo;</li>
 </ul>
-<h3 id="example-of-1nf">Example of 1NF:</h3>
-<p><strong>Non-1NF Table:</strong></p>
-<table>
-  <thead>
-      <tr>
-          <th>Student_ID</th>
-          <th>Name</th>
-          <th>Subjects</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1</td>
-          <td>Alice</td>
-          <td>Math, Physics</td>
-      </tr>
-      <tr>
-          <td>2</td>
-          <td>Bob</td>
-          <td>Chemistry, Math</td>
-      </tr>
-  </tbody>
-</table>
-<p><strong>1NF Table:</strong></p>
-<table>
-  <thead>
-      <tr>
-          <th>Student_ID</th>
-          <th>Name</th>
-          <th>Subject</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1</td>
-          <td>Alice</td>
-          <td>Math</td>
-      </tr>
-      <tr>
-          <td>1</td>
-          <td>Alice</td>
-          <td>Physics</td>
-      </tr>
-      <tr>
-          <td>2</td>
-          <td>Bob</td>
-          <td>Chemistry</td>
-      </tr>
-      <tr>
-          <td>2</td>
-          <td>Bob</td>
-          <td>Math</td>
-      </tr>
-  </tbody>
-</table>
-<p>In this example, the <code>Subjects</code> column originally contained multiple values. In 1NF, we separate the values into individual rows, ensuring that each column has a single, atomic value.</p>
-<h2 id="2nd-normal-form-2nf">2nd Normal Form (2NF)</h2>
-<p>A table is in <strong>2nd Normal Form (2NF)</strong> if:</p>
+</li>
+<li>
+<p><strong>Read Committed (Default):</strong></p>
 <ul>
-<li>It is in <strong>1NF</strong>.</li>
-<li>All non-key attributes are fully dependent on the primary key (no partial dependency).</li>
+<li>Ensures a transaction sees only committed changes.</li>
+<li>Each query in the transaction gets a fresh snapshot of the database.</li>
 </ul>
-<h3 id="example-of-2nf">Example of 2NF:</h3>
-<p><strong>Non-2NF Table:</strong></p>
-<table>
-  <thead>
-      <tr>
-          <th>Student_ID</th>
-          <th>Course_ID</th>
-          <th>Student_Name</th>
-          <th>Instructor</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1</td>
-          <td>101</td>
-          <td>Alice</td>
-          <td>Dr. Smith</td>
-      </tr>
-      <tr>
-          <td>1</td>
-          <td>102</td>
-          <td>Alice</td>
-          <td>Dr. Lee</td>
-      </tr>
-      <tr>
-          <td>2</td>
-          <td>101</td>
-          <td>Bob</td>
-          <td>Dr. Smith</td>
-      </tr>
-  </tbody>
-</table>
-<p><strong>2NF Table:</strong></p>
-<p><strong>Students_Courses Table:</strong></p>
-<table>
-  <thead>
-      <tr>
-          <th>Student_ID</th>
-          <th>Course_ID</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1</td>
-          <td>101</td>
-      </tr>
-      <tr>
-          <td>1</td>
-          <td>102</td>
-      </tr>
-      <tr>
-          <td>2</td>
-          <td>101</td>
-      </tr>
-  </tbody>
-</table>
-<p><strong>Courses_Instructors Table:</strong></p>
-<table>
-  <thead>
-      <tr>
-          <th>Course_ID</th>
-          <th>Student_Name</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>101</td>
-          <td>Dr. Smith</td>
-      </tr>
-      <tr>
-          <td>102</td>
-          <td>Dr. Lee</td>
-      </tr>
-  </tbody>
-</table>
-<p><strong>Students Table:</strong></p>
-<table>
-  <thead>
-      <tr>
-          <th>Student_ID</th>
-          <th>Student_Name</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1</td>
-          <td>Alice</td>
-      </tr>
-      <tr>
-          <td>2</td>
-          <td>Bob</td>
-      </tr>
-  </tbody>
-</table>
-<p>In this case, the combination of <code>Student_ID</code> and <code>Course_ID</code> could serve as a <strong>candidate key</strong> for the Students_Courses table. A candidate key is any attribute, or combination of attributes, that can uniquely identify each row in a table. In this example, the combination of <code>Student_ID</code> and <code>Course_ID</code> ensures uniqueness because a student can enroll in multiple courses, but each combination of student and course will be distinct.</p>
-<p>Although we haven&rsquo;t explicitly set <code>Student_ID</code> + <code>Course_ID</code> as the <strong>primary key</strong> in this table, it can be inferred as such since the combination of these two columns uniquely identifies each row.</p>
-<p>In the 2NF example, <code>Student_Name</code> is dependent only on <code>Student_ID</code>, and <code>Instructor</code> is dependent only on <code>Course_ID</code>. To eliminate the partial dependency between <code>Student_Name</code> and <code>Student_ID</code>, as well as between <code>Instructor</code> and <code>Course_ID</code>, we can create new tables <code>Courses_Instructors</code> and <code>Students</code> to store instructor and student details separately.</p>
-<h2 id="3rd-normal-form-3nf">3rd Normal Form (3NF)</h2>
-<p>A table is in <strong>3rd Normal Form (3NF)</strong> if:</p>
+</li>
+<li>
+<p><strong>Repeatable Read:</strong></p>
 <ul>
-<li>It is in <strong>2NF</strong>.</li>
-<li>It has no transitive dependencies (i.e., non-key attributes should not depend on other non-key attributes).</li>
+<li>Guarantees consistency within a transaction—data read at the start remains unchanged throughout.</li>
+<li>Prevents dirty and non-repeatable reads and <mark>PG disallows phantom reads</mark>.</li>
 </ul>
-<h3 id="example-of-3nf">Example of 3NF:</h3>
-<p><strong>Non-3NF Table:</strong></p>
-<table>
-  <thead>
-      <tr>
-          <th>Student_ID</th>
-          <th>Course_ID</th>
-          <th>Instructor</th>
-          <th>Instructor_Office</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1</td>
-          <td>101</td>
-          <td>Dr. Smith</td>
-          <td>Room 201</td>
-      </tr>
-      <tr>
-          <td>1</td>
-          <td>102</td>
-          <td>Dr. Lee</td>
-          <td>Room 202</td>
-      </tr>
-      <tr>
-          <td>2</td>
-          <td>101</td>
-          <td>Dr. Smith</td>
-          <td>Room 201</td>
-      </tr>
-  </tbody>
-</table>
-<p><strong>3NF Table:</strong></p>
-<p><strong>Students_Courses Table:</strong></p>
-<table>
-  <thead>
-      <tr>
-          <th>Student_ID</th>
-          <th>Course_ID</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>1</td>
-          <td>101</td>
-      </tr>
-      <tr>
-          <td>1</td>
-          <td>102</td>
-      </tr>
-      <tr>
-          <td>2</td>
-          <td>101</td>
-      </tr>
-  </tbody>
-</table>
-<p><strong>Courses_Instructors Table:</strong></p>
-<table>
-  <thead>
-      <tr>
-          <th>Course_ID</th>
-          <th>Instructor</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>101</td>
-          <td>Dr. Smith</td>
-      </tr>
-      <tr>
-          <td>102</td>
-          <td>Dr. Lee</td>
-      </tr>
-  </tbody>
-</table>
-<p><strong>Instructors Table:</strong></p>
-<table>
-  <thead>
-      <tr>
-          <th>Instructor</th>
-          <th>Office</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Dr. Smith</td>
-          <td>Room 201</td>
-      </tr>
-      <tr>
-          <td>Dr. Lee</td>
-          <td>Room 202</td>
-      </tr>
-  </tbody>
-</table>
-<p>In the 3NF example, we eliminated the transitive dependency between <code>Instructor</code> and <code>Instructor_Office</code> by creating a new table (<code>Instructors</code>) to store instructor office information separately.</p>
-<h2 id="other-normal-forms-xxnf">Other Normal Forms (xxNF)</h2>
-<p>While <strong>1NF</strong>, <strong>2NF</strong>, and <strong>3NF</strong> are the most commonly used, there are other advanced normal forms for specific use cases, such as:</p>
+<p>You can try it with any DB tools, here I&rsquo;m using DataGrip for testing.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#ff79c6">//</span> Original records:
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">//</span> Bob <span style="color:#bd93f9">24</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">//</span> Kevin <span style="color:#bd93f9">36</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#ff79c6">//</span> <span style="color:#ff79c6">In</span> Tab <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">BEGIN</span> <span style="color:#ff79c6">TRANSACTION</span> <span style="color:#ff79c6">ISOLATION</span> <span style="color:#ff79c6">LEVEL</span> <span style="color:#ff79c6">REPEATABLE</span> <span style="color:#ff79c6">READ</span>; <span style="color:#ff79c6">//</span> <span style="color:#ff79c6">&lt;-</span> Excute this line
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">SELECT</span> <span style="color:#ff79c6">*</span> <span style="color:#ff79c6">FROM</span> student;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#ff79c6">//</span> <span style="color:#ff79c6">In</span> Tab <span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span> <span style="color:#ff79c6">INSERT</span> <span style="color:#ff79c6">INTO</span> student (name, age) <span style="color:#ff79c6">VALUES</span> (<span style="color:#f1fa8c">&#39;Sean&#39;</span>, <span style="color:#f1fa8c">&#39;18&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">//</span> Records now:
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">//</span> Bob <span style="color:#bd93f9">24</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">//</span> Kevin <span style="color:#bd93f9">36</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">//</span> Sean <span style="color:#bd93f9">18</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#ff79c6">//</span> <span style="color:#ff79c6">Go</span> back <span style="color:#ff79c6">to</span> Tab <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">BEGIN</span> <span style="color:#ff79c6">TRANSACTION</span> <span style="color:#ff79c6">ISOLATION</span> <span style="color:#ff79c6">LEVEL</span> <span style="color:#ff79c6">REPEATABLE</span> <span style="color:#ff79c6">READ</span>; 
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">SELECT</span> <span style="color:#ff79c6">*</span> <span style="color:#ff79c6">FROM</span> student; <span style="color:#ff79c6">//</span> <span style="color:#ff79c6">&lt;-</span> Excute this line
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">//</span> Records seen <span style="color:#ff79c6">by</span> this <span style="color:#ff79c6">session</span>:
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">//</span> Bob <span style="color:#bd93f9">24</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">//</span> Kevin <span style="color:#bd93f9">36</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">//</span> Sine (<span style="color:#f1fa8c">&#34;Sean&#34;</span>, <span style="color:#bd93f9">18</span>) <span style="color:#ff79c6">is</span> commited <span style="color:#ff79c6">after</span> this <span style="color:#ff79c6">isolation</span> so it<span style="color:#f1fa8c">&#39;s not being read.
+</span></span></span></code></pre></div></li>
+<li>
+<p><strong>Serializable:</strong></p>
 <ul>
-<li><strong>Boyce-Codd Normal Form (BCNF)</strong>: A stricter version of 3NF where every determinant is a candidate key.</li>
-<li><strong>4th Normal Form (4NF)</strong>: Deals with multi-valued dependencies.</li>
-<li><strong>5th Normal Form (5NF)</strong>: Eliminates join dependencies.</li>
-<li><strong>6th Normal Form (6NF)</strong>: Often used for temporal databases to handle time-based data.</li>
+<li>Emulates serial transaction execution, ensuring full isolation.</li>
+<li>Prevents all phenomena, including phantom reads.</li>
 </ul>
-<p>These advanced normal forms are used in more specialized scenarios but are less common in day-to-day database design.</p>
-<h2 id="conclusion">Conclusion</h2>
-<p>Database normalization is a foundational technique for designing efficient, consistent, and scalable relational databases. By understanding and applying normal forms like <strong>1NF</strong>, <strong>2NF</strong>, and <strong>3NF</strong>, you can avoid common pitfalls such as redundancy and data anomalies. While the more advanced normal forms (xxNF) can be useful in specific cases, they are typically less necessary in everyday database design.</p>
-<p>For more detailed information, check out the <a href="https://en.wikipedia.org/wiki/Database_normalization" target="_blank">Wikipedia page on Database Normalization</a>.</p>
+</li>
+</ol>
+<h2 id="choosing-the-right-isolation-level">Choosing the Right Isolation Level</h2>
+<ul>
+<li>Use Read Committed for most applications where real-time data consistency isn’t critical.</li>
+<li>Opt for Repeatable Read in scenarios requiring consistent snapshots, such as report generation.</li>
+<li>Choose Serializable for high-stakes transactions demanding strict consistency, at the cost of performance.</li>
+</ul>
+<p>Red: <a href="https://www.postgresql.org/docs/current/transaction-iso.html" target="_blank">postgresql - Transaction Isolation</a></p>
 
 
                 
@@ -518,15 +313,10 @@
                 <ul class="pager">
                     
                     <li class="previous">
-                        <a href="/tech/2024-12-14-understanding-idempotence-in-computer-science/" data-toggle="tooltip" data-placement="top" title="Understanding Idempotence in Computer Science">&larr;
+                        <a href="/tech/2024-12-19-back-to-go-fundamentals-copy/" data-toggle="tooltip" data-placement="top" title="Back to Go Fundamentals">&larr;
                             Previous Post</a>
                     </li>
                     
-                    
-                    <li class="next">
-                        <a href="/tech/2024-12-19-back-to-go-fundamentals-copy/" data-toggle="tooltip" data-placement="top" title="Back to Go Fundamentals">Next
-                            Post &rarr;</a>
-                    </li>
                     
                 </ul>
                 
