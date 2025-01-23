@@ -1,2 +1,3 @@
-
+/config/config.toml
 .DS_Store
+.idea/*

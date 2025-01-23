@@ -1,0 +1,4 @@
+FirstName2,LastName,Email,Position,SuperVisorID
+John, Doe, john.doe@example.com, Developer,
+Jane, Smith, jane.smith@example.com, Manager,
+Alice,Brown, alice.brown@example.com, Analyst,
