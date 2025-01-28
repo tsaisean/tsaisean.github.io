@@ -232,11 +232,7 @@
       </ul>
     </li>
     <li><a href="#2-slice---dynamic-alternative-to-arrays">2. slice - Dynamic alternative to arrays</a></li>
-    <li><a href="#3-switch">3. Switch</a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
+    <li><a href="#3-switch">3. Switch</a></li>
     <li><a href="#4-function">4. Function</a>
       <ul>
         <li></li>
@@ -500,8 +496,8 @@ You can use <strong>&hellip;</strong> to append all elements from another slice.
 <li>In Go, each case is <strong>automatically terminated</strong> after its block is executed.</li>
 <li>Unlike other languages like C or Java, you don’t need a break to prevent fallthrough.</li>
 </ul>
-<h3 id="multiple-values-in-a-case">Multiple Values in a Case</h3>
-<p>You can match multiple values in a single case by separating them with commas.</p>
+<p><strong>1. Multiple Values in a Case</strong>
+You can match multiple values in a single case by separating them with commas.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>letter <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">&#34;A&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">switch</span> letter {
@@ -510,7 +506,7 @@ You can use <strong>&hellip;</strong> to append all elements from another slice.
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">default</span>:
 </span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;It&#39;s a consonant&#34;</span>)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="switch-without-an-expression">Switch Without an Expression</h3>
+</span></span></code></pre></div><p><strong>2. Switch Without an Expression</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>num <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">15</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">switch</span> {
@@ -521,8 +517,8 @@ You can use <strong>&hellip;</strong> to append all elements from another slice.
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">default</span>:
 </span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;20 or more&#34;</span>)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="type-switch">Type Switch</h3>
-<p>A type switch is used to branch based on the type of an interface value.</p>
+</span></span></code></pre></div><p><strong>3. Type Switch</strong>
+A type switch is used to branch based on the type of an interface value.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> i <span style="color:#8be9fd;font-style:italic">interface</span>{} = <span style="color:#f1fa8c">&#34;hello&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">switch</span> v <span style="color:#ff79c6">:=</span> i.(<span style="color:#8be9fd;font-style:italic">type</span>) {
@@ -533,7 +529,7 @@ You can use <strong>&hellip;</strong> to append all elements from another slice.
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">default</span>:
 </span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Unknown type&#34;</span>)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="switch-with-functions">Switch with Functions</h3>
+</span></span></code></pre></div><p><strong>4. Switch with Functions</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>num <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">6</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">switch</span> <span style="color:#50fa7b">square</span>(num) {
@@ -544,8 +540,8 @@ You can use <strong>&hellip;</strong> to append all elements from another slice.
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">default</span>:
 </span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Square is something else&#34;</span>)
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h3 id="fallthrough-not-very-useful-imo">Fallthrough (Not very useful IMO)</h3>
-<p>Use the <strong>fallthrough</strong> keyword to explicitly allow execution to “fall through” to the next case.</p>
+</span></span></code></pre></div><p><strong>5. Fallthrough (Not very useful IMO)</strong>
+Use the <strong>fallthrough</strong> keyword to explicitly allow execution to “fall through” to the next case.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>num <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">2</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#ff79c6">switch</span> num {
