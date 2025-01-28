@@ -233,11 +233,8 @@
     </li>
     <li><a href="#2-slice---dynamic-alternative-to-arrays">2. slice - Dynamic alternative to arrays</a></li>
     <li><a href="#3-switch">3. Switch</a></li>
-    <li><a href="#4-function">4. Function</a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
+    <li><a href="#4-function">4. Function</a></li>
+    <li><a href="#5-pointers">5. Pointers</a></li>
   </ul>
 </nav>
                 
@@ -556,7 +553,6 @@ Use the <strong>fallthrough</strong> keyword to explicitly allow execution to â€
 </span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Default case&#34;</span>)
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h1 id="4-function">4. Function</h1>
-<h3 id="heading"></h3>
 <p><strong>1. Function with Mutilple Return Values</strong>
 Functions can return multiple values. <strong>( )</strong> is required for returning multiple values.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">divide</span>(a <span style="color:#8be9fd">int</span>, b <span style="color:#8be9fd">int</span>) (<span style="color:#8be9fd">int</span>, <span style="color:#8be9fd">int</span>) {
@@ -627,7 +623,73 @@ Functions can take other functions as arguments or return functions.
 </span></span><span style="display:flex;"><span>    double <span style="color:#ff79c6">:=</span> <span style="color:#50fa7b">multiplier</span>(<span style="color:#bd93f9">2</span>)
 </span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#50fa7b">double</span>(<span style="color:#bd93f9">5</span>)) <span style="color:#6272a4">// Output: 10
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
-</span></span></code></pre></div>
+</span></span></code></pre></div><h1 id="5-pointers">5. Pointers</h1>
+<p>Pointers in Go are used to store the memory address of a value. They are a powerful feature that allows you to work with memory directly, pass references to functions, and modify values without copying.</p>
+<p><strong>1. Declaring and Using Pointers</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> p <span style="color:#ff79c6">*</span><span style="color:#8be9fd">int</span> <span style="color:#6272a4">// A pointer to an int
+</span></span></span></code></pre></div><p>** 2. Assigning a Pointer**</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> x <span style="color:#8be9fd">int</span> = <span style="color:#bd93f9">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> p <span style="color:#ff79c6">*</span><span style="color:#8be9fd">int</span> = <span style="color:#ff79c6">&amp;</span>x <span style="color:#6272a4">// Pointer to x
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Value of x:&#34;</span>, x)       <span style="color:#6272a4">// Output: 10
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Address of x:&#34;</span>, <span style="color:#ff79c6">&amp;</span>x)   <span style="color:#6272a4">// Memory address
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Value of p:&#34;</span>, p)      <span style="color:#6272a4">// Memory address stored in p
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Value at p:&#34;</span>, <span style="color:#ff79c6">*</span>p)     <span style="color:#6272a4">// Output: 10 (dereferencing)
+</span></span></span></code></pre></div><p>** 3. Pointers with Functions**
+You can pass a pointer(<strong>Passing by Reference</strong>) to a function to allow it to modify the original variable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Function that modifies the value of x through a pointer
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">updateValue</span>(p <span style="color:#ff79c6">*</span><span style="color:#8be9fd">int</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">*</span>p = <span style="color:#bd93f9">50</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>    x <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">10</span>
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Before:&#34;</span>, x)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#50fa7b">updateValue</span>(<span style="color:#ff79c6">&amp;</span>x) <span style="color:#6272a4">// Pass the address of x
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;After:&#34;</span>, x) <span style="color:#6272a4">// Output: 50
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><p><strong>4. Common Use Cases for Pointers</strong>
+Avoid Copying Large Data Structures: Use pointers to pass large structs or arrays to functions efficiently.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">modifyStruct</span>(p <span style="color:#ff79c6">*</span>LargeStruct) {
+</span></span><span style="display:flex;"><span>    p.Field = <span style="color:#f1fa8c">&#34;Updated&#34;</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>5. Automatic Dereferencing</strong>
+Go automatically dereferences the pointer for you when you access a field or method of a struct or slice through a pointer. This is called automatic dereferencing.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">type</span> Point <span style="color:#8be9fd;font-style:italic">struct</span> {
+</span></span><span style="display:flex;"><span>    X, Y <span style="color:#8be9fd">int</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> (p <span style="color:#ff79c6">*</span>Point) <span style="color:#50fa7b">Update</span>() {
+</span></span><span style="display:flex;"><span>    p.X = <span style="color:#bd93f9">10</span> <span style="color:#6272a4">// Simplified syntax
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    (<span style="color:#ff79c6">*</span>p).Y = <span style="color:#bd93f9">20</span> <span style="color:#6272a4">// Explicit dereferencing, but unnecessary
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><p>Pointer to a Slice:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>slice <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>}  <span style="color:#6272a4">// A slice
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>ptr <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">&amp;</span>slice            <span style="color:#6272a4">// Pointer to the slice
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Access elements directly via pointer (automatic dereferencing)
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>((<span style="color:#ff79c6">*</span>ptr)[<span style="color:#bd93f9">0</span>]) <span style="color:#6272a4">// Output: 1
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(ptr[<span style="color:#bd93f9">0</span>])    <span style="color:#6272a4">// This works the same way in Go (automatic dereferencing)
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Modify elements via pointer
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>(<span style="color:#ff79c6">*</span>ptr)[<span style="color:#bd93f9">0</span>] = <span style="color:#bd93f9">42</span>
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#50fa7b">Println</span>(slice) <span style="color:#6272a4">// Output: [42 2 3]
+</span></span></span></code></pre></div><p><strong>6. No Automatic Dereferencing for Arrays</strong>
+In Go, a pointer to an array (*[N]T) does not support automatic dereferencing when accessing elements. You need to explicitly dereference the array pointer to access or modify its elements.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>arr <span style="color:#ff79c6">:=</span> [<span style="color:#bd93f9">3</span>]<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>}  <span style="color:#6272a4">// Array of size 3
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>ptr <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">&amp;</span>arr             <span style="color:#6272a4">// Pointer to the array
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Accessing elements via pointer requires explicit dereferencing
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>((<span style="color:#ff79c6">*</span>ptr)[<span style="color:#bd93f9">0</span>]) <span style="color:#6272a4">// Output: 1
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Modifying elements via pointer
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>(<span style="color:#ff79c6">*</span>ptr)[<span style="color:#bd93f9">0</span>] = <span style="color:#bd93f9">42</span>
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#50fa7b">Println</span>(arr) <span style="color:#6272a4">// Output: [42 2 3]
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// This won&#39;t work: ptr[0] // Compile error: invalid operation
+</span></span></span></code></pre></div>
 
                 
                 <hr>
