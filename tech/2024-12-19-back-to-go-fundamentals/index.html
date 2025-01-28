@@ -235,6 +235,7 @@
     <li><a href="#3-switch">3. Switch</a></li>
     <li><a href="#4-function">4. Function</a></li>
     <li><a href="#5-pointers">5. Pointers</a></li>
+    <li><a href="#6-goruntine">6. Goruntine</a></li>
   </ul>
 </nav>
                 
@@ -627,7 +628,7 @@ Functions can take other functions as arguments or return functions.
 <p>Pointers in Go are used to store the memory address of a value. They are a powerful feature that allows you to work with memory directly, pass references to functions, and modify values without copying.</p>
 <p><strong>1. Declaring and Using Pointers</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> p <span style="color:#ff79c6">*</span><span style="color:#8be9fd">int</span> <span style="color:#6272a4">// A pointer to an int
-</span></span></span></code></pre></div><p>** 2. Assigning a Pointer**</p>
+</span></span></span></code></pre></div><p><strong>2. Assigning a Pointer</strong></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> x <span style="color:#8be9fd">int</span> = <span style="color:#bd93f9">10</span>
 </span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> p <span style="color:#ff79c6">*</span><span style="color:#8be9fd">int</span> = <span style="color:#ff79c6">&amp;</span>x <span style="color:#6272a4">// Pointer to x
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
@@ -635,7 +636,7 @@ Functions can take other functions as arguments or return functions.
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Address of x:&#34;</span>, <span style="color:#ff79c6">&amp;</span>x)   <span style="color:#6272a4">// Memory address
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Value of p:&#34;</span>, p)      <span style="color:#6272a4">// Memory address stored in p
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Value at p:&#34;</span>, <span style="color:#ff79c6">*</span>p)     <span style="color:#6272a4">// Output: 10 (dereferencing)
-</span></span></span></code></pre></div><p>** 3. Pointers with Functions**
+</span></span></span></code></pre></div><p><strong>3. Pointers with Functions</strong>
 You can pass a pointer(<strong>Passing by Reference</strong>) to a function to allow it to modify the original variable.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#6272a4">// Function that modifies the value of x through a pointer
@@ -689,7 +690,92 @@ In Go, a pointer to an array (*[N]T) does not support automatic dereferencing wh
 </span></span><span style="display:flex;"><span>fmt.<span style="color:#50fa7b">Println</span>(arr) <span style="color:#6272a4">// Output: [42 2 3]
 </span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
 </span></span><span style="display:flex;"><span><span style="color:#6272a4">// This won&#39;t work: ptr[0] // Compile error: invalid operation
-</span></span></span></code></pre></div>
+</span></span></span></code></pre></div><h1 id="6-goruntine">6. Goruntine</h1>
+<p>A goroutine in Go is a lightweight, concurrent thread of execution. Goroutines make it easy to write programs that perform multiple tasks simultaneously without the complexity of traditional thread management.</p>
+<ul>
+<li>Goroutines are managed by the Go runtime, not the operating system.</li>
+<li>They are extremely lightweight compared to traditional threads, with minimal memory overhead (~2KB).</li>
+<li>Goroutines share the same address space and communicate via channels or shared variables.</li>
+</ul>
+<p><strong>1. How to Start a Goroutine</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">sayHello</span>() {
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Hello from goroutine!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">go</span> <span style="color:#50fa7b">sayHello</span>() <span style="color:#6272a4">// Start the goroutine
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Hello from main!&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// Allow time for the goroutine to finish
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    time.<span style="color:#50fa7b">Sleep</span>(<span style="color:#bd93f9">1</span> <span style="color:#ff79c6">*</span> time.Second)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>2. Anonymous Function Goroutines:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">go</span> <span style="color:#8be9fd;font-style:italic">func</span>() {
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Hello from anonymous goroutine!&#34;</span>)
+</span></span><span style="display:flex;"><span>    }()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    time.<span style="color:#50fa7b">Sleep</span>(<span style="color:#bd93f9">1</span> <span style="color:#ff79c6">*</span> time.Second) <span style="color:#6272a4">// Allow goroutine to finish
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><p><strong>3. Synchronizing Goroutines</strong>
+Using <strong>sync.WaitGroup</strong>. The sync.WaitGroup is used to wait for multiple goroutines to finish.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">sayHello</span>(id <span style="color:#8be9fd">int</span>, wg <span style="color:#ff79c6">*</span>sync.WaitGroup) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">defer</span> wg.<span style="color:#50fa7b">Done</span>() <span style="color:#6272a4">// Mark goroutine as done
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Hello from goroutine %d!\n&#34;</span>, id)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">var</span> wg sync.WaitGroup
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">1</span>; i <span style="color:#ff79c6">&lt;=</span> <span style="color:#bd93f9">3</span>; i<span style="color:#ff79c6">++</span> {
+</span></span><span style="display:flex;"><span>        wg.<span style="color:#50fa7b">Add</span>(<span style="color:#bd93f9">1</span>) <span style="color:#6272a4">// Increment WaitGroup counter
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>        <span style="color:#ff79c6">go</span> <span style="color:#50fa7b">sayHello</span>(i, <span style="color:#ff79c6">&amp;</span>wg)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    wg.<span style="color:#50fa7b">Wait</span>() <span style="color:#6272a4">// Wait for all goroutines to finish
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;All goroutines are done!&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>4. Communication Between Goroutines - Channels</strong>
+Goroutines communicate using <strong>channels</strong>, which are safe for concurrent access.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">sendMessage</span>(ch <span style="color:#8be9fd;font-style:italic">chan</span> <span style="color:#8be9fd">string</span>) {
+</span></span><span style="display:flex;"><span>    ch <span style="color:#ff79c6">&lt;-</span> <span style="color:#f1fa8c">&#34;Hello from goroutine!&#34;</span> <span style="color:#6272a4">// Send message to the channel
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>    ch <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>(<span style="color:#8be9fd;font-style:italic">chan</span> <span style="color:#8be9fd">string</span>) <span style="color:#6272a4">// Create a channel
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">go</span> <span style="color:#50fa7b">sendMessage</span>(ch)       <span style="color:#6272a4">// Start the goroutine
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    msg <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">&lt;-</span>ch              <span style="color:#6272a4">// Receive message from the channel
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(msg) <span style="color:#6272a4">// Output: Hello from goroutine!
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>5. Buffered Channels</strong>
+Channels can be buffered, allowing goroutines to send multiple messages without waiting for immediate reception.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>    ch <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>(<span style="color:#8be9fd;font-style:italic">chan</span> <span style="color:#8be9fd">int</span>, <span style="color:#bd93f9">2</span>) <span style="color:#6272a4">// Buffered channel with capacity 2
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span>    ch <span style="color:#ff79c6">&lt;-</span> <span style="color:#bd93f9">1</span>
+</span></span><span style="display:flex;"><span>    ch <span style="color:#ff79c6">&lt;-</span> <span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#ff79c6">&lt;-</span>ch) <span style="color:#6272a4">// Output: 1
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#ff79c6">&lt;-</span>ch) <span style="color:#6272a4">// Output: 2
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><p><strong>6. Read-Only  and write-only channels</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">receiveMessages</span>(ch <span style="color:#ff79c6">&lt;-</span><span style="color:#8be9fd;font-style:italic">chan</span> <span style="color:#8be9fd">string</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> msg <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">range</span> ch {
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Received:&#34;</span>, msg)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// ch &lt;- &#34;Message&#34; // Compile error: cannot send to read-only channel
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">sendMessages</span>(ch <span style="color:#8be9fd;font-style:italic">chan</span><span style="color:#ff79c6">&lt;-</span> <span style="color:#8be9fd">string</span>) {
+</span></span><span style="display:flex;"><span>    ch <span style="color:#ff79c6">&lt;-</span> <span style="color:#f1fa8c">&#34;Hello&#34;</span>
+</span></span><span style="display:flex;"><span>    ch <span style="color:#ff79c6">&lt;-</span> <span style="color:#f1fa8c">&#34;World&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#6272a4">// msg := &lt;-ch // Compile error: cannot receive from write-only channel
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div>
 
                 
                 <hr>
