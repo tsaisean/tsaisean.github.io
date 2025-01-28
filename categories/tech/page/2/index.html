@@ -193,6 +193,39 @@
             
 
 <div class="post-preview">
+    <a href="https://tsaisean.github.io/tech/2024-05-06-understanding-solid-principles-in-software-design/">
+        <h2 class="post-title">
+            Understanding SOLID Principles in Software Design
+        </h2>
+	
+        <div class="post-content-preview">
+	
+            <p>In software development, writing maintainable, scalable, and robust code is a constant goal. The SOLID principles, introduced by Robert C. Martin, serve as a foundation for object-oriented design, guiding developers in building systems that are easier to extend and maintain over time. In this blog, we will explore each of the SOLID principles with examples.</p>
+<h2 id="what-are-solid-principles">What are SOLID Principles?</h2>
+<p>SOLID is an acronym representing five design principles:</p>
+<ol>
+<li><strong>S</strong> - Single Responsibility Principle (SRP)</li>
+<li><strong>O</strong> - Open/Closed Principle (OCP)</li>
+<li><strong>L</strong> - Liskov Substitution Principle (LSP)</li>
+<li><strong>I</strong> - Interface Segregation Principle (ISP)</li>
+<li><strong>D</strong> - Dependency Inversion Principle (DIP)</li>
+</ol>
+<p>Each principle addresses a specific aspect of software design to reduce complexity and improve code quality.</p>
+       
+        </div>
+    </a>
+    <p class="post-meta">
+    
+        Posted by Sean&#39;s Blog on Monday, May 6, 2024
+        
+        
+    
+    </p>
+
+</div>
+<hr>
+
+<div class="post-preview">
     <a href="https://tsaisean.github.io/tech/2022-08-19-the-difference-between-data-enegineer-and-data-scientist/">
         <h2 class="post-title">
             The difference between data engineer and data scientist
@@ -367,55 +400,6 @@ If we dont&rsquo;t change the code, and run it again, you will get an error imme
 </div>
 <hr>
 
-<div class="post-preview">
-    <a href="https://tsaisean.github.io/tech/2022-01-28-how-to-get-a-list-of-sheet-names-in-google-sheets-with-script/">
-        <h2 class="post-title">
-            How To Get A List Of Sheet Names In Google Sheets With Script?
-        </h2>
-	
-        <div class="post-content-preview">
-	
-            <p>There&rsquo;s no built-in formula to do this, and we have to write our own script with Google&rsquo;s Apps Script to achieve the function.</p>
-<ol>
-<li>
-<p>First, go to the Extensions → Apps Script.
-
-  <img src="/img/tech/2022-05-26/1.png" alt="">
-
-</p>
-</li>
-<li>
-<p>Second, write our own method getSheetsName in the Apps Script console, and save.</p>
-</li>
-</ol>
-<p>
-  <img src="/img/tech/2022-05-26/2.png" alt="">
-
-</p>
-<p>Code snippets:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">function</span> getSheetsName() {
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> sheetNames <span style="color:#ff79c6">=</span> <span style="color:#ff79c6">new</span> <span style="color:#8be9fd;font-style:italic">Array</span>()
-</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> sheets <span style="color:#ff79c6">=</span> SpreadsheetApp.getActiveSpreadsheet().getSheets();
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> (<span style="color:#8be9fd;font-style:italic">var</span> i<span style="color:#ff79c6">=</span><span style="color:#bd93f9">0</span> ; i<span style="color:#ff79c6">&lt;</span>sheets.length ; i<span style="color:#ff79c6">++</span>) {
-</span></span><span style="display:flex;"><span>sheetNames.push( [ sheets[i].getName() ] )
-</span></span><span style="display:flex;"><span>}
-</span></span><span style="display:flex;"><span><span style="color:#ff79c6">return</span> sheetNames
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Then go back to your sheet, and type the formula with the function name we just created in the Apps Script.</p>
-       
-        </div>
-    </a>
-    <p class="post-meta">
-    
-        Posted by Sean&#39;s Blog on Friday, January 28, 2022
-        
-        
-    
-    </p>
-
-</div>
-<hr>
-
 
             
 
@@ -517,7 +501,7 @@ If we dont&rsquo;t change the code, and run it again, you will get an error imme
             
                
                     <a href="/tags/cs-fundamentals" title="cs fundamentals...">
-                        Cs Fundamentals (1)
+                        Cs Fundamentals (2)
                     </a>
                
             

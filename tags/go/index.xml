@@ -17,10 +17,10 @@
     </item>
     <item>
       <title>Back to Go Fundamentals</title>
-      <link>https://tsaisean.github.io/tech/2024-12-19-back-to-go-fundamentals-copy/</link>
+      <link>https://tsaisean.github.io/tech/2024-12-19-back-to-go-fundamentals/</link>
       <pubDate>Thu, 19 Dec 2024 12:00:00 +0000</pubDate>
-      <guid>https://tsaisean.github.io/tech/2024-12-19-back-to-go-fundamentals-copy/</guid>
-      <description></description>
+      <guid>https://tsaisean.github.io/tech/2024-12-19-back-to-go-fundamentals/</guid>
+      <description>&lt;h1 id=&#34;1-built-in-types&#34;&gt;1. Built-in Types&lt;/h1&gt;&#xA;&lt;p&gt;Go has a set of built-in types that include:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Boolean Type:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;bool&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Numeric Types:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Integer types: int, int8, int16, int32, int64&lt;/li&gt;&#xA;&lt;li&gt;Unsigned integer types: uint, uint8 (alias byte), uint16, uint32, uint64, uintptr&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;Floating-point types: float32, float64&lt;/li&gt;&#xA;&lt;li&gt;Complex numbers: complex64, complex128&lt;/li&gt;&#xA;&lt;li&gt;String Type: string&lt;/li&gt;&#xA;&lt;li&gt;Alias Types:&#xA;&lt;ul&gt;&#xA;&lt;li&gt;byte (alias for uint8)&lt;/li&gt;&#xA;&lt;li&gt;rune (alias for int32, used for Unicode code points)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;These types are often compared to primitive types in other languages (like Java or Python), as they form the foundation of data types in Go.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

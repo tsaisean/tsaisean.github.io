@@ -15,5 +15,12 @@
       <guid>https://tsaisean.github.io/tech/2024-12-14-understanding-idempotence-in-computer-science/</guid>
       <description>&lt;h1 id=&#34;understanding-idempotence-in-computer-science&#34;&gt;Understanding Idempotence in Computer Science&lt;/h1&gt;&#xA;&lt;p&gt;Idempotence is a key concept in computer science, especially in distributed systems, APIs, and web development. It ensures that repeating an operation multiple times results in the same outcome as performing it once. This property helps to maintain consistency, reliability, and fault tolerance in various systems, particularly when dealing with retries due to network failures or server errors.&lt;/p&gt;&#xA;&lt;p&gt;In this blog, we’ll explore &lt;strong&gt;idempotence&lt;/strong&gt; in different contexts and how it is used in practical scenarios.&lt;/p&gt;</description>
     </item>
+    <item>
+      <title>Understanding SOLID Principles in Software Design</title>
+      <link>https://tsaisean.github.io/tech/2024-05-06-understanding-solid-principles-in-software-design/</link>
+      <pubDate>Mon, 06 May 2024 12:00:00 +0000</pubDate>
+      <guid>https://tsaisean.github.io/tech/2024-05-06-understanding-solid-principles-in-software-design/</guid>
+      <description>&lt;p&gt;In software development, writing maintainable, scalable, and robust code is a constant goal. The SOLID principles, introduced by Robert C. Martin, serve as a foundation for object-oriented design, guiding developers in building systems that are easier to extend and maintain over time. In this blog, we will explore each of the SOLID principles with examples.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-are-solid-principles&#34;&gt;What are SOLID Principles?&lt;/h2&gt;&#xA;&lt;p&gt;SOLID is an acronym representing five design principles:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&lt;strong&gt;S&lt;/strong&gt; - Single Responsibility Principle (SRP)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;O&lt;/strong&gt; - Open/Closed Principle (OCP)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;L&lt;/strong&gt; - Liskov Substitution Principle (LSP)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;I&lt;/strong&gt; - Interface Segregation Principle (ISP)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;D&lt;/strong&gt; - Dependency Inversion Principle (DIP)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Each principle addresses a specific aspect of software design to reduce complexity and improve code quality.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>

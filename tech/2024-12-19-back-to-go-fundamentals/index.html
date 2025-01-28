@@ -221,13 +221,417 @@
                 <header>
                     <h2>Table Of Contents</h2>
                 </header>
-                <nav id="TableOfContents"></nav>
+                <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-built-in-types">1. Built-in Types</a>
+      <ul>
+        <li><a href="#int">int</a></li>
+        <li><a href="#arithmetic-operators">Arithmetic operators</a></li>
+        <li><a href="#string">string</a></li>
+        <li><a href="#map">map</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-slice---dynamic-alternative-to-arrays">2. slice - Dynamic alternative to arrays</a></li>
+    <li><a href="#3-switch">3. Switch</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#4-function">4. Function</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
                 
 
                 
                 
                 
-                
+                <h1 id="1-built-in-types">1. Built-in Types</h1>
+<p>Go has a set of built-in types that include:</p>
+<ol>
+<li>Boolean Type:
+<ul>
+<li>bool</li>
+</ul>
+</li>
+<li>Numeric Types:
+<ul>
+<li>Integer types: int, int8, int16, int32, int64</li>
+<li>Unsigned integer types: uint, uint8 (alias byte), uint16, uint32, uint64, uintptr</li>
+</ul>
+</li>
+<li>Floating-point types: float32, float64</li>
+<li>Complex numbers: complex64, complex128</li>
+<li>String Type: string</li>
+<li>Alias Types:
+<ul>
+<li>byte (alias for uint8)</li>
+<li>rune (alias for int32, used for Unicode code points)</li>
+</ul>
+</li>
+</ol>
+<p>These types are often compared to primitive types in other languages (like Java or Python), as they form the foundation of data types in Go.</p>
+<h2 id="int">int</h2>
+<ul>
+<li>On 32-bit systems: int is equivalent to int32.</li>
+<li>On 64-bit systems: int is equivalent to int64.
+On modern computers, using int is typically sufficient for most applications.</li>
+</ul>
+<p>There are two useful constant <code>math.MaxInt</code> and <code>math.MinInt</code> in the <code>math</code> package.</p>
+<h3 id="integer-arrays---fixed-size-default-values">Integer arrays - Fixed Size, Default Values</h3>
+<p><strong>Declaring and Initializing Integer Arrays</strong>
+<strong>1. Fixed Size, Default Values</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> arr [<span style="color:#bd93f9">5</span>]<span style="color:#8be9fd">int</span> <span style="color:#6272a4">// An array of 5 integers
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(arr) <span style="color:#6272a4">// Output: [0 0 0 0 0]
+</span></span></span></code></pre></div><p><strong>2. With Initial Values</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>arr <span style="color:#ff79c6">:=</span> [<span style="color:#bd93f9">5</span>]<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">5</span>}
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#50fa7b">Println</span>(arr) <span style="color:#6272a4">// Output: [1 2 3 4 5]
+</span></span></span></code></pre></div><p><strong>3. Letting Go Infer the Size</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>arr <span style="color:#ff79c6">:=</span> [<span style="color:#ff79c6">...</span>]<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>}
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#50fa7b">Println</span>(arr) <span style="color:#6272a4">// Output: [1 2 3]
+</span></span></span></code></pre></div><p><strong>Multidimensional Arrays</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> matrix [<span style="color:#bd93f9">2</span>][<span style="color:#bd93f9">3</span>]<span style="color:#8be9fd">int</span>
+</span></span><span style="display:flex;"><span>matrix[<span style="color:#bd93f9">0</span>][<span style="color:#bd93f9">1</span>] = <span style="color:#bd93f9">5</span>
+</span></span><span style="display:flex;"><span>matrix[<span style="color:#bd93f9">1</span>][<span style="color:#bd93f9">2</span>] = <span style="color:#bd93f9">10</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#50fa7b">Println</span>(matrix) <span style="color:#6272a4">// Output: [[0 5 0] [0 0 10]]
+</span></span></span></code></pre></div><p>Or initialize with values:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>matrix <span style="color:#ff79c6">:=</span> [<span style="color:#bd93f9">2</span>][<span style="color:#bd93f9">3</span>]<span style="color:#8be9fd">int</span>{
+</span></span><span style="display:flex;"><span>    {<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">5</span>, <span style="color:#bd93f9">6</span>},
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#50fa7b">Println</span>(matrix)
+</span></span></code></pre></div><h2 id="arithmetic-operators">Arithmetic operators</h2>
+<p>In Go, arithmetic operators (+, -, *, /) only work on operands of the same type. This is unlike some other programming languages, such as Java, which allow implicit type conversion (widening) for certain arithmetic operations. In Go, you need to explicitly convert types to match before performing arithmetic.</p>
+<p><strong>Error When Mixing Types:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> a <span style="color:#8be9fd">int</span> = <span style="color:#bd93f9">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> b <span style="color:#8be9fd">int32</span> = <span style="color:#bd93f9">10</span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// fmt.Println(a + b) // Compilation error: mismatched types int and int32
+</span></span></span></code></pre></div><p><strong>Fix by Explicit Type Conversion</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> a <span style="color:#8be9fd">int</span> = <span style="color:#bd93f9">5</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> b <span style="color:#8be9fd">int32</span> = <span style="color:#bd93f9">10</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Convert int to int32 or int32 to int
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(a <span style="color:#ff79c6">+</span> <span style="color:#8be9fd;font-style:italic">int</span>(b))  <span style="color:#6272a4">// Output: 15
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#8be9fd;font-style:italic">int32</span>(a) <span style="color:#ff79c6">+</span> b) <span style="color:#6272a4">// Output: 15
+</span></span></span></code></pre></div><h2 id="string">string</h2>
+<h3 id="how-to-update-a-string">How to update a string?</h3>
+<p><strong>1. Replace a Character or Substring</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>str <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">&#34;hello world&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Replace &#39;world&#39; with &#39;Go&#39;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>newStr <span style="color:#ff79c6">:=</span> strings.<span style="color:#50fa7b">Replace</span>(str, <span style="color:#f1fa8c">&#34;world&#34;</span>, <span style="color:#f1fa8c">&#34;Go&#34;</span>, <span style="color:#bd93f9">1</span>)
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#50fa7b">Println</span>(newStr) <span style="color:#6272a4">// Output: hello Go
+</span></span></span></code></pre></div><p><strong>2. Modify a String by Converting to a Slice of Runes</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>str <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">&#34;hello world&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Convert string to a slice of runes
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>runes <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd;font-style:italic">rune</span>(str)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Modify the first character
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>runes[<span style="color:#bd93f9">0</span>] = <span style="color:#f1fa8c">&#39;H&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Convert back to string
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>newStr <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">string</span>(runes)
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#50fa7b">Println</span>(newStr) <span style="color:#6272a4">// Output: Hello world
+</span></span></span></code></pre></div><p><strong>Why Use []rune?</strong></p>
+<ul>
+<li>Strings in Go are sequences of bytes, but some characters (e.g., Unicode characters) may occupy multiple bytes.</li>
+<li>Using []rune ensures you correctly handle multi-byte characters.</li>
+</ul>
+<p><strong>3. Concatenate Strings</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>str <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">&#34;hello&#34;</span>
+</span></span><span style="display:flex;"><span>newStr <span style="color:#ff79c6">:=</span> str[:<span style="color:#bd93f9">3</span>] <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;p!&#34;</span> <span style="color:#6272a4">// Take the first 3 characters and append &#34;p!&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(newStr)      <span style="color:#6272a4">// Output: help!
+</span></span></span></code></pre></div><p><strong>4. Use strings.Builder for Efficient String Updates</strong>
+If you need to perform multiple updates to a string (e.g., in a loop), use <code>strings.Builder</code> for better performance.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> builder strings.Builder
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Append parts of the string
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>builder.<span style="color:#50fa7b">WriteString</span>(<span style="color:#f1fa8c">&#34;hello&#34;</span>)
+</span></span><span style="display:flex;"><span>builder.<span style="color:#50fa7b">WriteString</span>(<span style="color:#f1fa8c">&#34; &#34;</span>)
+</span></span><span style="display:flex;"><span>builder.<span style="color:#50fa7b">WriteString</span>(<span style="color:#f1fa8c">&#34;Go&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#50fa7b">Println</span>(builder.<span style="color:#50fa7b">String</span>()) <span style="color:#6272a4">// Output: hello Go
+</span></span></span></code></pre></div><p><strong>5. Replace Multiple Characters</strong>
+To replace multiple characters or substrings, use a loop or the <code>strings.ReplaceAll</code> function.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>str <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">&#34;hello world world&#34;</span>
+</span></span><span style="display:flex;"><span>newStr <span style="color:#ff79c6">:=</span> strings.<span style="color:#50fa7b">ReplaceAll</span>(str, <span style="color:#f1fa8c">&#34;world&#34;</span>, <span style="color:#f1fa8c">&#34;Go&#34;</span>)
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#50fa7b">Println</span>(newStr) <span style="color:#6272a4">// Output: hello Go Go
+</span></span></span></code></pre></div><p><strong>6. Add or Remove Parts of a String</strong>
+Use slicing to extract parts of the string and create a new one.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>str <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">&#34;hello world&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Insert &#34;beautiful &#34; after &#34;hello &#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>newStr <span style="color:#ff79c6">:=</span> str[:<span style="color:#bd93f9">6</span>] <span style="color:#ff79c6">+</span> <span style="color:#f1fa8c">&#34;beautiful &#34;</span> <span style="color:#ff79c6">+</span> str[<span style="color:#bd93f9">6</span>:]
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#50fa7b">Println</span>(newStr) <span style="color:#6272a4">// Output: hello beautiful world
+</span></span></span></code></pre></div><h3 id="how-to-iterate-through-string">How to iterate through string?</h3>
+<p><strong>1. Iterate by Bytes</strong>
+You can iterate over the <strong>bytes</strong> of a string using a simple for loop.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>str <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">&#34;hello&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> i <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>; i &lt; <span style="color:#8be9fd;font-style:italic">len</span>(str); i<span style="color:#ff79c6">++</span> {
+</span></span><span style="display:flex;"><span>   fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Byte at index %d: %d (char: %c)\n&#34;</span>, i, str[i], str[i])
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>or</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>str <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">&#34;hello 世界&#34;</span>
+</span></span><span style="display:flex;"><span>bytes <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd;font-style:italic">byte</span>(str)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> i, b <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">range</span> bytes {
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Byte index: %d, Byte value: %d (char: %c)\n&#34;</span>, i, b, b)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>2. Iterate by Runes</strong>
+To properly handle Unicode characters (e.g., multi-byte characters like π, 你好), you should iterate over the string as <strong>runes</strong> using the for range loop.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>str <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">&#34;hello 世界&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> i, r <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">range</span> str {
+</span></span><span style="display:flex;"><span>   fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Index: %d, Rune: %c, Unicode: %U\n&#34;</span>, i, r, r)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>or</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>str <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">&#34;hello 世界&#34;</span>
+</span></span><span style="display:flex;"><span>runes <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd;font-style:italic">rune</span>(str)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> i, r <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">range</span> runes {
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Rune index: %d, Rune value: %c, Unicode: %U\n&#34;</span>, i, r, r)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="how-to-convert-byte-to-int">How to convert byte to int?</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> b <span style="color:#8be9fd">byte</span> = <span style="color:#f1fa8c">&#39;5&#39;</span> <span style="color:#6272a4">// ASCII value for &#39;5&#39; is 53
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>digit <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">int</span>(b <span style="color:#ff79c6">-</span> <span style="color:#f1fa8c">&#39;0&#39;</span>) <span style="color:#6272a4">// Convert to its numeric value
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Digit:&#34;</span>, digit) <span style="color:#6272a4">// Output: Digit: 5
+</span></span></span></code></pre></div><h2 id="map">map</h2>
+<p>A map is a built-in data type that represents a collection of key-value pairs. Maps are highly flexible and efficient for fast lookups, inserts, and deletions.</p>
+<p><strong>1. Declaring and Initializing a Map</strong>
+<strong>Using make</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>m <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>(<span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">string</span>]<span style="color:#8be9fd">int</span>) <span style="color:#6272a4">// Map with string keys and int values
+</span></span></span></code></pre></div><p><strong>Using a Map Literal</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>m <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">string</span>]<span style="color:#8be9fd">int</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;Alice&#34;</span>: <span style="color:#bd93f9">25</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;Bob&#34;</span>:   <span style="color:#bd93f9">30</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>2. Adding or Updating Key-Value Pairs</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>m <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>(<span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">string</span>]<span style="color:#8be9fd">int</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Adding key-value pairs
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>m[<span style="color:#f1fa8c">&#34;Alice&#34;</span>] = <span style="color:#bd93f9">25</span>
+</span></span><span style="display:flex;"><span>m[<span style="color:#f1fa8c">&#34;Bob&#34;</span>] = <span style="color:#bd93f9">30</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#50fa7b">Println</span>(m) <span style="color:#6272a4">// Output: map[Alice:25 Bob:30]
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Updating a value
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>m[<span style="color:#f1fa8c">&#34;Alice&#34;</span>] = <span style="color:#bd93f9">26</span>
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#50fa7b">Println</span>(m[<span style="color:#f1fa8c">&#34;Alice&#34;</span>]) <span style="color:#6272a4">// Output: 26
+</span></span></span></code></pre></div><p><strong>3. Check if a Key Exists</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>value, ok <span style="color:#ff79c6">:=</span> m[<span style="color:#f1fa8c">&#34;Charlie&#34;</span>]
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">if</span> ok {
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Value:&#34;</span>, value)
+</span></span><span style="display:flex;"><span>} <span style="color:#ff79c6">else</span> {
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Key does not exist&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>4. Deleting a Key</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">delete</span>(m, <span style="color:#f1fa8c">&#34;Alice&#34;</span>) <span style="color:#6272a4">// Deletes the key &#34;Alice&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(m) <span style="color:#6272a4">// Output: map[Bob:30]
+</span></span></span></code></pre></div><p><strong>5. Iterating Over a Map</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>m <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">string</span>]<span style="color:#8be9fd">int</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;Alice&#34;</span>: <span style="color:#bd93f9">25</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;Bob&#34;</span>:   <span style="color:#bd93f9">30</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#f1fa8c">&#34;Eve&#34;</span>:   <span style="color:#bd93f9">35</span>,
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">for</span> key, value <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">range</span> m {
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Key: %s, Value: %d\n&#34;</span>, key, value)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>6. Nested Map (2D Map)</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>nestedMap <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>(<span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">string</span>]<span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">string</span>]<span style="color:#8be9fd">int</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>nestedMap[<span style="color:#f1fa8c">&#34;group1&#34;</span>] = <span style="color:#8be9fd;font-style:italic">make</span>(<span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">string</span>]<span style="color:#8be9fd">int</span>) <span style="color:#6272a4">// If assign before allocating the memory will cause run-time panic!
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>nestedMap[<span style="color:#f1fa8c">&#34;group1&#34;</span>][<span style="color:#f1fa8c">&#34;Alice&#34;</span>] = <span style="color:#bd93f9">25</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#50fa7b">Println</span>(nestedMap) <span style="color:#6272a4">// Output: map[group1:map[Alice:25]]
+</span></span></span></code></pre></div><p><strong>7. set</strong>
+Go does not have a built-in set type like Python or Java, but you can implement a set using a map with struct{} or bool as the value. The map keys represent the unique elements of the set.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>set <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>(<span style="color:#8be9fd;font-style:italic">map</span>[<span style="color:#8be9fd">string</span>]<span style="color:#8be9fd">bool</span>)
+</span></span></code></pre></div><h1 id="2-slice---dynamic-alternative-to-arrays">2. slice - Dynamic alternative to arrays</h1>
+<p><strong>slice</strong> is a more powerful, flexible, and dynamic alternative to arrays. While an array has a fixed size, a slice can grow or shrink as needed. Slices are built on top of arrays and provide more convenient and dynamic functionality.
+<strong>1. Using make</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>slice <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">make</span>([]<span style="color:#8be9fd">int</span>, <span style="color:#bd93f9">5</span>) <span style="color:#6272a4">// Creates a slice of length 5 with zero values
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(slice)      <span style="color:#6272a4">// Output: [0 0 0 0 0]
+</span></span></span></code></pre></div><p><strong>2. Using a Slice Literal</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>slice <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">5</span>} <span style="color:#6272a4">// To note that it&#39;s a slice if no size declared
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(slice) <span style="color:#6272a4">// Output: [1 2 3 4 5]
+</span></span></span></code></pre></div><p><strong>3. Creating a Slice from an Array</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>arr <span style="color:#ff79c6">:=</span> [<span style="color:#bd93f9">5</span>]<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">5</span>}
+</span></span><span style="display:flex;"><span>slice <span style="color:#ff79c6">:=</span> arr[<span style="color:#bd93f9">1</span>:<span style="color:#bd93f9">4</span>] <span style="color:#6272a4">// Creates a slice from index 1 to 3 (excluding 4)
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(slice) <span style="color:#6272a4">// Output: [2 3 4]
+</span></span></span></code></pre></div><p><strong>4. Adding Elements to a Slice</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>slice <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>}
+</span></span><span style="display:flex;"><span>slice = <span style="color:#8be9fd;font-style:italic">append</span>(slice, <span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">5</span>) <span style="color:#6272a4">// Append elements to the slice
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(slice)          <span style="color:#6272a4">// Output: [1 2 3 4 5]
+</span></span></span></code></pre></div><p><strong>5. Appending Another Slice</strong>
+You can use <strong>&hellip;</strong> to append all elements from another slice.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>a <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>}
+</span></span><span style="display:flex;"><span>b <span style="color:#ff79c6">:=</span> []<span style="color:#8be9fd">int</span>{<span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">5</span>, <span style="color:#bd93f9">6</span>}
+</span></span><span style="display:flex;"><span>a = <span style="color:#8be9fd;font-style:italic">append</span>(a, b<span style="color:#ff79c6">...</span>) <span style="color:#6272a4">// Append all elements from b
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>fmt.<span style="color:#50fa7b">Println</span>(a)      <span style="color:#6272a4">// Output: [1 2 3 4 5 6]
+</span></span></span></code></pre></div><p><strong>6. Multi-Dimensional Slices</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>matrix <span style="color:#ff79c6">:=</span> [][]<span style="color:#8be9fd">int</span>{
+</span></span><span style="display:flex;"><span>    {<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">5</span>, <span style="color:#bd93f9">6</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#bd93f9">7</span>, <span style="color:#bd93f9">8</span>, <span style="color:#bd93f9">9</span>},
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>fmt.<span style="color:#50fa7b">Println</span>(matrix[<span style="color:#bd93f9">1</span>][<span style="color:#bd93f9">2</span>]) <span style="color:#6272a4">// Output: 6 (Second row, third column)
+</span></span></span></code></pre></div><h1 id="3-switch">3. Switch</h1>
+<p><strong>switch</strong> statement is a powerful and flexible control structure used for conditional branching. It’s more concise and readable than multiple if-else statements and offers several unique features compared to other programming languages.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>day <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">switch</span> day {
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">case</span> <span style="color:#bd93f9">1</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Monday&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">case</span> <span style="color:#bd93f9">2</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Tuesday&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">case</span> <span style="color:#bd93f9">3</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Wednesday&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">default</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Unknown day&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ul>
+<li>In Go, each case is <strong>automatically terminated</strong> after its block is executed.</li>
+<li>Unlike other languages like C or Java, you don’t need a break to prevent fallthrough.</li>
+</ul>
+<h3 id="multiple-values-in-a-case">Multiple Values in a Case</h3>
+<p>You can match multiple values in a single case by separating them with commas.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>letter <span style="color:#ff79c6">:=</span> <span style="color:#f1fa8c">&#34;A&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">switch</span> letter {
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">case</span> <span style="color:#f1fa8c">&#34;A&#34;</span>, <span style="color:#f1fa8c">&#34;E&#34;</span>, <span style="color:#f1fa8c">&#34;I&#34;</span>, <span style="color:#f1fa8c">&#34;O&#34;</span>, <span style="color:#f1fa8c">&#34;U&#34;</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;It&#39;s a vowel&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">default</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;It&#39;s a consonant&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="switch-without-an-expression">Switch Without an Expression</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>num <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">15</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">switch</span> {
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">case</span> num &lt; <span style="color:#bd93f9">10</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Less than 10&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">case</span> num &lt; <span style="color:#bd93f9">20</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Less than 20&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">default</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;20 or more&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="type-switch">Type Switch</h3>
+<p>A type switch is used to branch based on the type of an interface value.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">var</span> i <span style="color:#8be9fd;font-style:italic">interface</span>{} = <span style="color:#f1fa8c">&#34;hello&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">switch</span> v <span style="color:#ff79c6">:=</span> i.(<span style="color:#8be9fd;font-style:italic">type</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">case</span> <span style="color:#8be9fd">int</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Integer: %d\n&#34;</span>, v)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">case</span> <span style="color:#8be9fd">string</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;String: %s\n&#34;</span>, v)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">default</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Unknown type&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="switch-with-functions">Switch with Functions</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>num <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">6</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">switch</span> <span style="color:#50fa7b">square</span>(num) {
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">case</span> <span style="color:#bd93f9">1</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Square is 1&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">case</span> <span style="color:#bd93f9">36</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Square is 36&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">default</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Square is something else&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h3 id="fallthrough-not-very-useful-imo">Fallthrough (Not very useful IMO)</h3>
+<p>Use the <strong>fallthrough</strong> keyword to explicitly allow execution to “fall through” to the next case.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span>num <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">switch</span> num {
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">case</span> <span style="color:#bd93f9">1</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;One&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">case</span> <span style="color:#bd93f9">2</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Two&#34;</span>)
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">fallthrough</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">case</span> <span style="color:#bd93f9">3</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Three&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">default</span>:
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Default case&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><h1 id="4-function">4. Function</h1>
+<h3 id="heading"></h3>
+<p><strong>1. Function with Mutilple Return Values</strong>
+Functions can return multiple values. <strong>( )</strong> is required for returning multiple values.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">divide</span>(a <span style="color:#8be9fd">int</span>, b <span style="color:#8be9fd">int</span>) (<span style="color:#8be9fd">int</span>, <span style="color:#8be9fd">int</span>) {
+</span></span><span style="display:flex;"><span>    quotient <span style="color:#ff79c6">:=</span> a <span style="color:#ff79c6">/</span> b
+</span></span><span style="display:flex;"><span>    remainder <span style="color:#ff79c6">:=</span> a <span style="color:#ff79c6">%</span> b
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> quotient, remainder
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>    q, r <span style="color:#ff79c6">:=</span> <span style="color:#50fa7b">divide</span>(<span style="color:#bd93f9">10</span>, <span style="color:#bd93f9">3</span>)
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Quotient: %d, Remainder: %d\n&#34;</span>, q, r)
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Or you can name the return values and omit them in the return statement.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">divide</span>(a <span style="color:#8be9fd">int</span>, b <span style="color:#8be9fd">int</span>) (quotient <span style="color:#8be9fd">int</span>, remainder <span style="color:#8be9fd">int</span>) {
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">...</span>
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p><strong>2. Variadic Functions</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">sum</span>(nums <span style="color:#ff79c6">...</span><span style="color:#8be9fd">int</span>) <span style="color:#8be9fd">int</span> {
+</span></span><span style="display:flex;"><span>    total <span style="color:#ff79c6">:=</span> <span style="color:#bd93f9">0</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">for</span> _, num <span style="color:#ff79c6">:=</span> <span style="color:#ff79c6">range</span> nums {
+</span></span><span style="display:flex;"><span>        total <span style="color:#ff79c6">+=</span> num
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> total
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>    result <span style="color:#ff79c6">:=</span> <span style="color:#50fa7b">sum</span>(<span style="color:#bd93f9">1</span>, <span style="color:#bd93f9">2</span>, <span style="color:#bd93f9">3</span>, <span style="color:#bd93f9">4</span>, <span style="color:#bd93f9">5</span>)
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Sum:&#34;</span>, result) <span style="color:#6272a4">// Output: Sum: 15
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><p><strong>3. Anonymous Functions</strong>
+Assign to Variable:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>    greet <span style="color:#ff79c6">:=</span> <span style="color:#8be9fd;font-style:italic">func</span>(name <span style="color:#8be9fd">string</span>) {
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Hello, %s!\n&#34;</span>, name)
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#50fa7b">greet</span>(<span style="color:#f1fa8c">&#34;Bob&#34;</span>) <span style="color:#6272a4">// Output: Hello, Bob!
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><p>Immediately Invoked:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#8be9fd;font-style:italic">func</span>(name <span style="color:#8be9fd">string</span>) {
+</span></span><span style="display:flex;"><span>        fmt.<span style="color:#50fa7b">Printf</span>(<span style="color:#f1fa8c">&#34;Welcome, %s!\n&#34;</span>, name)
+</span></span><span style="display:flex;"><span>    }(<span style="color:#f1fa8c">&#34;Alice&#34;</span>) <span style="color:#6272a4">// Output: Welcome, Alice!
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><p><strong>4. Higher-Order Functions</strong>
+Functions can take other functions as arguments or return functions.
+<strong>Function as Argument:</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">applyOperation</span>(a, b <span style="color:#8be9fd">int</span>, operation <span style="color:#8be9fd;font-style:italic">func</span>(<span style="color:#8be9fd">int</span>, <span style="color:#8be9fd">int</span>) <span style="color:#8be9fd">int</span>) <span style="color:#8be9fd">int</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#50fa7b">operation</span>(a, b)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">add</span>(x, y <span style="color:#8be9fd">int</span>) <span style="color:#8be9fd">int</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> x <span style="color:#ff79c6">+</span> y
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>    result <span style="color:#ff79c6">:=</span> <span style="color:#50fa7b">applyOperation</span>(<span style="color:#bd93f9">5</span>, <span style="color:#bd93f9">3</span>, add)
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Result:&#34;</span>, result) <span style="color:#6272a4">// Output: Result: 8
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><p><strong>Returning a Function</strong></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">multiplier</span>(factor <span style="color:#8be9fd">int</span>) <span style="color:#8be9fd;font-style:italic">func</span>(<span style="color:#8be9fd">int</span>) <span style="color:#8be9fd">int</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">return</span> <span style="color:#8be9fd;font-style:italic">func</span>(value <span style="color:#8be9fd">int</span>) <span style="color:#8be9fd">int</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> factor <span style="color:#ff79c6">*</span> value
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>    double <span style="color:#ff79c6">:=</span> <span style="color:#50fa7b">multiplier</span>(<span style="color:#bd93f9">2</span>)
+</span></span><span style="display:flex;"><span>    fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#50fa7b">double</span>(<span style="color:#bd93f9">5</span>)) <span style="color:#6272a4">// Output: 10
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div>
 
                 
                 <hr>
@@ -238,6 +642,11 @@
                             Previous Post</a>
                     </li>
                     
+                    
+                    <li class="next">
+                        <a href="/tech/2025-01-16-understanding-isolation-levels-in-postgresql/" data-toggle="tooltip" data-placement="top" title="Understanding Isolation Levels in PostgreSQL">Next
+                            Post &rarr;</a>
+                    </li>
                     
                 </ul>
                 

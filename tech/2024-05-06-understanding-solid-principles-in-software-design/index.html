@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    
+    <meta property="og:site_name" content="Sean&#39;s Blog">
+    <meta property="og:type" content="article">
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-QKQH302EGW"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-QKQH302EGW');
+        }
+      </script>
+    
+    
+    <meta property="og:image" content="https://tsaisean.github.io//img/Landscape-backgrounds-Free.jpeg">
+    <meta property="twitter:image" content="https://tsaisean.github.io//img/Landscape-backgrounds-Free.jpeg" />
+    
+
+    
+    <meta name="title" content="Understanding SOLID Principles in Software Design" />
+    <meta property="og:title" content="Understanding SOLID Principles in Software Design" />
+    <meta property="twitter:title" content="Understanding SOLID Principles in Software Design" />
+    
+
+    
+    <meta name="description" content="This is description">
+    <meta property="og:description" content="This is description" />
+    <meta property="twitter:description" content="This is description" />
+    
+
+    
+    <meta property="twitter:card" content="summary" />
+    
+    
+
+    <meta name="keyword"  content="">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>Understanding SOLID Principles in Software Design |  | Sean&#39;s Blog</title>
+
+    <link rel="canonical" href="/tech/2024-05-06-understanding-solid-principles-in-software-design/">
+
+    
+    
+    
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+
+    
+    <link rel="stylesheet" href="/css/hugo-theme-cleanwhite.css">
+
+    
+    <link rel="stylesheet" href="/css/zanshang.css">
+
+    
+    <link href="https://cdn.jsdelivr.net/gh/FortAwesome/Font-Awesome@5.15.1/css/all.css" rel="stylesheet" type="text/css">
+
+    
+    
+
+    
+    <script src="/js/jquery.min.js"></script>
+
+    
+    <script src="/js/bootstrap.min.js"></script>
+
+    
+    <script src="/js/hux-blog.min.js"></script>
+
+    
+    
+
+</head>
+
+
+
+
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+
+    <div class="container-fluid">
+        
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">Sean&#39;s Blog</a>
+        </div>
+
+        
+        
+        <div id="huxblog_navbar">
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a href="/">All Posts</a>
+                    </li>
+                    
+                        
+                        <li>
+                            <a href="/categories/tech">tech</a>
+                        </li>
+                        
+                    
+                    
+		    
+
+                    
+		    <li>
+                        <a href="/search"><i class="fa fa-search"></i></a>
+		    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+    
+</nav>
+<script>
+    
+    
+    
+    var $body   = document.body;
+    var $toggle = document.querySelector('.navbar-toggle');
+    var $navbar = document.querySelector('#huxblog_navbar');
+    var $collapse = document.querySelector('.navbar-collapse');
+
+    $toggle.addEventListener('click', handleMagic)
+    function handleMagic(e){
+        if ($navbar.className.indexOf('in') > 0) {
+        
+            $navbar.className = " ";
+            
+            setTimeout(function(){
+                
+                if($navbar.className.indexOf('in') < 0) {
+                    $collapse.style.height = "0px"
+                }
+            },400)
+        }else{
+        
+            $collapse.style.height = "auto"
+            $navbar.className += " in";
+        }
+    }
+</script>
+
+
+
+
+<style type="text/css">
+    header.intro-header {
+        background-image: url('https://img.zhaohuabing.com/post-bg-2015.jpg')
+    }
+</style>
+
+<header class="intro-header" >
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <div class="tags">
+                        
+                        <a class="tag" href="/tags/cs-fundamentals" title="CS Fundamentals">
+                            CS Fundamentals 
+                        </a>
+                        
+                    </div>
+                    <h1>Understanding SOLID Principles in Software Design</h1>
+                    <h2 class="subheading"></h2>
+                    <span class="meta">
+                        
+                            Posted by 
+                            
+                                    Sean&#39;s Blog
+                             
+                            on 
+                            Monday, May 6, 2024
+                            
+                            
+                            
+                            
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+
+
+<article>
+    <div class="container">
+        <div class="row">
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                post-container">
+
+                
+                <header>
+                    <h2>Table Of Contents</h2>
+                </header>
+                <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#what-are-solid-principles">What are SOLID Principles?</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+                
+
+                
+                
+                
+                <p>In software development, writing maintainable, scalable, and robust code is a constant goal. The SOLID principles, introduced by Robert C. Martin, serve as a foundation for object-oriented design, guiding developers in building systems that are easier to extend and maintain over time. In this blog, we will explore each of the SOLID principles with examples.</p>
+<h2 id="what-are-solid-principles">What are SOLID Principles?</h2>
+<p>SOLID is an acronym representing five design principles:</p>
+<ol>
+<li><strong>S</strong> - Single Responsibility Principle (SRP)</li>
+<li><strong>O</strong> - Open/Closed Principle (OCP)</li>
+<li><strong>L</strong> - Liskov Substitution Principle (LSP)</li>
+<li><strong>I</strong> - Interface Segregation Principle (ISP)</li>
+<li><strong>D</strong> - Dependency Inversion Principle (DIP)</li>
+</ol>
+<p>Each principle addresses a specific aspect of software design to reduce complexity and improve code quality.</p>
+<h3 id="1-single-responsibility-principle-srp">1. Single Responsibility Principle (SRP)</h3>
+<blockquote>
+<p>&ldquo;A class should have only one reason to change.&rdquo;</p>
+</blockquote>
+<p>The Single Responsibility Principle focuses on ensuring that a class is responsible for only one functionality. This makes the class easier to understand, test, and maintain.</p>
+<p>Example with Python:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#6272a4"># Violating SRP</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Report</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">generate_report</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Generating report...&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">save_to_file</span>(self, filename):
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Saving report to </span><span style="color:#f1fa8c">{</span>filename<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Adhering to SRP</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">ReportGenerator</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">generate</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Generating report...&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">FileSaver</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">save</span>(self, filename):
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">f</span><span style="color:#f1fa8c">&#34;Saving report to </span><span style="color:#f1fa8c">{</span>filename<span style="color:#f1fa8c">}</span><span style="color:#f1fa8c">&#34;</span>)
+</span></span></code></pre></div><p>By separating responsibilities, changes in one part (e.g., file-saving logic) won&rsquo;t affect other parts (e.g., report generation).</p>
+<h3 id="2-openclosed-principle-ocp">2. Open/Closed Principle (OCP)</h3>
+<blockquote>
+<p>&ldquo;Software entities should be open for extension but closed for modification.&rdquo;</p>
+</blockquote>
+<p>The Open/Closed Principle ensures that new functionality can be added without altering existing code, reducing the risk of introducing bugs.</p>
+<p>Example with Python:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#6272a4"># Violating OCP</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">DiscountCalculator</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">calculate</span>(self, customer_type, amount):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">if</span> customer_type <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;Regular&#34;</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> amount <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">0.9</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">elif</span> customer_type <span style="color:#ff79c6">==</span> <span style="color:#f1fa8c">&#34;VIP&#34;</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#ff79c6">return</span> amount <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">0.8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Adhering to OCP</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">DiscountStrategy</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">calculate</span>(self, amount):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> amount
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">RegularDiscount</span>(DiscountStrategy):
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">calculate</span>(self, amount):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> amount <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">0.9</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">VIPDiscount</span>(DiscountStrategy):
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">calculate</span>(self, amount):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> amount <span style="color:#ff79c6">*</span> <span style="color:#bd93f9">0.8</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Usage</span>
+</span></span><span style="display:flex;"><span>regular_discount <span style="color:#ff79c6">=</span> RegularDiscount()
+</span></span><span style="display:flex;"><span>vip_discount <span style="color:#ff79c6">=</span> VIPDiscount()
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(regular_discount<span style="color:#ff79c6">.</span>calculate(<span style="color:#bd93f9">100</span>))  <span style="color:#6272a4"># 90</span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">print</span>(vip_discount<span style="color:#ff79c6">.</span>calculate(<span style="color:#bd93f9">100</span>))      <span style="color:#6272a4"># 80</span>
+</span></span></code></pre></div><h3 id="3-liskov-substitution-principle-lsp">3. Liskov Substitution Principle (LSP)</h3>
+<blockquote>
+<p>&ldquo;Objects of a superclass should be replaceable with objects of a subclass without altering the correctness of the program.&rdquo;</p>
+</blockquote>
+<p>The Liskov Substitution Principle ensures that subclasses extend the behavior of the base class without breaking its functionality.</p>
+<p>Example with Python:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-Python" data-lang="Python"><span style="display:flex;"><span><span style="color:#6272a4"># Violating LSP</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Rectangle</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> __init__(self, width, height):
+</span></span><span style="display:flex;"><span>        self<span style="color:#ff79c6">.</span>width <span style="color:#ff79c6">=</span> width
+</span></span><span style="display:flex;"><span>        self<span style="color:#ff79c6">.</span>height <span style="color:#ff79c6">=</span> height
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">area</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> self<span style="color:#ff79c6">.</span>width <span style="color:#ff79c6">*</span> self<span style="color:#ff79c6">.</span>height
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Square</span>(Rectangle):
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> __init__(self, side):
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">super</span>()<span style="color:#ff79c6">.</span>__init__(side, side)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Adhering to LSP</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Shape</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">area</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Rectangle</span>(Shape):
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> __init__(self, width, height):
+</span></span><span style="display:flex;"><span>        self<span style="color:#ff79c6">.</span>width <span style="color:#ff79c6">=</span> width
+</span></span><span style="display:flex;"><span>        self<span style="color:#ff79c6">.</span>height <span style="color:#ff79c6">=</span> height
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">area</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> self<span style="color:#ff79c6">.</span>width <span style="color:#ff79c6">*</span> self<span style="color:#ff79c6">.</span>height
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Square</span>(Shape):
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> __init__(self, side):
+</span></span><span style="display:flex;"><span>        self<span style="color:#ff79c6">.</span>side <span style="color:#ff79c6">=</span> side
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">area</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">return</span> self<span style="color:#ff79c6">.</span>side <span style="color:#ff79c6">*</span> self<span style="color:#ff79c6">.</span>side
+</span></span></code></pre></div><p>By separating Rectangle and Square as distinct shapes, their behavior aligns with their intended design.</p>
+<p>Example with Go:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#ff79c6">package</span> main
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">import</span> <span style="color:#f1fa8c">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Define an interface
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">type</span> Bird <span style="color:#8be9fd;font-style:italic">interface</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#50fa7b">Fly</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Sparrow satisfies Bird
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">type</span> Sparrow <span style="color:#8be9fd;font-style:italic">struct</span>{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> (s Sparrow) <span style="color:#50fa7b">Fly</span>() {
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Sparrow flying&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Penguin also satisfies Bird syntactically but violates LSP
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">type</span> Penguin <span style="color:#8be9fd;font-style:italic">struct</span>{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> (p Penguin) <span style="color:#50fa7b">Fly</span>() {
+</span></span><span style="display:flex;"><span>	fmt.<span style="color:#50fa7b">Println</span>(<span style="color:#f1fa8c">&#34;Penguins can&#39;t fly&#34;</span>)
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4">// Function expecting a Bird
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">LetBirdFly</span>(b Bird) {
+</span></span><span style="display:flex;"><span>	b.<span style="color:#50fa7b">Fly</span>()
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#8be9fd;font-style:italic">func</span> <span style="color:#50fa7b">main</span>() {
+</span></span><span style="display:flex;"><span>	sparrow <span style="color:#ff79c6">:=</span> Sparrow{}
+</span></span><span style="display:flex;"><span>	penguin <span style="color:#ff79c6">:=</span> Penguin{}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#50fa7b">LetBirdFly</span>(sparrow) <span style="color:#6272a4">// Output: Sparrow flying
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>	<span style="color:#50fa7b">LetBirdFly</span>(penguin) <span style="color:#6272a4">// Output: Penguins can&#39;t fly
+</span></span></span><span style="display:flex;"><span><span style="color:#6272a4"></span>}
+</span></span></code></pre></div><h3 id="interface-segregation-principle-isp">Interface Segregation Principle (ISP)</h3>
+<blockquote>
+<p>&ldquo;Clients should not be forced to depend on interfaces they do not use.&rdquo;</p>
+</blockquote>
+<p>This principle advocates for creating smaller, more focused interfaces rather than one large, general-purpose interface.</p>
+<p>Example with Python:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># Violating ISP</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Printer</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">print</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">scan</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">fax</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">BasicPrinter</span>(Printer):
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">print</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Printing...&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">scan</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">raise</span> NotImplementedError(<span style="color:#f1fa8c">&#34;Scan not supported&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">fax</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">raise</span> NotImplementedError(<span style="color:#f1fa8c">&#34;Fax not supported&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Adhering to ISP</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Printable</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">print</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Scannable</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">scan</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Faxable</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">fax</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">BasicPrinter</span>(Printable):
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">print</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Printing...&#34;</span>)
+</span></span></code></pre></div><h3 id="5-dependency-inversion-principle-dip">5. Dependency Inversion Principle (DIP)</h3>
+<blockquote>
+<p>&ldquo;High-level modules should not depend on low-level modules. Both should depend on abstractions.&rdquo;</p>
+</blockquote>
+<p>DIP promotes decoupling by relying on abstractions rather than concrete implementations.</p>
+<p>Example with Python:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#6272a4"># Violating DIP</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Engine</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">start</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Engine started&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Car</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#ff79c6">.</span>engine <span style="color:#ff79c6">=</span> Engine()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">drive</span>(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#ff79c6">.</span>engine<span style="color:#ff79c6">.</span>start()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Adhering to DIP</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Engine</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">start</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#ff79c6">pass</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">PetrolEngine</span>(Engine):
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">start</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#8be9fd;font-style:italic">print</span>(<span style="color:#f1fa8c">&#34;Petrol engine started&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Car</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> __init__(self, engine: Engine):
+</span></span><span style="display:flex;"><span>        self<span style="color:#ff79c6">.</span>engine <span style="color:#ff79c6">=</span> engine
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#ff79c6">def</span> <span style="color:#50fa7b">drive</span>(self):
+</span></span><span style="display:flex;"><span>        self<span style="color:#ff79c6">.</span>engine<span style="color:#ff79c6">.</span>start()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># Usage</span>
+</span></span><span style="display:flex;"><span>engine <span style="color:#ff79c6">=</span> PetrolEngine()
+</span></span><span style="display:flex;"><span>car <span style="color:#ff79c6">=</span> Car(engine)
+</span></span><span style="display:flex;"><span>car<span style="color:#ff79c6">.</span>drive()
+</span></span></code></pre></div>
+
+                
+                <hr>
+                <ul class="pager">
+                    
+                    <li class="previous">
+                        <a href="/tech/2022-08-19-the-difference-between-data-enegineer-and-data-scientist/" data-toggle="tooltip" data-placement="top" title="The difference between data engineer and data scientist">&larr;
+                            Previous Post</a>
+                    </li>
+                    
+                    
+                    <li class="next">
+                        <a href="/tech/2024-12-15-back-to-java-fundamentals/" data-toggle="tooltip" data-placement="top" title="Back to Java Fundamentals">Next
+                            Post &rarr;</a>
+                    </li>
+                    
+                </ul>
+                
+
+                
+
+
+<div id="disqus-comment"></div>
+
+
+
+
+            </div>
+
+            
+            
+            <div class="
+                col-lg-2 col-lg-offset-0
+                visible-lg-block
+                sidebar-container
+                catalog-container">
+                <div class="side-catalog">
+                    <hr class="hidden-sm hidden-xs">
+                    <h5>
+                        <a class="catalog-toggle" href="#">CATALOG</a>
+                    </h5>
+                    <ul class="catalog-body"></ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="
+                col-lg-8 col-lg-offset-2
+                col-md-10 col-md-offset-1
+                sidebar-container">
+
+                
+                
+                <section>
+                    <hr class="hidden-sm hidden-xs">
+                    <h5><a href="/tags/">FEATURED TAGS</a></h5>
+                    <div class="tags">
+                        
+                        
+                        
+                        <a href="/tags/app%20script" title="app script">
+                            App Script 
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/cs%20fundamentals" title="cs fundamentals">
+                            Cs Fundamentals 
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/database" title="database">
+                            Database 
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/elasticsearch" title="elasticsearch">
+                            Elasticsearch 
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/git" title="git">
+                            Git 
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/go" title="go">
+                            Go 
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/google%20sheets" title="google sheets">
+                            Google Sheets 
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/java" title="java">
+                            Java 
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/prometheus" title="prometheus">
+                            Prometheus 
+                        </a>
+                        
+                        
+                        
+                        <a href="/tags/zsh" title="zsh">
+                            Zsh 
+                        </a>
+                        
+                        
+                    </div>
+                </section>
+                
+
+                
+                
+            </div>
+        </div>
+    </div>
+</article>
+
+
+
+
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">                  
+                    
+                    
+                    
+                    
+                    
+
+		            
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://github.com/tsaisean">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		            
+                    
+                    
+                    
+                    <li>
+                        <a target="_blank" href="https://www.linkedin.com/in/sung-yang-tsai-65406a7b/">
+                            <span class="fa-stack fa-lg">
+                                <i class="fas fa-circle fa-stack-2x"></i>
+                                <i class="fab fa-linkedin fa-stack-1x fa-inverse"></i>
+                            </span>
+                        </a>
+                    </li>
+		           
+                    
+                    
+                    
+                    
+                    
+                    
+            
+            
+            
+           
+                   <li>
+                       <a href='' rel="alternate" type="application/rss+xml" title="Sean&#39;s Blog" >
+                           <span class="fa-stack fa-lg">
+                               <i class="fas fa-circle fa-stack-2x"></i>
+                               <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+                           </span>
+                       </a>
+                   </li>
+            
+             </ul>
+		<p class="copyright text-muted">
+                    Copyright &copy; Sean&#39;s Blog 2025
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+
+
+<script>
+    function loadAsync(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+
+
+
+
+
+<script>
+    
+    if($('#tag_cloud').length !== 0){
+        loadAsync("/js/jquery.tagcloud.js",function(){
+            $.fn.tagcloud.defaults = {
+                
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+
+<script>
+    loadAsync("https://cdn.jsdelivr.net/npm/fastclick@1.0.6/lib/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function generateCatalog(selector) {
+
+        
+        
+        
+        
+            _containerSelector = 'div.post-container'
+        
+
+        
+        var P = $(_containerSelector), a, n, t, l, i, c;
+        a = P.find('h1,h2,h3,h4,h5,h6');
+
+        
+        $(selector).html('')
+
+        
+        a.each(function () {
+            n = $(this).prop('tagName').toLowerCase();
+            i = "#" + $(this).prop('id');
+            t = $(this).text();
+            c = $('<a href="' + i + '" rel="nofollow">' + t + '</a>');
+            l = $('<li class="' + n + '_nav"></li>').append(c);
+            $(selector).append(l);
+        });
+        return true;
+    }
+
+    generateCatalog(".catalog-body");
+
+    
+    $(".catalog-toggle").click((function (e) {
+        e.preventDefault();
+        $('.side-catalog').toggleClass("fold")
+    }))
+
+    
+
+
+    loadAsync("\/js\/jquery.nav.js", function () {
+        $('.catalog-body').onePageNav({
+            currentClass: "active",
+            changeHash: !1,
+            easing: "swing",
+            filter: "",
+            scrollSpeed: 700,
+            scrollOffset: 0,
+            scrollThreshold: .2,
+            begin: null,
+            end: null,
+            scrollChange: null,
+            padding: 80
+        });
+    });
+</script>
+
+
+
+
+
+
+</body>
+</html>
